@@ -33,7 +33,7 @@ class Halaman extends CI_Controller {
     public function ubah(){
         $where['id'] = $this->input->post('id', true);
         $data['title'] = $this->input->post('judul', true);
-        $data['permalink'] = $this->input->post('permalink', true);
+        $data['permalink'] = $this->input->post('permalink', true); 
         $data['status'] = @$this->input->post('status', true) ? $this->input->post('status', true) : 0;
         $data['content'] = $this->input->post('content', true);
         $response = $this->crud->update('page', $data, $where);

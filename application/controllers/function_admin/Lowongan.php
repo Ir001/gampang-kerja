@@ -25,7 +25,6 @@ class Lowongan extends CI_Controller {
     }
 	public function tambah(){
         $data['category_id'] = $this->input->post('category_id', true);
-		$data['industri_id'] = $this->input->post('industri_id', true);
 		$data['perusahaan_id'] = $this->input->post('perusahaan_id', true);
 		$data['kab_id'] = $this->input->post('kab_id', true);
 		$data['prov_id'] = $this->input->post('prov_id', true);
@@ -50,7 +49,6 @@ class Lowongan extends CI_Controller {
     public function edit(){
         $where['id'] = $this->input->post('id', true);
         $data['category_id'] = $this->input->post('category_id', true);
-		$data['industri_id'] = $this->input->post('industri_id', true);
 		$data['perusahaan_id'] = $this->input->post('perusahaan_id', true);
 		$data['kab_id'] = $this->input->post('kab_id', true);
 		$data['prov_id'] = $this->input->post('prov_id', true);

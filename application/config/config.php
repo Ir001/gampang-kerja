@@ -24,7 +24,8 @@ $config['site_name'] = 'Gampang Kerja';
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '/';
+// $config['base_url'] = 'https://www.gampang-kerja.com/'; /* Production */
+$config['base_url'] = 'http://gampang-kerja.ant/';
 
 /*
 |--------------------------------------------------------------------------
@@ -433,7 +434,7 @@ $config['standardize_newlines'] = FALSE;
 |          for backwards compatibility purposes!
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

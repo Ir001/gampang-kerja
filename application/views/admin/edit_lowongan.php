@@ -55,15 +55,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><a href="" target="_blank">Industri</a></label>
-                                    <select name="industri_id" class="form-control select2-blue" id="industri_id" required>
-                                        <option value="1" selected hidden>Pilih Industri</option>
-                                        <?php foreach($industri as $ind): ;?>
-                                            <option value="<?=$ind['id'];?>" <?=$postingan['industri_id'] == $ind['id'] ? 'selected':'';?>><?=$ind['industri_name'];?></option>
-                                        <?php endforeach ;?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="">Permalink</label>
                                     <input type="text" name="permalink" class="form-control" placeholder="Permalink" value="<?=$postingan['permalink'];?>" required>
                                 </div>
@@ -100,9 +91,6 @@
         theme : 'bootstrap',
     });
     $('#category_id').select2({
-        theme : 'bootstrap',
-    });
-    $('#industri_id').select2({
         theme : 'bootstrap',
     });
     $('.textarea').summernote({
