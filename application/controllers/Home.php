@@ -6,9 +6,12 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('crud');
 		$this->load->model('mloker');
+		$this->load->model('mpencarian');
 	}
 	public function index(){
-		$this->theme->display_user('user/landing', 'Lowongan Kerja');
+        $data['result'] = $this->mpencarian->get();
+        $data['terbaru'] = $this->mpencarian->get(8,4);
+		$this->theme->display_user('user/landing', 'Lowongan Kerja', $data);
 	}
 	public function post($perusahaan=null, $permalink=null){
 		$check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();

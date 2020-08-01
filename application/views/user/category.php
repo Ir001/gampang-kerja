@@ -1,8 +1,44 @@
-    <div class="site-section">
+        <div style="height: 90px;"></div>
+    <div class="bg-light py-4">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-12" data-aos="fade">
+                <h1 class="h4">Cari Lowongan Kerja</h1>
+                <form action="<?=base_url('job');?>" method="post">
+                <div class="row mb-3">
+                    <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                        <input type="text" name="q" value="<?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?> " class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
+                        </div>
+                        <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="input-wrap">
+                            <span class="icon icon-room"></span>
+                        <input type="text" name="kota" value="<?=@$kota != null ? ucwords(htmlspecialchars($kota)) : '';?>" class="form-control shadow form-control-block search-input  border-0 px-4" placeholder="kabupaten atau kota">
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/kategori" class="category">Lihat Semua Kategori</a></p>
+                    </div>
+                </div>
+                
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-            <h2 class="mb-5">Popular Categories</h2>
+            <h2 class="mb-3">Kategori Lowongan Kerja</h2>
           </div>
         </div>
         <div class="row">
@@ -64,61 +100,5 @@
           </div>
         </div>
 
-      </div>
-    </div>
-    
-    <div class="site-section" data-aos="fade">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 mb-5 mb-md-0">
-            
-              <div class="img-border">
-                <a href="https://vimeo.com/28959265" class="popup-vimeo image-play">
-                  <span class="icon-wrap">
-                    <span class="icon icon-play"></span>
-                  </span>
-                  <img src="images/hero_1.jpg" alt="Image" class="img-fluid rounded">
-                </a>
-              </div>
-            
-          </div>
-          <div class="col-md-5 ml-auto">
-            <div class="text-left mb-5 section-heading">
-              <h2>Testimonies</h2>
-            </div>
-
-            <p class="mb-4 h5 font-italic lineheight1-5">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id rem eveniet dolor possimus voluptas..&rdquo;</p>
-            <p>&mdash; <strong class="text-black font-weight-bold">John Holmes</strong>, Marketing Strategist</p>
-            <p><a href="https://vimeo.com/28959265" class="popup-vimeo text-uppercase">Watch Video <span class="icon-arrow-right small"></span></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section" data-aos="fade">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 mb-5 mb-md-0 order-md-2">
-            
-              <div class="img-border">
-                <a href="https://vimeo.com/28959265" class="popup-vimeo image-play">
-                  <span class="icon-wrap">
-                    <span class="icon icon-play"></span>
-                  </span>
-                  <img src="images/hero_2.jpg" alt="Image" class="img-fluid rounded">
-                </a>
-              </div>
-            
-          </div>
-          <div class="col-md-5 ml-auto order-md-1">
-            <div class="text-left mb-5 section-heading">
-              <h2>Creative People</h2>
-            </div>
-
-            <p class="mb-4 h5 font-italic lineheight1-5">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id rem eveniet dolor possimus voluptas..&rdquo;</p>
-            <p>&mdash; <strong class="text-black font-weight-bold">John Holmes</strong>, Marketing Strategist</p>
-            <p><a href="https://vimeo.com/28959265" class="popup-vimeo text-uppercase">Watch Video <span class="icon-arrow-right small"></span></a></p>
-          </div>
-        </div>
       </div>
     </div>

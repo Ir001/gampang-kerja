@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
     class Mpencarian extends CI_Model{
-        public function get(){
-            $this->db->select('loker.id, loker.title, loker.description as loker_description, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri_name, perusahaan_name');
+        public function get($limit=4, $offset=0){
+            $this->db->select('loker.id, loker.title, loker.permalink, loker.description as loker_description, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri_name, perusahaan_name, perusahaan.logo');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
@@ -9,12 +9,12 @@
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
             $this->db->where('isPublished', 1);
-            $this->db->limit(4, 0); 
+            $this->db->limit($limit, $offset); 
             $this->db->order_by('loker.posted_at DESC');
             return $this->db->get()->result_array();
         }
         public function getData($rowno, $rowperpage, $search="", $kota=""){
-            $this->db->select('loker.id, loker.permalink, loker.title, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri_name, perusahaan_name');
+            $this->db->select('loker.id, loker.permalink, loker.title, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri_name, perusahaan_name, perusahaan.logo');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');

@@ -26,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/category" class="category">Lihat Semua Kategori</a></p>
+                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/kategori" class="category">Lihat Semua Kategori</a></p>
                     </div>
                 </div>
                 
@@ -45,7 +45,7 @@
                     <?php foreach($result as $job):?>
                     <a href="<?=base_url('lowongan/').strtolower(str_replace('. ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                         <div class="company-logo blank-logo text-center text-md-left pl-3">
-                        <img src="<?=base_url('assets/');?>images/logo_1.png" alt="Image" class="img-fluid mx-auto">
+                        <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
                         </div>
                         <div class="job-details h-100">
                         <div class="p-3 align-self-center">
@@ -53,7 +53,9 @@
                             <div class="d-block d-lg-flex">
                             <div class="mr-3"><span class="icon-building mr-1"></span> <?=$job['perusahaan_name'];?></div>
                             <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> <?=$job['category_name'];?></div> -->
-                            <div class="mr-3"><span class="icon-room mr-1"></span> <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?></div>
+                            <div class="mr-3"><span class="icon-room mr-1"></span> 
+                                <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?>
+                            </div>
                             <!-- <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div> -->
                             </div>
                         </div>
@@ -87,7 +89,15 @@
                         <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($new['nama_kabupaten'])).', '.ucwords($new['nama_provinsi']);?></span>
                         <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
                         </p>
-                        <p class="mb-0"><?=substr($new['loker_description'], 0, 250);?></p>
+                        <p class="mb-0">
+                            <?php 
+                                $desciption=$new['loker_description'];
+                                if(preg_match('/^.{1,260}\b/s', $new['loker_description'], $match)){
+                                    $desciption=$match[0];
+                                }
+                                echo $desciption;
+                            ?>
+                        </p>
                     </div>
                     <?php endforeach;?>
 

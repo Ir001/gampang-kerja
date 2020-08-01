@@ -38,11 +38,26 @@
         
         
         <link rel="stylesheet" href="<?=base_url('assets/')?>fonts/flaticon/font/flaticon.css">
-    
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/aos.css">
-
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/style.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script> -->
+        <script src="<?=base_url('assets/');?>js/jquery-3.3.1.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/jquery-ui.js"></script>
+        <script src="<?=base_url('assets/');?>js/popper.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/bootstrap.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/owl.carousel.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/jquery.stellar.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/jquery.countdown.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/jquery.magnific-popup.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/bootstrap-datepicker.min.js"></script>
+        <script src="<?=base_url('assets/');?>js/aos.js"></script>
+
         
+        <script src="<?=base_url('assets/');?>js/mediaelement-and-player.min.js"></script>
+
+        <script src="<?=base_url('assets/');?>js/main.js"></script>
     </head>
     <body>
     
@@ -192,21 +207,6 @@
         </footer>
     </div>
 
-    <script src="<?=base_url('assets/');?>js/jquery-3.3.1.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/jquery-ui.js"></script>
-    <script src="<?=base_url('assets/');?>js/popper.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/bootstrap.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/owl.carousel.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/jquery.stellar.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/jquery.countdown.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/jquery.magnific-popup.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/bootstrap-datepicker.min.js"></script>
-    <script src="<?=base_url('assets/');?>js/aos.js"></script>
-
     
-    <script src="<?=base_url('assets/');?>js/mediaelement-and-player.min.js"></script>
-
-    <script src="<?=base_url('assets/');?>js/main.js"></script>
     </body>
 </html>

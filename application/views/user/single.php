@@ -19,7 +19,7 @@
                             <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
                         </div>
                         <div class="py-3">
-                            <img src="https://siva.jsstatic.com/id/1442/images/sol/1442_logo_0_223555.jpg" alt="" class="float-right img img-fluid col-3">
+                            <img src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" class="float-right img img-fluid col-3">
 
                             <small><a href="/">Home</a> / <a href="/">Perusahaan</a> / Judul</small>
                         </div>
@@ -53,7 +53,7 @@
                     <?=$post['why_join_us'];?>
                     <h2 class="h5">Penempatan Kerja</h2>
                     <?=$post['alamat'];?>
-                    <p class="mt-5"><a href="#" class="btn btn-primary  py-2 px-4">Lamar Kerjaan</a></p>
+                    <p class="mt-5"><button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button></p>
                     
                         <div class="sharethis-inline-share-buttons py-3"></div>
                     </div>
@@ -196,4 +196,8 @@
         </div>
     </div>
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e9443acf4621e00127d1905&product=inline-share-buttons&cms=website' async='async'></script>
-    
+<script>
+    $('#btn-lamar').click(function(){
+        window.open('<?=$post['apply_job']?>', '_blank')
+    })
+</script>

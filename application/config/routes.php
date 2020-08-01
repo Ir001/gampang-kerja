@@ -51,7 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['lowongan/(:any)/(:any)'] = 'home/post/$1/$2';
+$route['kategori'] = 'home/category';
+$route['kategori/(:any)'] = 'home/category/$1';
 $route['job'] = 'pencarian/index';
-$route['job/(:any)'] = 'pencarian/index/$1';
+$route['job/(:num)'] = 'pencarian/index/$1';
+$route['job'] = 'pencarian/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
