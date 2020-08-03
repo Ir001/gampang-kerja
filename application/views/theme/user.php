@@ -33,7 +33,6 @@
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/animate.css">
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
         
         
         
@@ -52,12 +51,7 @@
         <script src="<?=base_url('assets/');?>js/jquery.countdown.min.js"></script>
         <script src="<?=base_url('assets/');?>js/jquery.magnific-popup.min.js"></script>
         <script src="<?=base_url('assets/');?>js/bootstrap-datepicker.min.js"></script>
-        <script src="<?=base_url('assets/');?>js/aos.js"></script>
-
-        
-        <script src="<?=base_url('assets/');?>js/mediaelement-and-player.min.js"></script>
-
-        <script src="<?=base_url('assets/');?>js/main.js"></script>
+       
     </head>
     <body>
     
@@ -133,7 +127,7 @@
 
                                 </ul>
                             </li>
-                            <li><a href="/perusahaan/create-job"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Post Job</span></a></li>
+                            <li><a href="/kategori"><span class="bg-primary text-white py-3 px-4 rounded">Cari</a></li>
                             </ul>
                         </div>
                         </nav>
@@ -207,6 +201,7 @@
         </footer>
     </div>
 
-    
+    <script src="<?=base_url('assets/');?>js/aos.js"></script>
+    <script src="<?=base_url('assets/');?>js/main.js"></script>
     </body>
-</html>
+</html> 

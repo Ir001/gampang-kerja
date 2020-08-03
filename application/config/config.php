@@ -25,7 +25,8 @@ $config['site_name'] = 'Gampang Kerja';
 |
 */
 // $config['base_url'] = 'https://www.gampang-kerja.com/'; /* Production */
-$config['base_url'] = 'http://gampang-kerja.ant/';
+$config['base_url'] = 'http://gampang-kerja.ant/'; /* Without port */
+$config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
 
 /*
 |--------------------------------------------------------------------------

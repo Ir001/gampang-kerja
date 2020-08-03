@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
     class Mloker extends CI_Model{
         public function get($permalink){
-            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*, perusahaan.description as perusahaan_description');
+            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');

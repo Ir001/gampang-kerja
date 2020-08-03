@@ -15,13 +15,13 @@
                         </div>
                         <div class="job-post-item-body d-block d-md-flex">
                             <div class="mr-3">
-                            <span class="fl-bigmug-line-portfolio23"></span> <a href="#">New York Times</a></div>
-                            <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
+                            <span class="fl-bigmug-line-portfolio23"></span><?=ucwords(strtolower($post['kabupaten']));?></div>
+                            <div><span class="fl-bigmug-line-big104"></span>,<span><a href="/lokasi/<?=str_replace(' ','-', strtolower($post['provinsi']));?>"><?=ucwords(strtolower($post['provinsi']));?></a></span></div>
                         </div>
                         <div class="py-3">
                             <img src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" class="float-right img img-fluid col-3">
 
-                            <small><a href="/">Home</a> / <a href="/">Perusahaan</a> / Judul</small>
+                            <small><a href="/">Home</a> / <a href="/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <?=$post['title']?></small>
                         </div>
                     </div>
                     <h2 class="h5">Deskripsi Pekerjaan</h2>

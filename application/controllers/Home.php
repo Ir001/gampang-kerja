@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 			// $data['post'] = $this->crud->detail('loker', ['permalink'=> $permalink])->row_array();
 			$data['post'] = $this->mloker->get($permalink);
 			$this->theme->display_user('user/single', $data['post']['title'], $data);
-		}
+		} 
 		// echo $permalink;
 	}
 	public function category(){
