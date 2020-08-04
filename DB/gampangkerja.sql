@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 04, 2020 at 03:22 AM
+-- Generation Time: Aug 04, 2020 at 02:51 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fullname`, `email`, `password`, `last_login`) VALUES
-(1, 'Irwan Antonio', 'irwanantonio2708@gmail.com', '$2y$10$HB8mWynZdL1BvMGHB/9rkul7HESZTLkRxsUCGwtjT80EFfmohK0iO', '2020-08-04 08:22:39');
+(1, 'Irwan Antonio', 'irwanantonio2708@gmail.com', '$2y$10$HB8mWynZdL1BvMGHB/9rkul7HESZTLkRxsUCGwtjT80EFfmohK0iO', '2020-08-04 21:06:41');
 
 -- --------------------------------------------------------
 
@@ -50,81 +50,81 @@ INSERT INTO `admin` (`id`, `fullname`, `email`, `password`, `last_login`) VALUES
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `category_name` varchar(255) DEFAULT NULL
+  `category_name` varchar(255) DEFAULT NULL,
+  `icon` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `category_name`) VALUES
-(7, 'Audit Pajak'),
-(8, 'Perbankan Keuangan'),
-(9, 'Keuangan Investasi'),
-(10, 'Akuntansi Umum Pembiayaan'),
-(11, 'Staff Administrasi Umum'),
-(12, 'Personalia'),
-(13, 'Sekretaris'),
-(14, 'Manajemen Atas'),
-(15, 'Periklanan'),
-(16, 'Seni Desain Kreatif'),
-(17, 'Hiburan Seni Panggung'),
-(18, 'Hubungan Masyarakat'),
-(19, 'Arsitek Desain Interior'),
-(20, 'Sipil Konstruksi Bangunan'),
-(21, 'Properti Real Estate'),
-(22, 'Survei Kuantitas'),
-(23, 'IT Perangkat Keras'),
-(24, 'IT Jaringan Sistem Sistem Database'),
-(25, 'IT Perangkat Lunak'),
-(26, 'Penelitian Pengembangan'),
-(27, 'Teknik Kimia'),
-(28, 'Teknik Elektrikal'),
-(29, 'Teknik Elektro'),
-(30, 'Teknik Lingkungan'),
-(31, 'Teknik'),
-(32, 'Mekanik Otomotif'),
-(33, 'Teknik Perminyakan'),
-(34, 'Teknik Lainnya'),
-(35, 'Dokter Diagnosa'),
-(36, 'Farmasi'),
-(37, 'Praktisi Asisten Medis'),
-(38, 'Makanan Minuman Pelayanan Restoran'),
-(39, 'Hotel Pariwisata'),
-(40, 'Pemeliharaan'),
-(41, 'Manufaktur'),
-(42, 'Kontrol Proses'),
-(43, 'Pembelian Manajemen Material'),
-(44, 'Penjaminan Kualitas QA'),
-(45, 'Penjualan Korporasi'),
-(46, 'Digital Marketing'),
-(47, 'E-commerce'),
-(48, 'Pemasaran Pengembangan Bisnis'),
-(49, 'Merchandising'),
-(50, 'Penjualan Ritel'),
-(51, 'Penjualan Teknik Teknikal IT'),
-(52, 'Penjualan Teknik Teknikal IT'),
-(53, 'Tele sales Telemarketing'),
-(54, 'Aktuaria Statistik'),
-(55, 'Pertanian'),
-(56, 'Penerbangan'),
-(57, 'Biomedis'),
-(58, 'Bioteknologi'),
-(59, 'Kimia'),
-(60, 'Teknologi Makanan Ahli Gizi'),
-(61, 'Geologi Geofisika'),
-(62, 'Ilmu Pengetahuan Teknologi Lab'),
-(63, 'Keamanan  Angkatan Bersenjata'),
-(64, 'Pelayanan Pelanggan'),
-(65, 'Logistik Jaringan distribusi'),
-(66, 'Hukum Legal'),
-(67, 'Perawatan Kesehatan Kecantikan'),
-(68, 'Pelayanan kemasyarakatan'),
-(69, 'Teknikal  Bantuan Pelanggan'),
-(70, 'Pekerjaan Umum'),
-(71, 'Jurnalis Editor'),
-(72, 'Penerbitan'),
-(73, 'Lainnya');
+INSERT INTO `category` (`id`, `category_name`, `icon`) VALUES
+(7, 'Audit Pajak', 'fas fa-university'),
+(8, 'Perbankan Keuangan', 'fas fa-money-check-alt'),
+(9, 'Keuangan Investasi', 'fas fa-piggy-bank'),
+(10, 'Akuntansi Umum Pembiayaan', 'fas fa-calculator'),
+(11, 'Staff Administrasi Umum', 'fas fa-users'),
+(12, 'Personalia', 'fas fa-user'),
+(13, 'Sekretaris', 'fas fa-female'),
+(14, 'Manajemen Atas', 'fas fa-search-dollar'),
+(15, 'Periklanan', 'fas fa-bullhorn'),
+(16, 'Seni Desain Kreatif', 'fas fa-paint-brush'),
+(17, 'Hiburan Seni Panggung', 'fas fa-palette'),
+(18, 'Hubungan Masyarakat', 'fab fa-creative-commons-sampling'),
+(19, 'Arsitek Desain Interior', 'fas fa-building'),
+(20, 'Sipil Konstruksi Bangunan', 'fas industry'),
+(21, 'Properti Real Estate', 'fas fa-warehouse'),
+(22, 'Survei Kuantitas', 'fas fa-poll'),
+(23, 'IT Perangkat Keras', 'fas fa-microchip'),
+(24, 'IT Jaringan Sistem Sistem Database', 'fas fa-database'),
+(25, 'IT Perangkat Lunak', 'fas fa-laptop-code'),
+(26, 'Penelitian Pengembangan', 'fas fa-microscope'),
+(27, 'Teknik Kimia', 'fas fa-atom'),
+(28, 'Teknik Elektrikal', 'fas fa-bolt'),
+(29, 'Teknik Elektro', 'fas fa-car-battery'),
+(30, 'Teknik Lingkungan', 'fas fa-democrat'),
+(31, 'Teknik', 'fas fa-wrench'),
+(32, 'Mekanik Otomotif', 'fas fa-tachometer-alt'),
+(33, 'Teknik Perminyakan', 'fas fa-oil-can'),
+(34, 'Teknik Lainnya', 'fas fa-cogs'),
+(35, 'Dokter Diagnosa', 'fas fa-user-md'),
+(36, 'Farmasi', 'fas fa-user-nurse'),
+(37, 'Praktisi Asisten Medis', 'fas fa-hospital-user'),
+(38, 'Makanan Minuman Pelayanan Restoran', 'fas fa-utensils'),
+(39, 'Hotel Pariwisata', 'fas fa-hotel'),
+(40, 'Pemeliharaan', 'fas hard-hat'),
+(41, 'Manufaktur', 'fas fa-industry'),
+(42, 'Kontrol Proses', 'fas fa-user-tie'),
+(43, 'Pembelian Manajemen Material', 'fas fa-people-carry'),
+(44, 'Penjaminan Kualitas QA', 'fas fa-hand-holding-heart'),
+(45, 'Penjualan Korporasi', 'fas fa-hand-holding-usd'),
+(46, 'Digital Marketing', 'fas fa-comments-dollar'),
+(47, 'E-commerce', 'fas fa-dumpster'),
+(48, 'Pemasaran Pengembangan Bisnis', 'fas fa-project-diagram'),
+(49, 'Merchandising', 'fas fa-tshirt'),
+(50, 'Penjualan Ritel', 'fas fa-store'),
+(51, 'Penjualan Teknik Teknikal IT', 'fas fa-laptop-house'),
+(53, 'Tele sales Telemarketing', 'fas fa-envelope-open-text'),
+(54, 'Aktuaria Statistik', 'fas fa-chart-bar'),
+(55, 'Pertanian', 'fas fa-tractor'),
+(56, 'Penerbangan', 'fas fa-plane-departure'),
+(57, 'Biomedis', 'fas fa-syringe'),
+(58, 'Bioteknologi', 'fas fa-vial'),
+(59, 'Kimia', 'fas fa-atom'),
+(60, 'Teknologi Makanan Ahli Gizi', 'fas fa-utensils'),
+(61, 'Geologi Geofisika', 'fas fa-atlas'),
+(62, 'Ilmu Pengetahuan Teknologi Lab', 'fas fa-vials'),
+(63, 'Keamanan  Angkatan Bersenjata', 'fas fa-user-shield'),
+(64, 'Pelayanan Pelanggan', 'fas fa-user-tie'),
+(65, 'Logistik Jaringan distribusi', 'fas fa-shipping-fast'),
+(66, 'Hukum Legal', 'fas fa-balance-scale'),
+(67, 'Perawatan Kesehatan Kecantikan', 'fas fa-user-nurse'),
+(68, 'Pelayanan kemasyarakatan', 'fas fa-user-tie'),
+(69, 'Teknikal  Bantuan Pelanggan', 'fas fa-user-tie'),
+(70, 'Pekerjaan Umum', 'pray'),
+(71, 'Jurnalis Editor', 'fas fa-pen-nib'),
+(72, 'Penerbitan', 'fas fa-upload'),
+(73, 'Lainnya', 'fas hard-hat');
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,8 @@ CREATE TABLE `industri` (
 
 INSERT INTO `industri` (`id`, `industri_name`) VALUES
 (1, 'Informatika'),
-(2, 'Manufaktur Industri');
+(2, 'Manufaktur Industri'),
+(3, 'Komputer Teknologi Informatika Perangkat Lunak');
 
 -- --------------------------------------------------------
 
@@ -733,6 +734,13 @@ CREATE TABLE `loker` (
   `posted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `loker`
+--
+
+INSERT INTO `loker` (`id`, `category_id`, `perusahaan_id`, `kab_id`, `prov_id`, `permalink`, `apply_job`, `title`, `alamat`, `description`, `isPublished`, `deadline`, `posted_at`) VALUES
+(1, 25, 5, 3174, 31, 'qa-tester', 'http://cms-loker.ant:8080/go/TRYZ66', 'QA Tester', 'Jakarta Selatan (Jakarta Raya) - H.R. Rasuna Said ', '<p>We are looking for a <b>QA Tester </b>to assess software quality through manual testing. You will be responsible\r\nfor finding and reporting bugs and glitches.\r\nIn this role, you should have a keen eye for detail and excellent communication skills. If you are also\r\ncompetent in executing test cases and are passionate about quality, we’d like to meet you.\r\nUltimately, you will ensure that our products, applications and systems work correctly.</p><ul><li>Review and analyse system specifications\r\n</li><li>Execute manual test cases and analyse results\r\n</li><li>Create logs to document testing phases and defects</li><li>Report bugs and errors to development teams</li><li>Help troubleshoot issues\r\n</li><li>Conduct post-release/ post-implementation testing Work with cross-functional teams to ensure quality throughout the software development lifecycle</li></ul>', 1, '2020-09-03', '2020-08-04 21:15:25');
+
 -- --------------------------------------------------------
 
 --
@@ -784,7 +792,8 @@ CREATE TABLE `perusahaan` (
 INSERT INTO `perusahaan` (`id`, `industri_id`, `perusahaan_name`, `logo`, `website`, `alamat_perusahaan`, `fashion`, `bahasa`, `tunjangan`, `waktu_kerja`, `ukuran_perusahaan`, `description`, `why_join_us`) VALUES
 (2, 1, 'PT Roboqu', 'https://www.freelogodesign.org/Content/img/logo-samples/flooop.png', 'http://roboqu.id', NULL, 'Jas', 'Indonesia', 'BPJS', 'Siang-Malam', '500 Lebih', '<p>Testing</p>', '<p>Tes <b>Bold</b></p>'),
 (3, 1, 'PT Aneka Sumberbumi Jaya ', 'PT Aneka Sumberbumi Jaya ', 'http://www.asj-indo.com/', NULL, 'Bisnis', 'Bahasa Indonesia', 'Kesehatan dan Tunjangan Lainnya', 'Waktu regular, Senin-Jum\'at', '51-200 Pekerja', '<p>About Us Located in Bandar Lampung, Indonesia, PT. Aneka Sumberbumi Jaya is a leading supplier of\r\nhigh-grade ground calcium carbonate products. Our products have widespread applications in many\r\nindustries including the agriculture, paper, paint and construction industries amongst others Mission To be\r\nthe market leader and supplier of choice for calcium carbonate-related products in Sumatra by providing\r\nreliable and timely delivery of top quality products to all our customers. Vision PT. Aneka Sumberbumi\r\nJaya will help grow the community in which we work and provide a safe and rewarding environment for all\r\nour employees. For our customers, we will provide top quality calcium carbonate products that contribute to\r\nthe success of their businesses.<br></p>', ''),
-(4, 2, 'PT Tigaraksa Satria', 'https://siva.jsstatic.com/id/147/images/logo/147_logo_0_872943.png', 'http://tigaraksa.co.id/', NULL, 'Bisnis', 'Bahasa Indonesia', 'Kesehatan dan Tunjangan Lainnya', 'Waktu regular, Senin-Jum\'at', '1000-2000 Pekerja', '<p>PENGUMUMAN :\r\nPT Tigaraksa Satria, Tbk tidak pernah memungut biaya apapun dalam proses rekrutmen.\r\nPT Tigaraksa Satria, Tbk tidak pernah bekerja sama dengan travel agent / biro perjalanan\r\ntertentu dalam proses rekrutmen.\r\nApabila Anda diminta untuk membayar sejumlah uang dalam bentuk pembayaran tiket\r\npesawat dan hotel atau akomodasi lainnya agar diabaikan.\r\nJangan memberikan data pribadi atau data keuangan Anda kepada siapapun.\r\nJika membutuhkan klarifikasi lebih lanjut dapat langsung menghubungi PT Tigaraksa Satria,\r\nTbk\r\n=================================================================================\r\nPT. Tigaraksa Satria, Tbk was initially established in 1988 and listed in IDX since 1990. The company is\r\nengaged in the business of sales and distribution in a national wide scale. Currently, activities run by the\r\ncompany through its business unit and subsidiaries are Consumer Products, Direct selling of Educational\r\nProducts, Gas Refill & appliances, and dry milk manufacture.\r\nSo that every Indonesian has access to life essentials. Nowadays, we provide avenues to grow for our trade\r\nchannels and our principals. Among our principals are PT. Sari Husada, PT. Nutricia Indonesia Sejahtera,\r\nPT. Wyeth Indonesia, PT. Mars Symbioscience Indonesia, PT. Colgate-Palmolive Indonesia, PT. Yupi Indo\r\nJelly Gum,etc.\r\nNow our company has been employing 1700 people covers 33 branches all over Indonesia. In Year 2015,\r\nour sales revenue was about IDR 9.505 Trilion.\r\nPeople is the key of our success. At this moment, we are looking for a highly motivated professional to join\r\nus.\r\nPlease visit our website :\r\nwww.tigaraksa.co.id &\r\nwww.tigaraksa-ep.id to know further about us<br></p>', '<p>We provide the best people an attractive remuneration package & benefits\r\nComprehensive training & development program\r\nCareer Development\r\nPerformance Bonus\r\nTHR & End Year Allowance\r\nMedical Insurance<br></p>');
+(4, 2, 'PT Tigaraksa Satria', 'https://siva.jsstatic.com/id/147/images/logo/147_logo_0_872943.png', 'http://tigaraksa.co.id/', NULL, 'Bisnis', 'Bahasa Indonesia', 'Kesehatan dan Tunjangan Lainnya', 'Waktu regular, Senin-Jum\'at', '1000-2000 Pekerja', '<p>PENGUMUMAN :\r\nPT Tigaraksa Satria, Tbk tidak pernah memungut biaya apapun dalam proses rekrutmen.\r\nPT Tigaraksa Satria, Tbk tidak pernah bekerja sama dengan travel agent / biro perjalanan\r\ntertentu dalam proses rekrutmen.\r\nApabila Anda diminta untuk membayar sejumlah uang dalam bentuk pembayaran tiket\r\npesawat dan hotel atau akomodasi lainnya agar diabaikan.\r\nJangan memberikan data pribadi atau data keuangan Anda kepada siapapun.\r\nJika membutuhkan klarifikasi lebih lanjut dapat langsung menghubungi PT Tigaraksa Satria,\r\nTbk\r\n=================================================================================\r\nPT. Tigaraksa Satria, Tbk was initially established in 1988 and listed in IDX since 1990. The company is\r\nengaged in the business of sales and distribution in a national wide scale. Currently, activities run by the\r\ncompany through its business unit and subsidiaries are Consumer Products, Direct selling of Educational\r\nProducts, Gas Refill & appliances, and dry milk manufacture.\r\nSo that every Indonesian has access to life essentials. Nowadays, we provide avenues to grow for our trade\r\nchannels and our principals. Among our principals are PT. Sari Husada, PT. Nutricia Indonesia Sejahtera,\r\nPT. Wyeth Indonesia, PT. Mars Symbioscience Indonesia, PT. Colgate-Palmolive Indonesia, PT. Yupi Indo\r\nJelly Gum,etc.\r\nNow our company has been employing 1700 people covers 33 branches all over Indonesia. In Year 2015,\r\nour sales revenue was about IDR 9.505 Trilion.\r\nPeople is the key of our success. At this moment, we are looking for a highly motivated professional to join\r\nus.\r\nPlease visit our website :\r\nwww.tigaraksa.co.id &\r\nwww.tigaraksa-ep.id to know further about us<br></p>', '<p>We provide the best people an attractive remuneration package & benefits\r\nComprehensive training & development program\r\nCareer Development\r\nPerformance Bonus\r\nTHR & End Year Allowance\r\nMedical Insurance<br></p>'),
+(5, 3, 'Adrena Teknologi Indonesia', 'https://siva.jsstatic.com/id/180669/images/logo/180669_logo_0_512822.jpg', 'https://www.adrenadev.com/', NULL, 'Kasual (contoh: kaos)', 'Bahasa Indonesia', '-', 'Waktu regular, Senin-Jum\'at', '1-50 Pekerja', '<p>We sketch, prototype, develop and ship beautiful mobile solutions.\r\nwe’ve got the knowledge and expertise to carve digital product for iOS, Android or Web,\r\nwe develop engaging mobile experiences across all platforms and devices. <br></p>', '<p>-</p>');
 
 -- --------------------------------------------------------
 
@@ -933,7 +942,7 @@ ALTER TABLE `iklan`
 -- AUTO_INCREMENT for table `industri`
 --
 ALTER TABLE `industri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kabupaten`
@@ -951,7 +960,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `loker`
 --
 ALTER TABLE `loker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `page`
@@ -963,7 +972,7 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `provinsi`
