@@ -18,7 +18,8 @@ class Home extends CI_Controller {
 		if ($check >= 1) {
 			// $data['post'] = $this->crud->detail('loker', ['permalink'=> $permalink])->row_array();
 			$data['post'] = $this->mloker->get($permalink);
-			$this->theme->display_user('user/single', $data['post']['title'], $data);
+			$data['sejenis'] = $this->mloker->get_by_category($data['post']['category_name']);
+			$this->theme->display_user('user/single', $data['post']['title'].' '.$data['post']['perusahaan_name'], $data);
 		} 
 		// echo $permalink;
 	}

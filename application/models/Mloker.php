@@ -11,5 +11,18 @@
             $this->db->where(['permalink' => $permalink]);
             return $this->db->get()->row_array();
         }
+        public function get_by_category($category){
+            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description');
+            $this->db->from('loker');
+            $this->db->join('category', 'loker.category_id = category.id');
+            $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
+            $this->db->join('industri', 'perusahaan.industri_id = industri.id');
+            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
+            $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
+            $this->db->where(['category_name' => $category]);
+            $this->db->limit(5,0);
+            $this->db->order_by('posted_at', 'DESC');
+            return $this->db->get()->result_array();
+        }
     }
 ?>

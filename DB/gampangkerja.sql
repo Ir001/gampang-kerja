@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 01, 2020 at 02:04 PM
+-- Generation Time: Aug 04, 2020 at 03:22 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fullname`, `email`, `password`, `last_login`) VALUES
-(1, 'Irwan Antonio', 'irwanantonio2708@gmail.com', '$2y$10$HB8mWynZdL1BvMGHB/9rkul7HESZTLkRxsUCGwtjT80EFfmohK0iO', '2020-07-27 22:28:47');
+(1, 'Irwan Antonio', 'irwanantonio2708@gmail.com', '$2y$10$HB8mWynZdL1BvMGHB/9rkul7HESZTLkRxsUCGwtjT80EFfmohK0iO', '2020-08-04 08:22:39');
 
 -- --------------------------------------------------------
 
@@ -58,9 +58,73 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `category_name`) VALUES
-(2, 'Kategori'),
-(3, 'Pemasaran'),
-(4, 'Informatika');
+(7, 'Audit Pajak'),
+(8, 'Perbankan Keuangan'),
+(9, 'Keuangan Investasi'),
+(10, 'Akuntansi Umum Pembiayaan'),
+(11, 'Staff Administrasi Umum'),
+(12, 'Personalia'),
+(13, 'Sekretaris'),
+(14, 'Manajemen Atas'),
+(15, 'Periklanan'),
+(16, 'Seni Desain Kreatif'),
+(17, 'Hiburan Seni Panggung'),
+(18, 'Hubungan Masyarakat'),
+(19, 'Arsitek Desain Interior'),
+(20, 'Sipil Konstruksi Bangunan'),
+(21, 'Properti Real Estate'),
+(22, 'Survei Kuantitas'),
+(23, 'IT Perangkat Keras'),
+(24, 'IT Jaringan Sistem Sistem Database'),
+(25, 'IT Perangkat Lunak'),
+(26, 'Penelitian Pengembangan'),
+(27, 'Teknik Kimia'),
+(28, 'Teknik Elektrikal'),
+(29, 'Teknik Elektro'),
+(30, 'Teknik Lingkungan'),
+(31, 'Teknik'),
+(32, 'Mekanik Otomotif'),
+(33, 'Teknik Perminyakan'),
+(34, 'Teknik Lainnya'),
+(35, 'Dokter Diagnosa'),
+(36, 'Farmasi'),
+(37, 'Praktisi Asisten Medis'),
+(38, 'Makanan Minuman Pelayanan Restoran'),
+(39, 'Hotel Pariwisata'),
+(40, 'Pemeliharaan'),
+(41, 'Manufaktur'),
+(42, 'Kontrol Proses'),
+(43, 'Pembelian Manajemen Material'),
+(44, 'Penjaminan Kualitas QA'),
+(45, 'Penjualan Korporasi'),
+(46, 'Digital Marketing'),
+(47, 'E-commerce'),
+(48, 'Pemasaran Pengembangan Bisnis'),
+(49, 'Merchandising'),
+(50, 'Penjualan Ritel'),
+(51, 'Penjualan Teknik Teknikal IT'),
+(52, 'Penjualan Teknik Teknikal IT'),
+(53, 'Tele sales Telemarketing'),
+(54, 'Aktuaria Statistik'),
+(55, 'Pertanian'),
+(56, 'Penerbangan'),
+(57, 'Biomedis'),
+(58, 'Bioteknologi'),
+(59, 'Kimia'),
+(60, 'Teknologi Makanan Ahli Gizi'),
+(61, 'Geologi Geofisika'),
+(62, 'Ilmu Pengetahuan Teknologi Lab'),
+(63, 'Keamanan  Angkatan Bersenjata'),
+(64, 'Pelayanan Pelanggan'),
+(65, 'Logistik Jaringan distribusi'),
+(66, 'Hukum Legal'),
+(67, 'Perawatan Kesehatan Kecantikan'),
+(68, 'Pelayanan kemasyarakatan'),
+(69, 'Teknikal  Bantuan Pelanggan'),
+(70, 'Pekerjaan Umum'),
+(71, 'Jurnalis Editor'),
+(72, 'Penerbitan'),
+(73, 'Lainnya');
 
 -- --------------------------------------------------------
 
@@ -99,7 +163,8 @@ CREATE TABLE `industri` (
 --
 
 INSERT INTO `industri` (`id`, `industri_name`) VALUES
-(1, 'Informatika');
+(1, 'Informatika'),
+(2, 'Manufaktur Industri');
 
 -- --------------------------------------------------------
 
@@ -668,22 +733,6 @@ CREATE TABLE `loker` (
   `posted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `loker`
---
-
-INSERT INTO `loker` (`id`, `category_id`, `perusahaan_id`, `kab_id`, `prov_id`, `permalink`, `apply_job`, `title`, `alamat`, `description`, `isPublished`, `deadline`, `posted_at`) VALUES
-(6, 3, 2, 1101, 11, 'asda', NULL, 'Manufaktur 0', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-19 17:58:39'),
-(7, 2, 2, 3101, 62, 'loker-manufaktur1', 'http://cms-loker.ant/go/hjkwz', 'Manufaktur1 ', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-28 17:59:18'),
-(8, 4, 2, 1101, 11, 'loker-manufaktur2', NULL, 'Manufaktur 2', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-20 17:58:47'),
-(9, 3, 2, 1101, 11, 'loker-manufaktur3', NULL, 'Manufaktur 3', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-21 17:58:50'),
-(10, 2, 2, 1101, 11, 'loker-manufaktur4', NULL, 'Manufaktur 4', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-22 17:58:55'),
-(11, 4, 2, 1101, 11, 'loker-manufaktur5', NULL, 'Manufaktur 5', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-23 17:59:01'),
-(12, 4, 2, 1101, 11, 'loker-manufaktur6', NULL, 'Manufaktur 6', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-24 17:59:04'),
-(13, 4, 2, 1101, 11, 'loker-manufaktur7', NULL, 'Manufaktur 7', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-25 17:59:08'),
-(14, 4, 2, 1101, 11, 'loker-manufaktur8', NULL, 'Manufaktur 8', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-26 17:59:11'),
-(15, 4, 2, 1101, 11, 'loker-manufaktur9', NULL, 'Manufaktur 9', 'a', '<p>Loker<b> valid </b></p>', 1, '2020-07-23', '2020-07-27 17:59:14');
-
 -- --------------------------------------------------------
 
 --
@@ -718,6 +767,7 @@ CREATE TABLE `perusahaan` (
   `perusahaan_name` varchar(88) DEFAULT NULL,
   `logo` varchar(88) DEFAULT NULL,
   `website` varchar(88) DEFAULT NULL,
+  `alamat_perusahaan` varchar(88) DEFAULT NULL,
   `fashion` varchar(88) DEFAULT NULL,
   `bahasa` varchar(88) DEFAULT NULL,
   `tunjangan` varchar(88) DEFAULT NULL,
@@ -731,8 +781,10 @@ CREATE TABLE `perusahaan` (
 -- Dumping data for table `perusahaan`
 --
 
-INSERT INTO `perusahaan` (`id`, `industri_id`, `perusahaan_name`, `logo`, `website`, `fashion`, `bahasa`, `tunjangan`, `waktu_kerja`, `ukuran_perusahaan`, `description`, `why_join_us`) VALUES
-(2, 1, 'PT. Roboqu', 'https://www.freelogodesign.org/Content/img/logo-samples/flooop.png', 'http://roboqu.id', 'Jas', 'Indonesia', 'BPJS', 'Siang-Malam', '500 Lebih', '<p>Testing</p>', '<p>Tes <b>Bold</b></p>');
+INSERT INTO `perusahaan` (`id`, `industri_id`, `perusahaan_name`, `logo`, `website`, `alamat_perusahaan`, `fashion`, `bahasa`, `tunjangan`, `waktu_kerja`, `ukuran_perusahaan`, `description`, `why_join_us`) VALUES
+(2, 1, 'PT Roboqu', 'https://www.freelogodesign.org/Content/img/logo-samples/flooop.png', 'http://roboqu.id', NULL, 'Jas', 'Indonesia', 'BPJS', 'Siang-Malam', '500 Lebih', '<p>Testing</p>', '<p>Tes <b>Bold</b></p>'),
+(3, 1, 'PT Aneka Sumberbumi Jaya ', 'PT Aneka Sumberbumi Jaya ', 'http://www.asj-indo.com/', NULL, 'Bisnis', 'Bahasa Indonesia', 'Kesehatan dan Tunjangan Lainnya', 'Waktu regular, Senin-Jum\'at', '51-200 Pekerja', '<p>About Us Located in Bandar Lampung, Indonesia, PT. Aneka Sumberbumi Jaya is a leading supplier of\r\nhigh-grade ground calcium carbonate products. Our products have widespread applications in many\r\nindustries including the agriculture, paper, paint and construction industries amongst others Mission To be\r\nthe market leader and supplier of choice for calcium carbonate-related products in Sumatra by providing\r\nreliable and timely delivery of top quality products to all our customers. Vision PT. Aneka Sumberbumi\r\nJaya will help grow the community in which we work and provide a safe and rewarding environment for all\r\nour employees. For our customers, we will provide top quality calcium carbonate products that contribute to\r\nthe success of their businesses.<br></p>', ''),
+(4, 2, 'PT Tigaraksa Satria', 'https://siva.jsstatic.com/id/147/images/logo/147_logo_0_872943.png', 'http://tigaraksa.co.id/', NULL, 'Bisnis', 'Bahasa Indonesia', 'Kesehatan dan Tunjangan Lainnya', 'Waktu regular, Senin-Jum\'at', '1000-2000 Pekerja', '<p>PENGUMUMAN :\r\nPT Tigaraksa Satria, Tbk tidak pernah memungut biaya apapun dalam proses rekrutmen.\r\nPT Tigaraksa Satria, Tbk tidak pernah bekerja sama dengan travel agent / biro perjalanan\r\ntertentu dalam proses rekrutmen.\r\nApabila Anda diminta untuk membayar sejumlah uang dalam bentuk pembayaran tiket\r\npesawat dan hotel atau akomodasi lainnya agar diabaikan.\r\nJangan memberikan data pribadi atau data keuangan Anda kepada siapapun.\r\nJika membutuhkan klarifikasi lebih lanjut dapat langsung menghubungi PT Tigaraksa Satria,\r\nTbk\r\n=================================================================================\r\nPT. Tigaraksa Satria, Tbk was initially established in 1988 and listed in IDX since 1990. The company is\r\nengaged in the business of sales and distribution in a national wide scale. Currently, activities run by the\r\ncompany through its business unit and subsidiaries are Consumer Products, Direct selling of Educational\r\nProducts, Gas Refill & appliances, and dry milk manufacture.\r\nSo that every Indonesian has access to life essentials. Nowadays, we provide avenues to grow for our trade\r\nchannels and our principals. Among our principals are PT. Sari Husada, PT. Nutricia Indonesia Sejahtera,\r\nPT. Wyeth Indonesia, PT. Mars Symbioscience Indonesia, PT. Colgate-Palmolive Indonesia, PT. Yupi Indo\r\nJelly Gum,etc.\r\nNow our company has been employing 1700 people covers 33 branches all over Indonesia. In Year 2015,\r\nour sales revenue was about IDR 9.505 Trilion.\r\nPeople is the key of our success. At this moment, we are looking for a highly motivated professional to join\r\nus.\r\nPlease visit our website :\r\nwww.tigaraksa.co.id &\r\nwww.tigaraksa-ep.id to know further about us<br></p>', '<p>We provide the best people an attractive remuneration package & benefits\r\nComprehensive training & development program\r\nCareer Development\r\nPerformance Bonus\r\nTHR & End Year Allowance\r\nMedical Insurance<br></p>');
 
 -- --------------------------------------------------------
 
@@ -869,7 +921,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `iklan`
@@ -881,7 +933,7 @@ ALTER TABLE `iklan`
 -- AUTO_INCREMENT for table `industri`
 --
 ALTER TABLE `industri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kabupaten`
@@ -899,7 +951,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `loker`
 --
 ALTER TABLE `loker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `page`
@@ -911,7 +963,7 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `provinsi`

@@ -15,7 +15,7 @@ class Perusahaan extends CI_Controller {
         $this->user = $data;
     }
     public function tambah(){
-        $data['perusahaan_name'] = $this->input->post('perusahaan_name', true);
+        $data['perusahaan_name'] = trim($this->input->post('perusahaan_name', true));
         $data['logo'] = $this->input->post('logo', true);
         $data['industri_id'] = $this->input->post('industri_id', true);
         $data['website'] = $this->input->post('situs', true);

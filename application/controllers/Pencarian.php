@@ -61,7 +61,7 @@ class Pencarian extends CI_Controller {
                 $this->theme->display_user('user/list', 'Hasil Pencarian '.$q. 'di Kota '.$kota, $data);
 	}
 	public function post($perusahaan=null, $permalink=null){
-		$check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();
+	        $check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();
 		if ($check >= 1) {
 			// $data['post'] = $this->crud->detail('loker', ['permalink'=> $permalink])->row_array();
 			$data['post'] = $this->mloker->get($permalink);

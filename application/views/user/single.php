@@ -1,6 +1,6 @@
 <div style="height: 90px;"></div>
 
-<div class="py-5 bg-light">
+<div class="pt-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-8">
@@ -21,7 +21,7 @@
                         <div class="py-3">
                             <img src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" class="float-right img img-fluid col-3">
 
-                            <small><a href="/">Home</a> / <a href="/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <?=$post['title']?></small>
+                            <small><a href="/">Home</a> / <a href="/perusahaan/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="/kategori/<?=str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / <?=$post['title']?></small>
                         </div>
                     </div>
                     <h2 class="h5">Deskripsi Pekerjaan</h2>
@@ -47,14 +47,19 @@
                                 <td>Waktu Kerja</td>
                                 <td><?=$post['waktu_kerja'];?></td>
                             </tr>
+                            <tr>
+                                <td>Alamat Perusahaan</td>
+                                <td>Lihat di <a href="https://www.google.com/maps/search/<?=$post['perusahaan_name'];?>" rel="nofollow" target="_blank">Google Maps</a></td>
+                            </tr>
+                            
                         </tbody>
                     </table>
-                    <h2 class="h5">Alasan Bergabung dengan Kami</h2>
+                    <h2 class="h5">Mengapa Bergabung dengan Kami</h2>
                     <?=$post['why_join_us'];?>
                     <h2 class="h5">Penempatan Kerja</h2>
                     <?=$post['alamat'];?>
-                    <p class="mt-5"><button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button></p>
-                    
+                    <p class="mt-3"><button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button></p>
+                    <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b>GampangKerja</b> tidak dipungut biaya</p>
                         <div class="sharethis-inline-share-buttons py-3"></div>
                     </div>
             </div>
@@ -65,56 +70,26 @@
                 </div>
                 <div class="col-md-12 block-16" data-aos="fade-up" data-aos-delay="200">
                     <div class="d-flex mb-0">
-                    <h2 class="mb-5 h3 mb-0">Loker Terkaitr</h2>
+                    <h2 class="mb-5 h3 mb-0">Loker Sejenis</h2>
                     <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev">Prev</a> / <a href="#" class="owl-custom-next">Next</a></div>
                     </div>
 
                     <div class="nonloop-block-16 owl-carousel">
-
-                    <div class="border rounded p-4 bg-white">
-                        <h2 class="h5">Restaurant Crew</h2>
-                        <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
-                        <p>
-                        <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
-                        <span class="d-block"><span class="icon-room"></span> Florida</span>
-                        <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
-                        </p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit tempora, numquam voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis itaque ad, rem sunt doloremque molestias.</p>
-                    </div>
-
-                    <div class="border rounded p-4 bg-white">
-                        <h2 class="h5">Javascript Fullstack Developer</h2>
-                        <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
-                        <p>
-                        <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
-                        <span class="d-block"><span class="icon-room"></span> Florida</span>
-                        <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
-                        </p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusamus necessitatibus praesentium voluptate natus excepturi rerum, autem. Magnam laboriosam, quam sapiente laudantium iure sit ea! Tenetur, quasi, praesentium. Architecto, eum.</p>
-                    </div>
-
-                    <div class="border rounded p-4 bg-white">
-                        <h2 class="h5">Assistant Brooker, Real Estate</h2>
-                        <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
-                        <p>
-                        <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
-                        <span class="d-block"><span class="icon-room"></span> Florida</span>
-                        <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
-                        </p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse, quam consectetur ipsum quibusdam ullam ab nesciunt, doloribus voluptatum neque iure perspiciatis vel vero illo consequatur facilis, fuga nobis corporis.</p>
-                    </div>
-
-                    <div class="border rounded p-4 bg-white">
-                        <h2 class="h5">Telecommunication Manager</h2>
-                        <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
-                        <p>
-                        <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
-                        <span class="d-block"><span class="icon-room"></span> Florida</span>
-                        <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
-                        </p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at ipsum commodi hic, cum esse asperiores libero molestiae, perferendis consectetur assumenda iusto, dolorem nemo maiores magnam illo laborum sit, dicta.</p>
-                    </div>
-
+                    <?php foreach($sejenis as $terkait):?>
+                        <div class="border rounded p-4 bg-white">
+                            <h2 class="h5"><a href="<?=base_url()?>lowongan/<?=str_replace(' ', '-',strtolower($terkait['perusahaan_name']))?>/<?=$terkait['permalink'];?>"><?=$terkait['title'];?></a></h2>
+                            <p><span class="border border-warning rounded p-1 px-2 text-warning"><?=$terkait['category_name'];?></span></p>
+                            <p>
+                            <span class="d-block"><span class="icon-building"></span> <?=$terkait['perusahaan_name'];?></span>
+                            <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($terkait['kabupaten'])).', '.ucwords($terkait['provinsi']);?></span>
+                            <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
+                            </p>
+                            <p class="mb-0"><?=substr($terkait['loker_description'], 0, 250);?></p>
+                        </div>
+                    <?php endforeach;?>
+                        <div class="border rounded p-4 bg-white">
+                            
+                        </div>
                     </div>
 
                 </div>
@@ -122,7 +97,7 @@
         </div>
     </div>
 </div>
-    <div class="py-5">
+    <div class="pb-5 mt-n5">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
             <div class="col-md-6" data-aos="fade" >
@@ -165,17 +140,17 @@
             <div class="row align-items-center">
             <div class="col-12">
                 <h1 class="h4">Cari Lowongan Kerja</h1>
-                <form action="#">
+                <form action="<?=base_url();?>job" method="post">
                 <div class="row mb-3">
                     <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-6 mb-3 mb-md-0">
-                        <input type="text" class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
+                        <input type="text" name="q" class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
                         <div class="input-wrap">
                             <span class="icon icon-room"></span>
-                        <input type="text" class="form-control shadow form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="kabupaten atau kota" onFocus="geolocate()">
+                        <input type="text" name="kota" class="form-control shadow form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="kabupaten atau kota" onFocus="geolocate()">
                         </div>
                         </div>
                     </div>

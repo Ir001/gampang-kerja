@@ -74,7 +74,7 @@ class Lowongan extends CI_Controller {
         $data = $this->mlogin->detail($_SESSION['admin']);
         $this->user = $data;
     }
-    public function datatable(){
+    public function datatable(){ 
         $search = $_POST['search']['value']; 
         $limit = $_POST['length']; 
         $start = $_POST['start']; 
