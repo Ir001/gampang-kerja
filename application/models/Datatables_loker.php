@@ -4,7 +4,7 @@
             $this->db->select('loker.*, perusahaan.perusahaan_name, category.category_name, industri.industri_name, provinsi.nama');
             $this->db->join('perusahaan', 'perusahaan.id = loker.perusahaan_id');
             $this->db->join('category', 'category.id = loker.category_id');
-            $this->db->join('industri', 'industri.id = loker.industri_id');
+            $this->db->join('industri', 'industri.id = perusahaan.industri_id');
             $this->db->join('provinsi', 'provinsi.id_prov = loker.prov_id');
             $this->db->like('title', $search); 
             $this->db->or_like('permalink', $search);
@@ -19,7 +19,7 @@
             $this->db->select('loker.*, perusahaan.perusahaan_name, category.category_name, industri.industri_name, provinsi.nama');
             $this->db->join('perusahaan', 'perusahaan.id = loker.perusahaan_id');
             $this->db->join('category', 'category.id = loker.category_id');
-            $this->db->join('industri', 'industri.id = loker.industri_id');
+            $this->db->join('industri', 'industri.id = perusahaan.industri_id');
             $this->db->join('provinsi', 'provinsi.id_prov = loker.prov_id');
             $this->db->like('title', $search); 
             $this->db->or_like('permalink', $search);
