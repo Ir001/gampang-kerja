@@ -39,8 +39,8 @@
         <link rel="stylesheet" href="<?=base_url('assets/')?>fonts/flaticon/font/flaticon.css">
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/aos.css">
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/style.css">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
         <script src="<?=base_url('assets/');?>js/jquery-3.3.1.min.js"></script>
         <script src="<?=base_url('assets/');?>js/jquery-migrate-3.0.1.min.js"></script>
         <script src="<?=base_url('assets/');?>js/jquery-ui.js"></script>

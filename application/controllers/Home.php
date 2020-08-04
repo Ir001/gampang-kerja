@@ -11,7 +11,8 @@ class Home extends CI_Controller {
 	public function index(){
         $data['result'] = $this->mpencarian->get();
         $data['terbaru'] = $this->mpencarian->get(8,4);
-		$this->theme->display_user('user/landing', 'Lowongan Kerja', $data);
+        $data['category'] = $this->mloker->popular_category();
+		$this->theme->display_user('user/landing', 'Info Lowongan Kerja di Indonesia', $data);
 	}
 	public function post($perusahaan=null, $permalink=null){
 		$check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();
