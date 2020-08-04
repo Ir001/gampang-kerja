@@ -53,6 +53,7 @@ $route['default_controller'] = 'home';
 $route['lowongan/(:any)/(:any)'] = 'home/post/$1/$2';
 $route['kategori'] = 'home/category';
 $route['kategori/(:any)'] = 'home/category/$1';
+$route['kategori/(:any)/(:num)'] = 'home/category/$1/$2';
 $route['job'] = 'pencarian/index';
 $route['job/(:num)'] = 'pencarian/index/$1';
 $route['job'] = 'pencarian/index';

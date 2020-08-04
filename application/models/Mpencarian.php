@@ -56,5 +56,38 @@
             $result = $query->result_array();        
             return $result[0]['allcount'];
         }
+        public function get_by_category($rowno, $rowperpage, $category){
+            $this->db->select('loker.id, loker.permalink, loker.title, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri_name, perusahaan_name, perusahaan.logo');
+            $this->db->from('loker');
+            $this->db->join('category', 'loker.category_id = category.id');
+            $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
+            $this->db->join('industri', 'perusahaan.industri_id = industri.id');
+            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
+            $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
+            if ($category != '') {
+                $this->db->like('category_name', $category);
+            }
+            $this->db->where('isPublished', 1);
+            $this->db->limit($rowperpage, $rowno); 
+            $this->db->order_by('category_name ASC, perusahaan_name DESC');
+            return $this->db->get()->result_array();
+        }
+        public function count_by_category($category){
+            $this->db->select('count(*) as allcount');
+            $this->db->from('loker');
+            $this->db->join('category', 'loker.category_id = category.id');
+            $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
+            $this->db->join('industri', 'perusahaan.industri_id = industri.id');
+            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
+            $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
+            if ($category != '') {
+                $this->db->like('category_name', $category);
+            }
+            $this->db->where('isPublished', 1);
+            $query = $this->db->get();
+            $result = $query->result_array();        
+            return $result[0]['allcount'];
+        }
+        
     }
 ?>
