@@ -80,24 +80,23 @@
                         <div class="container">
                             <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
                             <ul class="site-menu js-clone-nav d-none d-lg-block">
-                            <li><a href="categories.html">Home</a></li>
+                            <li><a href="<?=base_url();?>">Home</a></li>
                             <li class="has-children">
-                                <a href="category.html">Lowongan Kerja</a>
+                                <a href="<?=base_url('job');?>">Lowongan Kerja</a>
                                 <ul class="dropdown arrow-top">
                                 <li class="has-children">
-                                    <a href="#">Top Kategori</a>
+                                    <a href="#" rel="nofollow">Top Kategori</a>
+                                    <ul class="dropdown">
+                                    <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                                    </ul>
+                                </li>
+                                <!-- <li class="has-children">
+                                    <a href="#">Top Perusahaan</a>
                                     <ul class="dropdown">
                                     <li><a href="#">Teknik Informasi</a></li>
                                     <li><a href="#">Sales Marketing</a></li>
                                     </ul>
-                                </li>
-                                <li class="has-children">
-                                    <a href="#">Top Industri</a>
-                                    <ul class="dropdown">
-                                    <li><a href="#">Teknik Informasi</a></li>
-                                    <li><a href="#">Sales Marketing</a></li>
-                                    </ul>
-                                </li>
+                                </li> -->
 
                                 </ul>
                             </li>
@@ -156,11 +155,11 @@
                 <div class="col-md-6">
                     <h3 class="footer-heading mb-4 text-white">Halaman</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="<?=base_url('page/about');?>">About</a></li>
+                        <li><a href="<?=base_url('page/disclaimer');?>">Disclaimer</a></li>
+                        <li><a href="<?=base_url('page/terms-of-use');?>">Terms of Use</a></li>
+                        <li><a href="<?=base_url('page/privacy-policy');?>">Privacy Policy</a></li>
+                        <!-- <li><a href="#">Blog</a></li> -->
                     </ul>
                 </div>
                 <div class="col-md-6">

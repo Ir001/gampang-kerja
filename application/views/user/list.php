@@ -39,8 +39,8 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                <h2 class="h3" id="#lowongan">Hasil Pencarian</h2>
-                <p><small>Lowongan kerja <?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?> di <?=@$kota != null ? ucwords(htmlspecialchars($kota)) : '';?></small></p>
+                <h2 class="h3" id="#lowongan"><?=$_SESSION['q'] == null && $_SESSION['kota'] == null ? 'Info Lowongan Kerja' : 'Hasil Pencarian'; ?></h2>
+                <p><small>Lowongan kerja <?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?> di <?=@$kota != null ? ucwords(htmlspecialchars($kota)) : 'Indonesia';?></small></p>
                 <div class="rounded border jobs-wrap">
                     <?php foreach($result as $job):?>
                     <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">

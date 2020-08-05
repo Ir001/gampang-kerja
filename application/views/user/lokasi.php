@@ -1,12 +1,12 @@
-    <div style="height: 90px;"></div>
+<div style="height: 90px;"></div>
     <div class="clearfix"></div>
     <?php if($this->uri->segment(2) != null):?>
       <div class="my-5 bg-white">
         <div class="container">
             <div class="row">
               <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                  <h2 class="h3" id="#lowongan"><?=ucwords($category_name);?></h2>
-                  <p><small>Lowongan kerja <?=ucwords($category_name);?></small></p>
+                  <h2 class="h3" id="#lowongan">Loker <?=ucwords($lokasi);?></h2>
+                  <p><small>Lowongan kerja di <?=strtoupper($lokasi);?></small></p>
                   <div class="rounded border jobs-wrap">
                       <?php foreach($result as $job):?>
                       <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
@@ -73,27 +73,40 @@
             </div>
         </div>
       </div>
-    <?php endif;?>
-    <div class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-            <h2 class="mb-3">Kategori Lowongan Kerja</h2>
-          </div>
-        </div>
-        <div class="row">
-        <?php foreach($category as $cat):?>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
-              <a href="<?=base_url('kategori/');?><?=str_replace(' ', '-', strtolower($cat['category_name']));?>" class="h-100 feature-item">
-                <span class="d-block mb-3 text-primary">
-                    <i class="icon <?=$cat['icon'];?>"></i>
-                </span>
-                <h2><?=$cat['category_name'];?></h2>
-                <span class="counting"><?=$cat['total'];?></span>
-               </a>
+    <?php else:?>
+    <div class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-12" data-aos="fade">
+                <h1 class="h4">Cari Lowongan Kerja</h1>
+                <form action="<?=base_url('job');?>" method="post">
+                <div class="row mb-3">
+                    <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                        <input type="text" name="q" value="<?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?>" class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
+                        </div>
+                        <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="input-wrap">
+                            <span class="icon icon-room"></span>
+                        <input type="text" name="kota" value="<?=@$kota != null ? ucwords(htmlspecialchars($kota)) : '';?>" class="form-control shadow form-control-block search-input  border-0 px-4" placeholder="kabupaten atau kota">
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/kategori" class="category">Lihat Semua Kategori</a></p>
+                    </div>
+                </div>
+                
+                </form>
             </div>
-        <?php endforeach;?>
+            </div>
         </div>
-
-      </div>
     </div>
+    <?php endif;?>

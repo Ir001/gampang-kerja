@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 		} 
 		// echo $permalink;
 	}
-	public function category($category, $rowno=0){
+	public function category($category=null, $rowno=0){
 		$permalink = $category;
 		$category = str_replace('-', ' ', $category);
 		// Row per page
@@ -74,6 +74,110 @@ class Home extends CI_Controller {
 		$data['terbaru'] = $this->mpencarian->get();
         $data['category'] = $this->mloker->popular_category();
 		$this->theme->display_user('user/category', 'Kategori Lowongan Kerja', $data);
+	}
+	public function perusahaan($perusahaan=null, $rowno=0){
+		$permalink = $perusahaan;
+		$perusahaan = str_replace('-', ' ', $perusahaan);
+		// Row per page
+		$rowperpage = 5;
+		// Row position
+		if($rowno != 0){
+				$rowno = ($rowno-1) * $rowperpage;
+		}                
+		// All records count
+		$allcount = $this->mpencarian->count_by_perusahaan($perusahaan);
+
+		// Get records
+		$users_record = $this->mpencarian->get_by_perusahaan($rowno,$rowperpage,$perusahaan);
+		
+		// Pagination Configuration
+		$config['base_url'] = base_url('perusahaan/'.$permalink);
+		$config['use_page_numbers'] = TRUE;
+		$config['total_rows'] = $allcount;
+		$config['per_page'] = $rowperpage;
+		$config['first_link']       = 'First';
+		$config['last_link']        = 'Last';
+		$config['next_link']        = 'Next';
+		$config['prev_link']        = 'Prev';
+		$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination pagination-sm justify-content-center">';
+		$config['full_tag_close']   = '</ul></nav></div>';
+		$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+		$config['num_tag_close']    = '</span></li>';
+		$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+		$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+		$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+		$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['prev_tagl_close']  = '</span>Next</li>';
+		$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+		$config['first_tagl_close'] = '</span></li>';
+		$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['last_tagl_close']  = '</span></li>';
+		// Initialize
+		$this->pagination->initialize($config);
+		// Data                
+		$data['pagination'] = $this->pagination->create_links();
+		$data['result'] = $users_record;
+		$data['row'] = $rowno;
+		$data['perusahaan_name'] = $perusahaan;
+		$data['terbaru'] = $this->mpencarian->get();
+        $data['category'] = $this->mloker->popular_category();
+		$this->theme->display_user('user/perusahaan', 'Lowongan Kerja di Perusahaan '.strtoupper($perusahaan), $data);
+	}
+	public function lokasi($lokasi=null, $rowno=0){
+		$permalink = $lokasi;
+		$lokasi = str_replace('-', ' ', $lokasi);
+		// Row per page
+		$rowperpage = 5;
+		// Row position
+		if($rowno != 0){
+				$rowno = ($rowno-1) * $rowperpage;
+		}                
+		// All records count
+		$allcount = $this->mpencarian->count_by_lokasi($lokasi);
+
+		// Get records
+		$users_record = $this->mpencarian->get_by_lokasi($rowno,$rowperpage,$lokasi);
+		
+		// Pagination Configuration
+		$config['base_url'] = base_url('perusahaan/'.$permalink);
+		$config['use_page_numbers'] = TRUE;
+		$config['total_rows'] = $allcount;
+		$config['per_page'] = $rowperpage;
+		$config['first_link']       = 'First';
+		$config['last_link']        = 'Last';
+		$config['next_link']        = 'Next';
+		$config['prev_link']        = 'Prev';
+		$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination pagination-sm justify-content-center">';
+		$config['full_tag_close']   = '</ul></nav></div>';
+		$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+		$config['num_tag_close']    = '</span></li>';
+		$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+		$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+		$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+		$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['prev_tagl_close']  = '</span>Next</li>';
+		$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+		$config['first_tagl_close'] = '</span></li>';
+		$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['last_tagl_close']  = '</span></li>';
+		// Initialize
+		$this->pagination->initialize($config);
+		// Data                
+		$data['pagination'] = $this->pagination->create_links();
+		$data['result'] = $users_record;
+		$data['row'] = $rowno;
+		$data['lokasi'] = $lokasi;
+		$data['terbaru'] = $this->mpencarian->get();
+        $data['category'] = $this->mloker->popular_category();
+		$this->theme->display_user('user/lokasi', 'Lowongan Kerja di '.ucwords($lokasi), $data);
+	}
+	public function page($permalink){
+		$permalink = htmlspecialchars($permalink);
+		$data['post'] = $this->mloker->get_page($permalink);
+        $data['sejenis'] = $this->mpencarian->get();
+		$this->theme->display_user('user/page', ucwords($data['post']['title']), $data);
 	}
 	public function job(){
 		$this->theme->display_user('user/list', 'Loker');

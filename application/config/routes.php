@@ -51,9 +51,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['lowongan/(:any)/(:any)'] = 'home/post/$1/$2';
+$route['page/(:any)'] = 'home/page/$1';
 $route['kategori'] = 'home/category';
 $route['kategori/(:any)'] = 'home/category/$1';
 $route['kategori/(:any)/(:num)'] = 'home/category/$1/$2';
+$route['perusahaan'] = 'home/perusahaan';
+$route['perusahaan/(:any)'] = 'home/perusahaan/$1';
+$route['perusahaan/(:any)/(:num)'] = 'home/perusahaan/$1/$2';
+$route['lokasi'] = 'home/lokasi';
+$route['lokasi/(:any)'] = 'home/lokasi/$1';
+$route['lokasi/(:any)/(:num)'] = 'home/lokasi/$1/$2';
 $route['job'] = 'pencarian/index';
 $route['job/(:num)'] = 'pencarian/index/$1';
 $route['job'] = 'pencarian/index';

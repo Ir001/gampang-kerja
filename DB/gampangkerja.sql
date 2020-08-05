@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 04, 2020 at 02:51 PM
+-- Generation Time: Aug 05, 2020 at 06:37 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -749,7 +749,7 @@ INSERT INTO `loker` (`id`, `category_id`, `perusahaan_id`, `kab_id`, `prov_id`, 
 
 CREATE TABLE `page` (
   `id` int(11) NOT NULL,
-  `permalink` varchar(50) DEFAULT NULL,
+  `permalink` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` text,
   `status` tinyint(3) DEFAULT NULL,
@@ -761,7 +761,10 @@ CREATE TABLE `page` (
 --
 
 INSERT INTO `page` (`id`, `permalink`, `title`, `content`, `status`, `posted_at`) VALUES
-(2, 'about', 'Tentang Kami asdad', '<p><b>About <u>Us asdad sadad</u></b></p>', 1, NULL);
+(2, 'about', 'Tentang Kami', '<p><b>About <u>Us asdad sadad</u></b></p>', 1, NULL),
+(3, 'diclaimer', 'Disclaimer', '<p><b>About <u>Us asdad sadad</u></b></p>', 1, NULL),
+(4, 'terms-of-use', 'Terms of Use', '<p><b>About <u>Us asdad sadad</u></b></p>', 1, NULL),
+(5, 'privacy-policy', 'Privacy Policy', '<p><b>About <u>Us asdad sadad</u></b></p>', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -966,7 +969,7 @@ ALTER TABLE `loker`
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`

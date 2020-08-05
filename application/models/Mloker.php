@@ -11,6 +11,9 @@
             $this->db->where(['permalink' => $permalink]);
             return $this->db->get()->row_array();
         }
+        public function get_page($permalink){
+            return $this->db->get_where('page', ['permalink' => $permalink, 'status' => 1])->row_array();
+        }
         public function get_by_category($category){
             $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description');
             $this->db->from('loker');
