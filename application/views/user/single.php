@@ -7,6 +7,13 @@
                 <div class="p-5 bg-white">
 
                     <div class="mt-sm-5 mt-md-0 mb-md-1 mr-5">
+                    <div class="float-right">
+                                <!-- GTranslate: https://gtranslate.io/ -->
+                                <a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a>
+
+                                <select onchange="doGTranslate(this);"><option value="id|en">Pilih Bahasa</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
+
+                            </div>
                         <div class="job-post-item-header d-flex align-items-center">
                             <h1 class="mr-3 text-black h4"><?=$post['title']?></h1>
                             <div class="badge-wrap">
@@ -24,6 +31,7 @@
                             <small><a href="/">Home</a> / <a href="/perusahaan/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="/kategori/<?=str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / <?=$post['title']?></small>
                         </div>
                     </div>
+                    
                     <h2 class="h5">Deskripsi Pekerjaan</h2>
                     <?=$post['loker_description'];?>
                     <h2 class="h5">Profile Perusahaan</h2>
@@ -33,7 +41,7 @@
                         <tbody>
                             <tr>
                                 <td>Situs</td>
-                                <td><?=$post['website'];?></td>
+                                <td><a href="<?=$post['website'] != null ? $post['website'] : 'https://www.google.com/search?q='.$post['perusahaan_name'];?>" target="_blank" rel="noopener noreferrer"><?=$post['website'];?></a></td>
                             </tr>
                             <tr>
                                 <td>Ukuran Perusahaan</td>
