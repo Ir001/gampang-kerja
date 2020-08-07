@@ -5,21 +5,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-        <link href='/' rel='canonical'/>
-        <meta content='index, follow' name='robots'/>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <link href='/' rel='image_src'/>
-        <link href='' hreflang='x-default' rel='alternate'/>
+        <link href='<?=current_url()?>' rel='canonical'/>
+        <link href='<?=base_url('assets/')?>favicon.ico' rel='image_src'/>
+        <link href='<?=base_url('assets/')?>favicon.ico' hreflang='x-default' rel='alternate'/>
         <link href='<?=base_url('assets/')?>favicon.ico' rel='icon' type='image/x-icon'/>
         <link href='//www.sharethis.com' rel='dns-prefetch'/>
+        <meta content='index, follow' name='robots'/>
+        <meta name="keywords" content="<?=@$keyword ? $keyword : $this->config->item('keyword');?>">
+        <meta name="description" content="<?=@$description ? $description : $this->config->item('description');?>">
         <meta content='indonesia' name='geo.placename'/>
         <meta content='Gampang Kerja' name='Author'/>
         <meta content='general' name='rating'/>
         <meta content='id' name='geo.country'/>
-        <meta content='' name='google-site-verification'/>
-        <meta content='' name='dmca-site-verification'/>
-        <meta content='' name='yandex-verification'/>
+        <meta content='<?=$this->config->item('google_site_console');?>' name='google-site-verification'/>
+        <meta content='<?=$this->config->item('dmca');?>' name='dmca-site-verification'/>
+        <meta content='<?=$this->config->item('yandex');?>' name='yandex-verification'/>
         <!-- [ END Meta Tag SEO Valid HTML5] --> 
 
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
@@ -32,9 +32,6 @@
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/owl.theme.default.min.css">
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/animate.css">
-        
-        
-        
         
         <link rel="stylesheet" href="<?=base_url('assets/')?>fonts/flaticon/font/flaticon.css">
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/aos.css">
@@ -53,30 +50,27 @@
         <script src="<?=base_url('assets/');?>js/bootstrap-datepicker.min.js"></script>
         <?php if($this->uri->segment(1) == 'lowongan'):?>
         <style type="text/css">
-        <!--
-        a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
-        a.gflag img {border:0;}
-        a.gflag:hover {background-image:url(//gtranslate.net/flags/16a.png);}
-        #goog-gt-tt {display:none !important;}
-        .goog-te-banner-frame {display:none !important;}
-        .goog-te-menu-value:hover {text-decoration:none !important;}
-        body {top:0 !important;}
-        #google_translate_element2 {display:none!important;}
-        -->
+            a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
+            a.gflag img {border:0;}
+            a.gflag:hover {background-image:url(//gtranslate.net/flags/16a.png);}
+            #goog-gt-tt {display:none !important;}
+            .goog-te-banner-frame {display:none !important;}
+            .goog-te-menu-value:hover {text-decoration:none !important;}
+            body {top:0 !important;}
+            #google_translate_element2 {display:none!important;}
         </style>
 
         
         <script type="text/javascript">
         function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en',autoDisplay: false}, 'google_translate_element2');}
-        </script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
-
-
+        </script>
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
         <script type="text/javascript">
         /* <![CDATA[ */
         eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))
         /* ]]> */
         </script>
-        <?php endif;?>
+        <?php endif; ?>
        
     </head>
     <body>
@@ -114,6 +108,11 @@
                                     <a href="#" rel="nofollow">Top Kategori</a>
                                     <ul class="dropdown">
                                     <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                                    <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
+                                    <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
+                                    <li><a href="<?=base_url('kategori/audit-pajak');?>">Audit Pajak</a></li>
+                                    <li><a href="<?=base_url('kategori/penerbangan');?>">Penerbangan</a></li>
+                                    <li><a href="<?=base_url('kategori/mekanik-otomotif');?>">Mekanik Otomotif</a></li>
                                     </ul>
                                 </li>
                                 <!-- <li class="has-children">
@@ -152,7 +151,7 @@
 
                                 </ul>
                             </li>
-                            <li><a href="/kategori"><span class="bg-primary text-white py-3 px-4 rounded">Cari</a></li>
+                            <li><a href="<?=base_url('job');?>"><span class="bg-primary text-white py-3 px-4 rounded">Cari</a></li>
                             </ul>
                         </div>
                         </nav>
@@ -182,19 +181,22 @@
                     <h3 class="footer-heading mb-4 text-white">Halaman</h3>
                     <ul class="list-unstyled">
                         <li><a href="<?=base_url('page/about');?>">About</a></li>
+                        <!-- <li><a href="<?=base_url('blog');?>">Blog</a></li> -->
                         <li><a href="<?=base_url('page/disclaimer');?>">Disclaimer</a></li>
                         <li><a href="<?=base_url('page/terms-of-use');?>">Terms of Use</a></li>
                         <li><a href="<?=base_url('page/privacy-policy');?>">Privacy Policy</a></li>
-                        <!-- <li><a href="#">Blog</a></li> -->
+                        <li><a href="<?=base_url('page/sitemap');?>">Sitemap</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6">
                     <h3 class="footer-heading mb-4 text-white">Top Kategori</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Teknik Informasi</a></li>
-                        <li><a href="#">Teknik Informasi</a></li>
-                        <li><a href="#">Teknik Informasi</a></li>
-                        <li><a href="#">Teknik Informasi</a></li>
+                        <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                        <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
+                        <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
+                        <li><a href="<?=base_url('kategori/audit-pajak');?>">Audit Pajak</a></li>
+                        <li><a href="<?=base_url('kategori/penerbangan');?>">Penerbangan</a></li>
+                        <li><a href="<?=base_url('kategori/mekanik-otomotif');?>">Mekanik Otomotif</a></li>
                     </ul>
                 </div>
                 </div>

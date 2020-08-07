@@ -66,15 +66,23 @@
                     <?=$post['why_join_us'];?>
                     <h2 class="h5">Penempatan Kerja</h2>
                     <?=$post['alamat'];?>
-                    <p class="mt-3"><button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button></p>
+                    <p>
+                        Lowongan Kerja ini ditutup pada <b> <?=@$post['deadline_text'];?></b>
+                    </p>
+                    <p class="my-3">
+                        <?php if(@$post['expired']):?>
+                        <button id="btn-lamar" class="btn btn-danger py-2 px-4 disabled">Lamaran ditutup</button>
+                        <?php else:?>
+                        <button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button>
+                        <?php endif;?>
+                    </p>
                     <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b>GampangKerja</b> tidak dipungut biaya</p>
-                        <div class="sharethis-inline-share-buttons py-3"></div>
+                        <div class="sharethis-inline-share-buttons mb-3"></div>
                     </div>
             </div>
             <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">
-                <h3 class="h5 text-black mb-3">Sponsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
+                    <!-- <h3 class="h5 text-black mb-3">Sponsor</h3> -->
                 </div>
                 <div class="col-md-12 block-16" data-aos="fade-up" data-aos-delay="200">
                     <div class="d-flex mb-0">

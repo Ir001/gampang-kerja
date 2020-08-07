@@ -10,7 +10,8 @@
                     <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-6 mb-3 mb-md-0">
-                        <input type="text" name="q" value="<?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?>" class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
+                            <input type="text" name="q" value="<?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?>" class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
+                            <input type="button" id='btn-clear' class="btn btn-sm mt-2 btn-info" value="Bersihkan Riwayat Pencarian">
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
                         <div class="input-wrap">
@@ -21,12 +22,12 @@
                     </div>
                     </div>
                     <div class="col-md-3">
-                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
+                        <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/kategori" class="category">Lihat Semua Kategori</a></p>
+                    <p class="small">atau cari berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak');?>" class="category">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/manufaktur');?>" class="category">Manufaktur</a>, <a href="<?=base_url('kategori');?>" class="category">Lihat Semua Kategori</a></p>
                     </div>
                 </div>
                 
@@ -42,32 +43,27 @@
                 <h2 class="h3" id="#lowongan"><?=$_SESSION['q'] == null && $_SESSION['kota'] == null ? 'Info Lowongan Kerja' : 'Hasil Pencarian'; ?></h2>
                 <p><small>Lowongan kerja <?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?> di <?=@$kota != null ? ucwords(htmlspecialchars($kota)) : 'Indonesia';?></small></p>
                 <div class="rounded border jobs-wrap">
-                    <?php foreach($result as $job):?>
+                    <?php $i=0; foreach($result as $job):?>
                     <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                         <div class="company-logo blank-logo text-center text-md-left pl-3">
-                        <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
+                            <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
                         </div>
-                        <div class="job-details h-100">
-                        <div class="p-3 align-self-center">
-                            <h3><?=$job['title'];?></h3>
-                            <div class="d-block d-lg-flex">
-                            <div class="mr-3"><span class="icon-building mr-1"></span> <?=$job['perusahaan_name'];?></div>
-                            <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> <?=$job['category_name'];?></div> -->
-                            <div class="mr-3"><span class="icon-room mr-1"></span> 
-                                <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?>
-                            </div>
-                            <!-- <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div> -->
+                        <div class="h-100">
+                            <div class="p-3 align-self-center">
+                                <h3><?=$job['title'];?> - <?=$job['perusahaan_name'];?></h3>
+                                <div class="d-block d-lg-flex">
+                                <div class="mr-3"><span class="icon-suitcase mr-1"></span> <?=$job['category_name'];?></div>
+                                <div class="mr-3"><span class="icon-room mr-1"></span> <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?></div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="job-category align-self-center">
-                        <div class="p-3">
-                            <span class="text-warning p-2 rounded border border-warning"><?=$job['category_name'];?></span>
-                        </div>
-                        </div>  
                     </a>
-                    <?php endforeach;?>
+                    <?php $i++; endforeach;?>
+                    
                 </div>
+                <?php if($i == 0):?>
+                    <h2 class="h6 mt-2">Maaf Lowongan Kerja yang Anda cari tidak tersedia. Harap cari dengan kata kunci yang berbeda.</h2>
+                <?php endif;?>
                 <div class="col-md-12 text-center mt-5">
                 <!-- <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a> -->
                 <?=$pagination;?>
@@ -107,3 +103,22 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#btn-clear').click(function(){
+            $.ajax({
+                url : '<?=base_url('home/clear')?>',
+                type : 'POST',
+                data : {confirm : 1},
+                dataType : 'json',
+                success : function(data){
+                    if (data.status) {
+                        setTimeout(() => {
+                            window.location.replace('<?=base_url('job');?>');
+                        }, 800);
+                    }else{
+                        console.log('Gagal menghapus riwayat pencarian');
+                    }
+                }
+            });
+        });
+    </script>

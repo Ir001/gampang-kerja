@@ -7,17 +7,25 @@ class Sitemap extends CI_Controller {
 		$this->load->model('msitemap');
     }
     public function index(){
-        $data['post'] = $this->msitemap->post(20000,0);
-		$this->theme->display_user('user/sitemap', 'Sitemap', $data);
+        redirect(base_url('page/sitemap'));
     }
-	public function post(){
-        $data['post'] = $this->msitemap->post(20000,0);
+	public function post($page=1){
+        $limit = 49000; 
+        $offset = ($page > 1) ? ($page*$limit) - $page:0;
+        $data['post'] = $this->msitemap->post($limit,$offset);
         header('Content-type:application/xml');
         $this->load->view('sitemap/post', $data);
     }
     public function kategori(){
-        $data = array();
+        $data['post'] = $this->msitemap->kategori(40000,0);
         header('Content-type:application/xml');
-        $this->load->view('sitemap/kategori', $data);
+        $this->load->view('sitemap/category', $data);
+    }
+    public function perusahaan($page=1){
+        $limit = 49000; 
+        $offset = ($page > 1) ? ($page*$limit) - $page:0;
+        $data['post'] = $this->msitemap->perusahaan($limit,$offset);
+        header('Content-type:application/xml');
+        $this->load->view('sitemap/perusahaan', $data);
     }
 }

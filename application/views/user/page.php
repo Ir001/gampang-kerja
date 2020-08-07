@@ -21,8 +21,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">
-                <h3 class="h5 text-black mb-3">Sponsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
+                <!-- <h3 class="h5 text-black mb-3">Sponsor</h3> -->
                 </div>
                 <div class="col-md-12 block-16" data-aos="fade-up" data-aos-delay="200">
                     <div class="d-flex mb-0">
@@ -89,8 +88,3 @@
         </div>
     </div>
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e9443acf4621e00127d1905&product=inline-share-buttons&cms=website' async='async'></script>
-<script>
-    $('#btn-lamar').click(function(){
-        window.open('<?=$post['apply_job']?>', '_blank')
-    })
-</script>

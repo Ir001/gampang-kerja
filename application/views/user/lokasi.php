@@ -6,34 +6,29 @@
             <div class="row">
               <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
                   <h2 class="h3" id="#lowongan">Loker <?=ucwords($lokasi);?></h2>
-                  <p><small>Lowongan kerja di <?=strtoupper($lokasi);?></small></p>
+                  <p><small>Info Lowongan kerja di <?=strtoupper($lokasi);?></small></p>
                   <div class="rounded border jobs-wrap">
-                      <?php foreach($result as $job):?>
-                      <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
-                          <div class="company-logo blank-logo text-center text-md-left pl-3">
-                          <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
-                          </div>
-                          <div class="job-details h-100">
-                          <div class="p-3 align-self-center">
-                              <h3><?=$job['title'];?></h3>
-                              <div class="d-block d-lg-flex">
-                              <div class="mr-3"><span class="icon-building mr-1"></span> <?=$job['perusahaan_name'];?></div>
-                              <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> <?=$job['category_name'];?></div> -->
-                              <div class="mr-3"><span class="icon-room mr-1"></span> 
-                                  <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?>
-                              </div>
-                              <!-- <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div> -->
-                              </div>
-                          </div>
-                          </div>
-                          <div class="job-category align-self-center">
-                          <div class="p-3">
-                              <span class="text-warning p-2 rounded border border-warning"><?=$job['category_name'];?></span>
-                          </div>
-                          </div>  
-                      </a>
-                      <?php endforeach;?>
+                      <?php $i=0; foreach($result as $job):?> 
+                        <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
+                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
+                            </div>
+                            <div class="h-100">
+                                <div class="p-3 align-self-center">
+                                    <h3><?=$job['title'];?> - <?=$job['perusahaan_name'];?></h3>
+                                    <div class="d-block d-lg-flex">
+                                    <div class="mr-3"><span class="icon-suitcase mr-1"></span> <?=$job['category_name'];?></div>
+                                    <div class="mr-3"><span class="icon-room mr-1"></span> <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                      <?php $i++; endforeach;?>
                   </div>
+                    <?php if($i == 0):?>
+                        <h2 class="h6 mt-2">Mohon Maaf Lowongan Kerja di <?=ucwords($lokasi);?> belum tersedia untuk sementara waktu. Harap periksa kembali secara berkala.</h2>
+                        <a href="<?=base_url('job');?>" class="btn btn-success btn-sm"><i class="fa fa-xs fa-arrow-left"></i> Cari Lowongan Kerja</a>
+                    <?php endif;?>
                   <div class="col-md-12 text-center mt-5">
                   <!-- <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a> -->
                   <?=$pagination;?>

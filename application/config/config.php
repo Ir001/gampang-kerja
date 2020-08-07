@@ -25,8 +25,15 @@ $config['site_name'] = 'Gampang Kerja';
 |
 */
 // $config['base_url'] = 'https://www.gampang-kerja.com/'; /* Production */
-$config['base_url'] = 'http://gampang-kerja.ant/'; /* Without port */
+// $config['base_url'] = 'http://gampang-kerja.ant/'; /* Without port */
 $config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
+$config['adsense'] = '';
+$config['tag_manager'] = '';
+$config['keyword'] = 'Gampang-kerja.com, Gampang Kerja, Info Loker, Media Informasi Lowongan Kerja Indonesia';
+$config['description'] = 'Media Informasi Lowongan Kerja Indonesia';
+$config['google_search_console'] = '';
+$config['dmca'] = '';
+$config['yandex'] = '';
 
 /*
 |--------------------------------------------------------------------------

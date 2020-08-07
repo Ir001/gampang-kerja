@@ -17,11 +17,17 @@ class Home extends CI_Controller {
 		$this->theme->display_user('user/landing', 'Info Lowongan Kerja di Indonesia', $data);
 	}
 	public function post($perusahaan=null, $permalink=null){
+		$this->load->library('Tanggal');
 		$check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();
 		if ($check >= 1) {
 			// $data['post'] = $this->crud->detail('loker', ['permalink'=> $permalink])->row_array();
+			
 			$data['post'] = $this->mloker->get($permalink);
+			$data['post']['deadline_text'] = $this->tanggal->to_indonesia($data['post']['deadline']);
+			$data['post']['expired'] = new DateTime() > new DateTime($data['post']['deadline']) ? true:false;
 			$data['sejenis'] = $this->mloker->get_by_category($data['post']['category_name']);
+			$data['description'] = substr(strip_tags($data['post']['loker_description']), 0, 120);
+			$data['keyword'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'];
 			$this->theme->display_user('user/single', $data['post']['title'].' '.$data['post']['perusahaan_name'], $data);
 		} 
 		// echo $permalink;
@@ -73,7 +79,10 @@ class Home extends CI_Controller {
 		$data['category_name'] = $category;
 		$data['terbaru'] = $this->mpencarian->get();
         $data['category'] = $this->mloker->popular_category();
-		$this->theme->display_user('user/category', 'Kategori Lowongan Kerja', $data);
+        $data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai kategori' : 'Daftar Lowongan Kerja '.ucwords($category);
+		$data['keyword'] = $data['description'];
+		$data['title'] = $category == null ? 'Informasi Lowongan Kerja diberbagai kategori' : 'Daftar Lowongan Kerja '.ucwords($category);
+		$this->theme->display_user('user/category', $data['title'], $data);
 	}
 	public function perusahaan($perusahaan=null, $rowno=0){
 		$permalink = $perusahaan;
@@ -140,7 +149,7 @@ class Home extends CI_Controller {
 		$users_record = $this->mpencarian->get_by_lokasi($rowno,$rowperpage,$lokasi);
 		
 		// Pagination Configuration
-		$config['base_url'] = base_url('perusahaan/'.$permalink);
+		$config['base_url'] = base_url('lokasi/'.$permalink);
 		$config['use_page_numbers'] = TRUE;
 		$config['total_rows'] = $allcount;
 		$config['per_page'] = $rowperpage;
@@ -170,14 +179,27 @@ class Home extends CI_Controller {
 		$data['row'] = $rowno;
 		$data['lokasi'] = $lokasi;
 		$data['terbaru'] = $this->mpencarian->get();
-        $data['category'] = $this->mloker->popular_category();
+		$data['category'] = $this->mloker->popular_category();
+		$data['description'] = $lokasi == null ? 'Informasi Lowongan Kerja diberbagai lokasi di Indonesia' : 'Daftar Lowongan Kerja di '.ucwords($lokasi);
+		$data['keyword'] = $data['description'];
 		$this->theme->display_user('user/lokasi', 'Lowongan Kerja di '.ucwords($lokasi), $data);
 	}
 	public function page($permalink){
 		$permalink = htmlspecialchars($permalink);
 		$data['post'] = $this->mloker->get_page($permalink);
-        $data['sejenis'] = $this->mpencarian->get();
+		$data['sejenis'] = $this->mpencarian->get();
+		$data['description'] = substr(strip_tags($data['post']['content']),0,120);
+		$data['keyword'] = $data['post']['title'].' Gampang Keja';
 		$this->theme->display_user('user/page', ucwords($data['post']['title']), $data);
+	}
+	public function clear(){
+		$confirm = $this->input->post('confirm', true);
+		if($confirm == 1){
+			unset($_SESSION['q']);
+			unset($_SESSION['kota']);
+		}
+		header('Content-type:application/json');
+		echo json_encode(['status' => true, 'message' => 'Riwayat berhasil dihapus!'], JSON_PRETTY_PRINT);
 	}
 	public function job(){
 		$this->theme->display_user('user/list', 'Loker');
