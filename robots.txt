@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /assets/ 
+Disallow: /DB/ 
+Disallow: /system/ 
+Disallow: /application/confiq/ 
+Disallow: /application/controllers/ 
+Disallow: /application/helpers/ 
+Disallow: /application/hooks/ 
+Disallow: /application/models/ 
+Disallow: /application/libraries/ 
+Disallow: /application/language/ 
+
+Sitemap: https://www.gampang-kerja.com/sitemap/1/post.xml
+Sitemap: https://www.gampang-kerja.com/sitemap/category.xml
+Sitemap: https://www.gampang-kerja.com/sitemap/company.xml
