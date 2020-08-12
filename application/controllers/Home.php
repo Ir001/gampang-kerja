@@ -186,11 +186,17 @@ class Home extends CI_Controller {
 	}
 	public function page($permalink){
 		$permalink = htmlspecialchars($permalink);
-		$data['post'] = $this->mloker->get_page($permalink);
-		$data['sejenis'] = $this->mpencarian->get();
-		$data['description'] = substr(strip_tags($data['post']['content']),0,120);
-		$data['keyword'] = $data['post']['title'].' Gampang Keja';
-		$this->theme->display_user('user/page', ucwords($data['post']['title']), $data);
+		$check = $this->mloker->get_page_num($permalink);
+		if($check > 0){
+
+			$data['post'] = $this->mloker->get_page($permalink);
+			$data['sejenis'] = $this->mpencarian->get();
+			$data['description'] = substr(strip_tags($data['post']['content']),0,120);
+			$data['keyword'] = $data['post']['title'].' Gampang Keja';
+			$this->theme->display_user('user/page', ucwords($data['post']['title']), $data);
+		}else{
+			redirect(base_url());
+		}
 	}
 	public function clear(){
 		$confirm = $this->input->post('confirm', true);

@@ -76,7 +76,7 @@
                         <button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button>
                         <?php endif;?>
                     </p>
-                    <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b>GampangKerja</b> tidak dipungut biaya</p>
+                    <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b><?=$this->config->item('site_name');?></b> tidak dipungut biaya</p>
                         <div class="sharethis-inline-share-buttons mb-3"></div>
                     </div>
             </div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
-$config['site_name'] = 'Gampang Kerja';
+$config['site_name'] = 'LokerHub';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -24,13 +24,12 @@ $config['site_name'] = 'Gampang Kerja';
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'https://www.gampang-kerja.com/'; /* Production */
-// $config['base_url'] = 'http://gampang-kerja.ant/'; /* Without port */
-$config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
+// $config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
+$config['base_url'] = 'https://lokerhub.com/'; /* Production */
 $config['adsense'] = '';
 $config['tag_manager'] = '';
-$config['keyword'] = 'Gampang-kerja.com, Gampang Kerja, Info Loker, Media Informasi Lowongan Kerja Indonesia';
-$config['description'] = 'Media Informasi Lowongan Kerja Indonesia';
+$config['keyword'] = 'lokerhub.com, lokerhub, Info Loker, Media Informasi Lowongan Kerja Indonesia';
+$config['description'] = 'Media Informasi Lowongan Kerja di Indonesia';
 $config['google_search_console'] = '';
 $config['dmca'] = '';
 $config['yandex'] = '';

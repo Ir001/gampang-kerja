@@ -14,7 +14,7 @@
         <meta name="keywords" content="<?=@$keyword ? $keyword : $this->config->item('keyword');?>">
         <meta name="description" content="<?=@$description ? $description : $this->config->item('description');?>">
         <meta content='indonesia' name='geo.placename'/>
-        <meta content='Gampang Kerja' name='Author'/>
+        <meta content='LokerHub' name='Author'/>
         <meta content='general' name='rating'/>
         <meta content='id' name='geo.country'/>
         <meta content='<?=$this->config->item('google_site_console');?>' name='google-site-verification'/>
@@ -93,7 +93,7 @@
                 <div class="py-1">
                     <div class="row align-items-center">
                     <div class="col-2">
-                        <h2 class="mb-0 site-logo"><a href="<?=base_url();?>">Gampang<strong class="font-weight-bold">Kerja</strong> </a></h2>
+                        <h2 class="mb-0 site-logo"><a href="<?=base_url();?>">Loker<strong class="font-weight-bold">Hub</strong> </a></h2>
                     </div>
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
@@ -122,6 +122,29 @@
                                     <li><a href="#">Sales Marketing</a></li>
                                     </ul>
                                 </li> -->
+                                <li class="has-children">
+                                    <a href="#">Lokasi Terpopuler</a>
+                                    <ul class="dropdown">
+                                    <li><a href="<?=base_url('lokasi/bandung');?>">Bandung</a></li>
+                                    <li><a href="<?=base_url('lokasi/karawang');?>">Karawang</a></li>
+                                    <li><a href="<?=base_url('lokasi/palembang');?>">Palembang</a></li>
+                                    <li><a href="<?=base_url('lokasi/medan');?>">Medan</a></li>
+                                    <li><a href="<?=base_url('lokasi/batam');?>">Batam</a></li>
+                                    <li><a href="<?=base_url('lokasi/yogyakarta');?>">Yogya</a></li>
+                                    <li><a href="<?=base_url('lokasi/malang');?>">Malang</a></li>
+                                    <li><a href="<?=base_url('lokasi/semarang');?>">Semarang</a></li>
+                                    <li><a href="<?=base_url('lokasi/pekanbaru');?>">Pekanbaru</a></li>
+                                    <li><a href="<?=base_url('lokasi/makassar');?>">Makassar</a></li>
+                                    <li><a href="<?=base_url('lokasi/lampung');?>">Lampung</a></li>
+                                    <li><a href="<?=base_url('lokasi/sidoarjo');?>">Sidoarjo</a></li>
+                                    <li><a href="<?=base_url('lokasi/solo');?>">Solo</a></li>
+                                    <li><a href="<?=base_url('lokasi/bali');?>">Bali</a></li>
+                                    <li><a href="<?=base_url('lokasi/padang');?>">Padang</a></li>
+                                    <li><a href="<?=base_url('lokasi/jambi');?>">Jambi</a></li>
+                                    <li><a href="<?=base_url('lokasi/samarinda');?>">Samarinda</a></li>
+                                    <li><a href="<?=base_url('lokasi/surabaya');?>">Surabaya</a></li>
+                                    </ul>
+                                </li>
 
                                 </ul>
                             </li>
@@ -131,23 +154,14 @@
                                 <li class="has-children">
                                     <a href="#">Jabodetabek</a>
                                     <ul class="dropdown">
-                                    <li><a href="#">Jakarta</a></li>
-                                    <li><a href="#">Bogor</a></li>
-                                    <li><a href="#">Depok</a></li>
-                                    <li><a href="#">Tanggerang</a></li>
-                                    <li><a href="#">Bekasi</a></li>
+                                    <li><a href="<?=base_url('lokasi/dki-jakarta');?>">Jakarta</a></li>
+                                    <li><a href="<?=base_url('lokasi/bogor');?>">Bogor</a></li>
+                                    <li><a href="<?=base_url('lokasi/depok');?>">Depok</a></li>
+                                    <li><a href="<?=base_url('lokasi/tanggerang');?>">Tanggerang</a></li>
+                                    <li><a href="<?=base_url('lokasi/bekasi');?>">Bekasi</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-children">
-                                    <a href="#">Jawa Barat</a>
-                                    <ul class="dropdown">
-                                    <li><a href="#">Jakarta</a></li>
-                                    <li><a href="#">Bogor</a></li>
-                                    <li><a href="#">Depok</a></li>
-                                    <li><a href="#">Tanggerang</a></li>
-                                    <li><a href="#">Bekasi</a></li>
-                                    </ul>
-                                </li>
+                                
 
                                 </ul>
                             </li>
@@ -172,7 +186,7 @@
             <div class="row">
             <div class="col-md-4">
                 <h3 class="footer-heading mb-4 text-white">Tentang Kami</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
+                <p>LokerHub adalah <?=$this->config->item('description');?></p>
                 <!-- <p><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p> -->
             </div>
             <div class="col-md-6">
@@ -207,10 +221,9 @@
                 <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
                 <div class="col-md-12">
                     <p>
-                    <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                    <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                    <a href="#" class="p-2"><span class="icon-instagram"></span></a>
-                    <a href="#" class="p-2"><span class="icon-vimeo"></span></a>
+                    <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                    <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a>
+                    <a href="https://www.instagram.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-instagram"></span></a>
 
                     </p>
                 </div>
@@ -219,7 +232,7 @@
             <div class="row pt-5 mt-5 text-center">
             <div class="col-md-12">
                 <p>
-                    Copyright &copy; <?=date('Y');?> <a href="#">GampangKerja</a>  All Right Reserved 
+                    Copyright &copy; <?=date('Y');?> <a href="<?=base_url()?>">LokerHub</a>  All Right Reserved 
                 </p>
             </div>
             

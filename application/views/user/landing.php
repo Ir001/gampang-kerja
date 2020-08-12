@@ -129,7 +129,7 @@
         </div>        
 
 
-        <div class="py-5 block-15">
+        <!-- <div class="py-5 block-15">
         <div class="container">
             <div class="row">
             <div class="col-md-6 mx-auto text-center mb-5 section-heading">
@@ -245,4 +245,4 @@
             
             </div>
         </div>
-        </div>
+        </div> -->

@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <input type="text" name="q" value="<?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?>" class="mr-3 form-control shadow border-0 px-4" placeholder="pekerjaan, keywords atau nama perusahaan ">
-                            <input type="button" id='btn-clear' class="btn btn-sm mt-2 btn-info" value="Bersihkan Riwayat Pencarian">
+                            <?=@$search != null || $kota != null ? '<input type="button" id="btn-clear" class="btn btn-sm mt-2 btn-info" value="Bersihkan Riwayat Pencarian">' : '';?>
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
                         <div class="input-wrap">
