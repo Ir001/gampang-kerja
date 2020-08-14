@@ -1,14 +1,10 @@
 User-agent: *
 Disallow: /assets/ 
+Disallow: /manager/
+Disallow: /admin/ 
 Disallow: /DB/ 
 Disallow: /system/ 
-Disallow: /application/confiq/ 
-Disallow: /application/controllers/ 
-Disallow: /application/helpers/ 
-Disallow: /application/hooks/ 
-Disallow: /application/models/ 
-Disallow: /application/libraries/ 
-Disallow: /application/language/ 
+Disallow: /application/
 
 Sitemap: https://www.lokerhub.com/sitemap/1/post.xml
 Sitemap: https://www.lokerhub.com/sitemap/category.xml

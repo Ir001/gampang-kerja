@@ -66,8 +66,12 @@ class Manager extends CI_Controller {
         $this->theme->display_admin('admin/management_halaman', 'Management Page', $data);
     }
     public function info_user(){
-        $data = $this->mlogin->detail($_SESSION['admin']);
-        $this->user = $data;
+        if(empty($_SESSION['admin'])):
+            redirect('admin');
+        else:
+            $data = $this->mlogin->detail($_SESSION['admin']);
+            $this->user = $data;
+        endif;
     }
     // pub
     public function logout(){

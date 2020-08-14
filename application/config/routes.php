@@ -67,5 +67,5 @@ $route['job'] = 'pencarian/index';
 $route['sitemap/(:num)/post.xml'] = 'sitemap/post/$1';
 $route['sitemap/category.xml'] = 'sitemap/kategori';
 $route['sitemap/(:num)/company.xml'] = 'sitemap/perusahaan/$1';
-$route['404_override'] = '';
+$route['404_override'] = 'errorpage';
 $route['translate_uri_dashes'] = FALSE;
