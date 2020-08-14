@@ -25,11 +25,11 @@ $config['site_name'] = 'LokerHub';
 |
 */
 // $config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
-$config['base_url'] = 'https://lokerhub.com/'; /* Production */
+$config['base_url'] = 'https://www.lokerhub.com/'; /* Production */
 $config['adsense'] = '';
 $config['tag_manager'] = '';
 $config['keyword'] = 'lokerhub.com, lokerhub, Info Loker, Media Informasi Lowongan Kerja Indonesia';
-$config['description'] = 'Media Informasi Lowongan Kerja di Indonesia';
+$config['description'] = 'LokerHub adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di Indonesia';
 $config['google_search_console'] = '';
 $config['dmca'] = '';
 $config['yandex'] = '';
