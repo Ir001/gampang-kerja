@@ -24,8 +24,8 @@ $config['site_name'] = 'LokerHub';
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
-$config['base_url'] = 'https://www.lokerhub.com/'; /* Production */
+$config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
+// $config['base_url'] = 'https://www.lokerhub.com/'; /* Production */
 $config['adsense'] = '';
 $config['tag_manager'] = '';
 $config['keyword'] = 'lokerhub.com, lokerhub, Info Loker, Media Informasi Lowongan Kerja Indonesia';
