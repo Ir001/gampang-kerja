@@ -1,10 +1,10 @@
 <div style="height: 90px;"></div>
 
 <div class="pt-5 bg-light">
-    <div class="container">
+    <div class="container-fluid container-md">
         <div class="row">
-            <div class="col-md-12 col-lg-8">
-                <div class="p-5 bg-white">
+            <div class="col-md-8 col-lg-8">
+                <div class="p-md-5 p-3 bg-white">
 
                     <div class="mt-sm-5 mt-md-0 mb-md-1 mr-5">
                     <div class="float-right">
