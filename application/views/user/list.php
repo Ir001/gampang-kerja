@@ -77,24 +77,23 @@
 
                 <div class="nonloop-block-16 owl-carousel">
                     <?php foreach($terbaru as $new):?>
-                    <div class="border rounded p-4 bg-white">
-                        <h2 class="h5"><?=$new['title'];?></h2>
-                        <p><span class="border border-warning rounded p-1 px-2 text-warning"><?=$new['category_name'];?></span></p>
-                        <p>
-                        <span class="d-block"><span class="icon-building"></span> <?=$new['perusahaan_name'];?></span>
-                        <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($new['nama_kabupaten'])).', '.ucwords($new['nama_provinsi']);?></span>
-                        <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
-                        </p>
-                        <p class="mb-0">
-                            <?php 
-                                $desciption=$new['loker_description'];
-                                if(preg_match('/^.{1,260}\b/s', $new['loker_description'], $match)){
-                                    $desciption=$match[0];
-                                }
-                                echo $desciption;
-                            ?>
-                        </p>
-                    </div>
+                        <div class="border rounded p-4 bg-white">
+                          <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>"><?=$new['title'];?></a></h3>
+                          <span class="d-block"><span class="icon-suitcase"></span> <?=$new['category_name'];?></span>
+                          <span class="d-block"><span class="icon-building"></span> <?=$new['perusahaan_name'];?></span>
+                          <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($new['nama_kabupaten'])).', '.ucwords($new['nama_provinsi']);?></span>
+                          <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
+                          </p>
+                          <p class="mb-0">
+                              <?php 
+                                  $desciption=$new['loker_description'];
+                                  if(preg_match('/^.{1,90}\b/s', $new['loker_description'], $match)){
+                                      $desciption=$match[0];
+                                  }
+                                  echo $desciption.'...';
+                              ?>
+                          </p>
+                      </div>
                     <?php endforeach;?>
 
                 </div>

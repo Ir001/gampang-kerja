@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 			$data['post']['deadline_text'] = $this->tanggal->to_indonesia($data['post']['deadline']);
 			$data['post']['expired'] = new DateTime() > new DateTime($data['post']['deadline']) ? true:false;
 			$data['sejenis'] = $this->mloker->get_by_category($data['post']['category_name']);
-			$data['description'] = substr(strip_tags($data['post']['loker_description']), 0, 120);
+			$data['description'] = 'Lowongan Kerja '.$data['post']['title'].' '.$data['post']['perusahaan_name'].' '.substr(strip_tags($data['post']['loker_description']), 0, 120);
 			$data['keyword'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'];
 			$this->theme->display_user('user/single', $data['post']['title'].' '.$data['post']['perusahaan_name'], $data);
 		} 
@@ -192,7 +192,7 @@ class Home extends CI_Controller {
 			$data['post'] = $this->mloker->get_page($permalink);
 			$data['sejenis'] = $this->mpencarian->get();
 			$data['description'] = substr(strip_tags($data['post']['content']),0,120);
-			$data['keyword'] = $data['post']['title'].' Gampang Keja';
+			$data['keyword'] = $data['post']['title'].' '.$this->config->item('site_name');
 			$this->theme->display_user('user/page', ucwords($data['post']['title']), $data);
 		}else{
 			redirect(base_url());
