@@ -6,9 +6,13 @@
                     <form id="formPost" novalidate>
                         <div class="row">
                             <div class="col-md-8">
+                            <div class="form-group">
+                                    <label for="">Apply Job</label>
+                                    <input type="hidden" name="id" value="<?=$this->uri->segment(4);?>">
+                                    <input type="text" class="form-control" name="apply_job" placeholder="URL" value="<?=$postingan['apply_job'];?>" required>
+                                </div>
                                 <div class="form-group">
                                     <label for="">Judul</label>
-                                    <input type="hidden" name="id" value="<?=$this->uri->segment(4);?>">
                                     <input type="text" class="form-control" name="judul" placeholder="Judul Lowongan" value="<?=$postingan['title'];?>" required>
                                 </div>
                                 <div class="form-group">
@@ -20,7 +24,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for=""><a href="" target="_blank">Perusahaan</a></label>
+                                    <label for=""><a href="<?=base_url('manager/perusahaan');?>" target="_blank">Perusahaan</a></label>
                                     <select name="perusahaan_id" class="form-control" required>
                                         <option value="1" selected hidden>Pilih Perusahaan</option>
                                         <?php foreach($perusahaan as $company): ;?>
@@ -29,7 +33,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><a href="" target="_blank">Provinsi</a></label>
+                                    <label for="">Provinsi</label>
                                     <select name="prov_id" class="form-control select2-blue" id="select_prov" required>
                                         <option value="1" selected hidden>Pilih Provinsi</option>
                                         <?php foreach($provinsi as $prov): ;?>
@@ -38,7 +42,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><a href="" target="_blank">Kabupaten</a></label>
+                                    <label for="">Kabupaten</label>
                                     <select name="kab_id" class="form-control select2-blue" id="select_kab" required>
                                         <?php foreach($kabupaten as $kab): ;?>
                                             <option value="<?=$kab['id_kab'];?>" <?=$postingan['kab_id'] == $kab['id_kab'] ? 'selected':'';?>><?=$kab['nama'];?></option>
@@ -46,7 +50,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><a href="" target="_blank">Kategori</a></label>
+                                    <label for=""><a href="<?=base_url('manager/kategori')?>" target="_blank">Kategori</a></label>
                                     <select name="category_id" class="form-control select2-blue" id="category_id" required>
                                         <option value="1" selected hidden>Pilih Kategori</option>
                                         <?php foreach($kategori as $kat): ;?>
@@ -72,7 +76,7 @@
                                     <input type="checkbox" name="status" value='1' <?=$postingan['isPublished'] == 1 ? 'checked':'';?> data-bootstrap-switch data-off-color="danger" data-size="xs" data-on-color="success">
                                 </div>
                                 <div class="form-group">
-                                    <a href="/manager/loker/" class="btn btn-sm btn-primary">Kembali</a>
+                                    <a href="<?=base_url('manager/loker')?>" class="btn btn-sm btn-primary">Kembali</a>
                                     <button type="submit" class="float-right btn btn-sm btn-success">Posting</button>
                                 </div>
                             </div>

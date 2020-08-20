@@ -255,6 +255,9 @@
     $('#select_industri').select2({
         theme : 'bootstrap',
     });
+    $('#select_industri_edit').select2({
+        theme : 'bootstrap',
+    });
     $('.textarea').summernote({
         height : 160,
         placeholder : '',

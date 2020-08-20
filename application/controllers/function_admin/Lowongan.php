@@ -28,6 +28,7 @@ class Lowongan extends CI_Controller {
 		$data['perusahaan_id'] = $this->input->post('perusahaan_id', true);
 		$data['kab_id'] = $this->input->post('kab_id', true);
 		$data['prov_id'] = $this->input->post('prov_id', true);
+		$data['apply_job'] = $this->input->post('apply_job', true);
 		$data['permalink'] = $this->input->post('permalink', true);
 		$data['title'] = $this->input->post('judul', true);
 		$data['alamat'] = $this->input->post('alamat', true);
@@ -51,7 +52,8 @@ class Lowongan extends CI_Controller {
         $data['category_id'] = $this->input->post('category_id', true);
 		$data['perusahaan_id'] = $this->input->post('perusahaan_id', true);
 		$data['kab_id'] = $this->input->post('kab_id', true);
-		$data['prov_id'] = $this->input->post('prov_id', true);
+        $data['prov_id'] = $this->input->post('prov_id', true);
+		$data['apply_job'] = $this->input->post('apply_job', true);
 		$data['permalink'] = $this->input->post('permalink', true);
 		$data['title'] = $this->input->post('judul', true);
 		$data['alamat'] = $this->input->post('alamat', true);

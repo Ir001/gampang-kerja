@@ -30,7 +30,7 @@ $config['adsense'] = '';
 $config['tag_manager'] = '';
 $config['keyword'] = 'lokerhub.com, lokerhub, Info Loker, Media Informasi Lowongan Kerja Indonesia';
 $config['description'] = 'LokerHub adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di Indonesia';
-$config['google_search_console'] = '';
+$config['google_search_console'] = 'HL5etQK7pdkHsLPcNROk-rlZ5NdHacBg0S7Mz45aHKA';
 $config['dmca'] = '';
 $config['yandex'] = '';
 
