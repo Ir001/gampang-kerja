@@ -27,7 +27,7 @@
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
             $this->db->where(['category_name' => $category]);
             $this->db->limit(5,0);
-            $this->db->order_by('posted_at', 'DESC');
+            $this->db->order_by('loker.posted_at', 'ASC');
             return $this->db->get()->result_array();
         }
         public function popular_category($jumlah=7){

@@ -1,35 +1,40 @@
 <div style="height: 90px;"></div>
 
 <div class="pt-5 bg-light">
-    <div class="container-fluid container-md">
+    <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-8">
                 <div class="p-md-5 p-3 bg-white">
 
                     <div class="mt-sm-5 mt-md-0 mb-md-1 mr-5">
-                    <div class="float-right">
-                                <!-- GTranslate: https://gtranslate.io/ -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="job-post-item-header d-flex align-items-center">
+                                <h1 class="mr-3 text-black h4"><?=$post['title']?></h1>
+                                <div class="badge-wrap">
+                                <!-- <span class="border border-warning text-warning py-2 px-4 rounded">Freelance</span> -->
+                                </div>
+                            </div>
+                            <div class="job-post-item-body d-block d-md-flex"></div>
+                            <div class="py-3">
+                                
+    
+                                <small><a href="/">Home</a> / <a href="/perusahaan/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="/kategori/<?=str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / <?=$post['title']?></small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-sm-center">
+                            <!-- GTranslate: https://gtranslate.io/ -->
                                 <a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a>
 
                                 <select onchange="doGTranslate(this);"><option value="id|en">Pilih Bahasa</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
+                                <img src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" class="img img-fluid col-md-8">
+                        </div>
+                    </div>
+                    <div class="float-right">
+                                
 
                             </div>
-                        <div class="job-post-item-header d-flex align-items-center">
-                            <h1 class="mr-3 text-black h4"><?=$post['title']?></h1>
-                            <div class="badge-wrap">
-                            <!-- <span class="border border-warning text-warning py-2 px-4 rounded">Freelance</span> -->
-                            </div>
-                        </div>
-                        <div class="job-post-item-body d-block d-md-flex">
-                            <div class="mr-3">
-                            <span class="fl-bigmug-line-portfolio23"></span><?=ucwords(strtolower($post['kabupaten']));?></div>
-                            <div><span class="fl-bigmug-line-big104"></span>,<span><a href="/lokasi/<?=str_replace(' ','-', strtolower($post['provinsi']));?>"><?=ucwords(strtolower($post['provinsi']));?></a></span></div>
-                        </div>
-                        <div class="py-3">
-                            <img src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" class="float-right img img-fluid col-3">
-
-                            <small><a href="/">Home</a> / <a href="/perusahaan/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="/kategori/<?=str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / <?=$post['title']?></small>
-                        </div>
+                        
                     </div>
                     
                     <h2 class="h5">Deskripsi Pekerjaan</h2>

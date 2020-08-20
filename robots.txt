@@ -8,4 +8,4 @@ Disallow: /application/
 
 Sitemap: https://www.lokerhub.com/sitemap/1/post.xml
 Sitemap: https://www.lokerhub.com/sitemap/category.xml
-Sitemap: https://www.lokerhub.com/sitemap/company.xml
+Sitemap: https://www.lokerhub.com/sitemap/1/company.xml
