@@ -1,11 +1,121 @@
-User-agent: *
-Disallow: /assets/ 
-Disallow: /manager/
-Disallow: /admin/ 
-Disallow: /DB/ 
-Disallow: /system/ 
-Disallow: /application/
-
 Sitemap: https://www.lokerhub.com/sitemap/1/post.xml
-Sitemap: https://www.lokerhub.com/sitemap/category.xml
 Sitemap: https://www.lokerhub.com/sitemap/1/company.xml
+Sitemap: https://www.lokerhub.com/sitemap/category.xml
+
+User-agent: Googlebot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Bingbot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Slurp
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Teoma
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: TwitterBot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Baiduspider
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: RogerBot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Mediapartners-Google
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Blekkobot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: ArchitextSpider
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Lycos_Spider_(T-Rex)
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: YandexBot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: MantraAgent
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: ExaBot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Sosospider
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Butterfly
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: ia_archiver
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: MJ12bot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Omgilibot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Yeti/Naverbot
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: EirGrabber
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: 360spider
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: Haosouspider
+Disallow: /assets
+Disallow: /system
+Disallow: /application
+
+User-agent: *
+Disallow: /
