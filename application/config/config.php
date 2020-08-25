@@ -24,11 +24,11 @@ $config['site_name'] = 'LokerHub';
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
-// $config['base_url'] = 'https://www.lokerhub.com/'; /* Production */
+// $config['base_url'] = 'http://gampang-kerja.ant:8080/'; /* With port */
+$config['base_url'] = 'https://www.lokerhub.com/'; /* Production */
 $config['adsense'] = '';
 $config['tag_manager'] = '';
-$config['keyword'] = 'lokerhub.com, lokerhub, Info Loker, lowongan kerja 2020, loker 2020, loker 2021, lowongan kerja 2021, lowongan kerja surabaya, lowongan kerja bandung, loker bekasi, loker smk, lowongan kerja sma';
+$config['keyword'] = 'lokerhub.com, lokerhub, Info Loker, lowongan kerja 2020, loker 2020, loker 2021, lowongan kerja 2021, lowongan kerja surabaya, lowongan kerja bandung, loker bekasi, loker smk, lowongan kerja sma, lowongan kerja pt';
 $config['description'] = 'LokerHub adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di Indonesia';
 $config['google_search_console'] = 'HL5etQK7pdkHsLPcNROk-rlZ5NdHacBg0S7Mz45aHKA';
 $config['dmca'] = '';
