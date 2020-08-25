@@ -43,7 +43,12 @@
         <meta property="og:url" content="<?=current_url()?>" />
         <meta property="og:title" content="<?=$site_name;?> &mdash; <?=$tagline;?>" />
         <meta property="og:description" content="<?=@$description ? $description : $this->config->item('description');?>">
+        <?php if($this->uri->segment(1) == 'lowongan'):?>
+        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+        <meta property="og:image" content="<?=$post['logo'];?> />
+        <?php else:?>
         <meta property="og:image" content="<?=base_url('assets/images/')?>hero_1.jpg" />
+        <?php endif;?>
         
         <!-- [ END Meta Tag SEO Valid HTML5] --> 
 
@@ -199,63 +204,62 @@
 
         
         <footer class="site-footer">
-        <div class="container">        
-
-            <div class="row">
-            <div class="col-md-4">
-                <h3 class="footer-heading mb-4 text-white">Tentang Kami</h3>
-                <p>LokerHub adalah <?=$this->config->item('description');?></p>
-                
-            </div>
-            <div class="col-md-6">
+            <div class="container">        
                 <div class="row">
-                <div class="col-md-6">
-                    <h3 class="footer-heading mb-4 text-white">Halaman</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="<?=base_url('page/about');?>">About</a></li>
-                        <!-- <li><a href="<?=base_url('blog');?>">Blog</a></li> -->
-                        <li><a href="<?=base_url('page/disclaimer');?>">Disclaimer</a></li>
-                        <li><a href="<?=base_url('page/terms-of-use');?>">Terms of Use</a></li>
-                        <li><a href="<?=base_url('page/privacy-policy');?>">Privacy Policy</a></li>
-                        <li><a href="<?=base_url('page/sitemap');?>">Sitemap</a></li>
-                    </ul>
+                <div class="col-md-4">
+                    <h3 class="footer-heading mb-4 text-white">Tentang Kami</h3>
+                    <p>LokerHub adalah <?=$this->config->item('description');?></p>
+                    
                 </div>
                 <div class="col-md-6">
-                    <h3 class="footer-heading mb-4 text-white">Top Kategori</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
-                        <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
-                        <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
-                        <li><a href="<?=base_url('kategori/audit-pajak');?>">Audit Pajak</a></li>
-                        <li><a href="<?=base_url('kategori/penerbangan');?>">Penerbangan</a></li>
-                        <li><a href="<?=base_url('kategori/mekanik-otomotif');?>">Mekanik Otomotif</a></li>
-                    </ul>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="footer-heading mb-4 text-white">Halaman</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="<?=base_url('page/about');?>">About</a></li>
+                            <!-- <li><a href="<?=base_url('blog');?>">Blog</a></li> -->
+                            <li><a href="<?=base_url('page/disclaimer');?>">Disclaimer</a></li>
+                            <li><a href="<?=base_url('page/terms-of-use');?>">Terms of Use</a></li>
+                            <li><a href="<?=base_url('page/privacy-policy');?>">Privacy Policy</a></li>
+                            <li><a href="<?=base_url('page/sitemap');?>">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="footer-heading mb-4 text-white">Top Kategori</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                            <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
+                            <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
+                            <li><a href="<?=base_url('kategori/audit-pajak');?>">Audit Pajak</a></li>
+                            <li><a href="<?=base_url('kategori/penerbangan');?>">Penerbangan</a></li>
+                            <li><a href="<?=base_url('kategori/mekanik-otomotif');?>">Mekanik Otomotif</a></li>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
-                </div>
-            </div>
 
-            
-            <div class="col-md-2">
-                <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
-                <div class="col-md-12">
-                    <p>
-                    <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                    <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a>
-                    <a href="https://www.instagram.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-instagram"></span></a>
+                
+                <div class="col-md-2">
+                    <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
+                    <div class="col-md-12">
+                        <p>
+                        <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a>
+                        <a href="https://www.instagram.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-instagram"></span></a>
 
-                    </p>
+                        </p>
+                    </div>
+                </div>
+                </div>
+                <div class="row pt-5 mt-5 text-center">
+                    <div class="col-md-12">
+                        <p>
+                            Copyright &copy; <?=date('Y');?> <a href="<?=base_url()?>">LokerHub</a>  All Right Reserved 
+                        </p>
+                    </div>
+                
                 </div>
             </div>
-            </div>
-            <div class="row pt-5 mt-5 text-center">
-                <div class="col-md-12">
-                    <p>
-                        Copyright &copy; <?=date('Y');?> <a href="<?=base_url()?>">LokerHub</a>  All Right Reserved 
-                    </p>
-                </div>
-            
-            </div>
-        </div>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous"></script>
@@ -263,11 +267,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164241627-2"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'UA-164241627-2');
+        gtag('config', 'UA-164241627-2');
     </script>
 
     </body>

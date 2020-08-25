@@ -26,8 +26,8 @@ class Home extends CI_Controller {
 			$data['post']['deadline_text'] = $this->tanggal->to_indonesia($data['post']['deadline']);
 			$data['post']['expired'] = new DateTime() > new DateTime($data['post']['deadline']) ? true:false;
 			$data['sejenis'] = $this->mloker->get_by_category($data['post']['category_name']);
-			$data['description'] = 'Lowongan Kerja '.$data['post']['title'].' '.$data['post']['perusahaan_name'].' '.substr(strip_tags($data['post']['loker_description']), 0, 120);
-			$data['keyword'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'];
+			$data['description'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'].' ('.$data['post']['kabupaten'].') '.substr(strip_tags($data['post']['loker_description']), 0, 120);
+			$data['keyword'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'].', Lowongan '.$data['post']['category_name'].', Lowongan kerja '.$data['post']['kabupaten'].', '.$this->config->item('keyword');
 			$this->theme->display_user('user/single', 'Lowongan '.$data['post']['title'].' di '.$data['post']['perusahaan_name'], $data);
 		} 
 		// echo $permalink;

@@ -26,20 +26,20 @@
                         
                     </div>
                     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->
-                    <h2 class="h5">Deskripsi Pekerjaan</h2>
+                    <h2 class="h5" id="deskripsi_pekerjaan">Deskripsi Pekerjaan</h2>
                     <?=$post['loker_description'];?>
                     <?php if($post['perusahaan_description'] != null):?>
-                    <h2 class="h5">Profile Perusahaan</h2>
+                    <h2 class="h5" id="profile_perusahaan">Profile Perusahaan</h2>
                     <?=$post['perusahaan_description'];?>
                     <?php endif;?>
 
-                    <h2 class="h5">Gambaran Perusahaan</h2>
+                    <h2 class="h5" id="gambaran_perusahaan">Gambaran Perusahaan</h2>
                     <table class="table table-bordered">
                         <tbody>
                             <?php if($post['website'] != null):?>
                             <tr>
-                                <td>Situs</td>
-                                <td><a href="<?=$post['website'] != null ? $post['website'] : 'https://www.google.com/search?q='.$post['perusahaan_name'];?>" target="_blank" rel="noopener noreferrer"><?=$post['website'];?></a></td>
+                                <td>Situs <?=$post['perusahaan_name'];?></td>
+                                <td><a href="<?=$post['website'] != null ? $post['website'] : 'https://www.google.com/search?q='.$post['perusahaan_name'];?>" target="_blank" rel="noopener noreferrer nofollow"><?=$post['website'];?></a></td>
                             </tr>
                             <?php endif;?>
                             <?php if($post['ukuran_perusahaan'] != null):?>
@@ -50,8 +50,14 @@
                             <?php endif;?>
                             <?php if($post['bahasa'] != null):?>
                             <tr>
-                                <td>Gaya Pakaian</td>
+                                <td>Bahasa</td>
                                 <td><?=$post['bahasa'];?></td>
+                            </tr>
+                            <?php endif;?>
+                            <?php if($post['bahasa'] != null):?>
+                            <tr>
+                                <td>Gaya Pakaian</td>
+                                <td><?=$post['fashion'];?></td>
                             </tr>
                             <?php endif;?>
                             <?php if($post['waktu_kerja'] != null):?>
@@ -61,18 +67,18 @@
                             </tr>
                             <?php endif;?>
                             <tr>
-                                <td>Alamat Perusahaan</td>
+                                <td>Alamat Perusahaan <?=$post['perusahaan_name'];?></td>
                                 <td>Lihat di <a href="https://www.google.com/maps/search/<?=$post['perusahaan_name'];?>" rel="nofollow" target="_blank">Google Maps</a></td>
                             </tr>
                             
                         </tbody>
                     </table>
                     <?php if($post['why_join_us'] != null):?>
-                    <h2 class="h5">Mengapa Bergabung dengan Kami</h2>
+                    <h2 class="h5" id="why_join_us">Mengapa Bergabung dengan Kami</h2>
                     <?=$post['why_join_us'];?>
                     <?php endif;?>
                     <?php if($post['alamat'] != null):?>
-                    <h2 class="h5">Penempatan Kerja</h2>
+                    <h2 class="h5" id="penempatan_kerja">Penempatan Kerja</h2>
                     <?=$post['alamat'];?>
                     <?php endif;?>
                     <p class="mt-2">
@@ -100,18 +106,18 @@
 
                     <div class="nonloop-block-16 owl-carousel">
                     <?php foreach($sejenis as $terkait):?>
-                        <div class="border rounded p-4 bg-white">
-                        <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Lowongan <?=$terkait['title'];?></a></h3>
-                        <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($terkait['category_name']));?>" class="text-secondary"><?=$terkait['category_name'];?></a></span>
-                        <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($terkait['perusahaan_name']));?>" class="text-secondary"><?=$terkait['perusahaan_name'];?></a></span>
-                        <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($terkait['kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($terkait['kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($terkait['provinsi']));?>" class="text-secondary"><?=ucwords($terkait['provinsi']);?></a></span>
-                        <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
-                        </p>
-                        <p class="mb-0"><?=substr($terkait['loker_description'], 0, 80);?>...</p>
-                        <p>
-                            <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Baca Selengkapnya</a>
-                        </p>
-                    </div>
+                        <div class="border rounded px-4 pt-3 bg-white">
+                            <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Lowongan <?=$terkait['title'];?></a></h3>
+                            <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($terkait['category_name']));?>" class="text-secondary"><?=$terkait['category_name'];?></a></span>
+                            <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($terkait['perusahaan_name']));?>" class="text-secondary"><?=$terkait['perusahaan_name'];?></a></span>
+                            <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($terkait['kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($terkait['kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($terkait['provinsi']));?>" class="text-secondary"><?=ucwords($terkait['provinsi']);?></a></span>
+                            <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
+                            </p>
+                            <p class="mb-0"><?=substr(strip_tags($terkait['loker_description']), 0, 80);?>...</p>
+                            <p>
+                                <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Baca Selengkapnya</a>
+                            </p>
+                        </div>
                     <?php endforeach;?>
                         <div class="border rounded p-4 bg-white">
                             
