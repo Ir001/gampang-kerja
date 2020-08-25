@@ -10,7 +10,7 @@
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
             $this->db->where('isPublished', 1);
             $this->db->limit($limit, $offset); 
-            $this->db->order_by('loker.posted_at desc');
+            $this->db->order_by('loker.posted_at DESC');
             return $this->db->get()->result_array();
         }
         public function getData($rowno, $rowperpage, $search="", $kota=""){
@@ -32,7 +32,7 @@
             }
             $this->db->where('isPublished', 1);
             $this->db->limit($rowperpage, $rowno); 
-            $this->db->order_by('loker.posted_at desc');
+            $this->db->order_by('loker.posted_at DESC');
             return $this->db->get()->result_array();
         }
         public function getrecordCount($search="", $kota=""){
@@ -69,7 +69,7 @@
             }
             $this->db->where('isPublished', 1);
             $this->db->limit($rowperpage, $rowno); 
-            $this->db->order_by('category_name ASC, perusahaan_name DESC, posted_at ASC');
+            $this->db->order_by('posted_at DESC');
             return $this->db->get()->result_array();
         }
         public function count_by_category($category){
@@ -101,7 +101,7 @@
             }
             $this->db->where('isPublished', 1);
             $this->db->limit($rowperpage, $rowno); 
-            $this->db->order_by('category_name ASC, perusahaan_name DESC, posted_at ASC');
+            $this->db->order_by('posted_at DESC');
             return $this->db->get()->result_array();
         }
         public function count_by_perusahaan($perusahaan){
@@ -134,7 +134,7 @@
             }
             $this->db->where('isPublished', 1);
             $this->db->limit($rowperpage, $rowno); 
-            $this->db->order_by('perusahaan_name ASC, nama_provinsi DESC, posted_at ASC');
+            $this->db->order_by('posted_at DESC');
             return $this->db->get()->result_array();
         }
         public function count_by_lokasi($lokasi){
