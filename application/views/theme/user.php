@@ -31,7 +31,11 @@
         <meta content='<?=$this->config->item('google_site_console');?>' name='google-site-verification'/>
         <meta content='<?=$this->config->item('dmca');?>' name='dmca-site-verification'/>
         <meta content='<?=$this->config->item('yandex');?>' name='yandex-verification'/>
+        <?php if($this->uri->segment(1) == 'lowongan'):?>
+        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+        <?php else:?>
         <title><?=$site_name;?> &mdash; <?=$tagline;?></title>
+        <?php endif;?>
         <meta content='index, follow' name='robots'/>
         <meta name="keywords" content="<?=@$keyword ? $keyword : $this->config->item('keyword');?>">
         <meta name="description" content="<?=@$description ? $description : $this->config->item('description');?>">

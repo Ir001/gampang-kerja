@@ -4,16 +4,15 @@
         <div class="row">
             <div class="col-md-8 col-lg-8">
                 <div class="p-md-5 p-3 bg-white">
-
                     <div class="mt-sm-5 mt-md-0 mb-md-1 mr-5">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="job-post-item-header d-flex align-items-center">
-                                <h1 class="mr-3 text-black h4"><?=$post['title']?></h1>
+                                <h1 class="mr-3 text-black h4">Lowongan <?=$post['title']?> di <?=$post['perusahaan_name']?></h1>
                             </div>
                             <div class="job-post-item-body d-block d-md-flex"></div>
                             <div class="py-3">
-                                <small><a href="/">Home</a> / <a href="/perusahaan/<?=str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="/kategori/<?=str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / <?=$post['title']?></small>
+                                <small><a href="<?=base_url()?>">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / Lowongan <?=$post['title']?> di <?=$post['perusahaan_name'];?></small>
                             </div>
                         </div>
                         <div class="col-md-4 text-sm-center">
@@ -26,7 +25,7 @@
                     </div>
                         
                     </div>
-                    <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons mb-3"></div><!-- ShareThis END -->
+                    <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->
                     <h2 class="h5">Deskripsi Pekerjaan</h2>
                     <?=$post['loker_description'];?>
                     <?php if($post['perusahaan_description'] != null):?>
@@ -102,14 +101,17 @@
                     <div class="nonloop-block-16 owl-carousel">
                     <?php foreach($sejenis as $terkait):?>
                         <div class="border rounded p-4 bg-white">
-                            <h2 class="h5"><a href="<?=base_url()?>lowongan/<?=str_replace(' ', '-',strtolower($terkait['perusahaan_name']))?>/<?=$terkait['permalink'];?>"><?=$terkait['title'];?></a></h2>
-                            <span class="d-block"><span class="icon-suitcase"></span> <?=$terkait['category_name'];?></span>
-                            <span class="d-block"><span class="icon-building"></span> <?=$terkait['perusahaan_name'];?></span>
-                            <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($terkait['kabupaten'])).', '.ucwords($terkait['provinsi']);?></span>
-                            <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
-                            </p>
-                            <p class="mb-0"><?=substr($terkait['loker_description'], 0, 100);?>...</p>
-                        </div>
+                        <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Lowongan <?=$terkait['title'];?></a></h3>
+                        <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($terkait['category_name']));?>" class="text-secondary"><?=$terkait['category_name'];?></a></span>
+                        <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($terkait['perusahaan_name']));?>" class="text-secondary"><?=$terkait['perusahaan_name'];?></a></span>
+                        <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($terkait['kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($terkait['kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($terkait['provinsi']));?>" class="text-secondary"><?=ucwords($terkait['provinsi']);?></a></span>
+                        <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
+                        </p>
+                        <p class="mb-0"><?=substr($terkait['loker_description'], 0, 80);?>...</p>
+                        <p>
+                            <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Baca Selengkapnya</a>
+                        </p>
+                    </div>
                     <?php endforeach;?>
                         <div class="border rounded p-4 bg-white">
                             
@@ -186,7 +188,7 @@
                         <div class="col-md-6 mb-3 mb-md-0">
                         <div class="input-wrap">
                             <span class="icon icon-room"></span>
-                        <input type="text" name="kota" class="form-control shadow form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="kabupaten atau kota" onFocus="geolocate()">
+                        <input type="text" name="kota" class="form-control shadow form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="kabupaten atau kota">
                         </div>
                         </div>
                     </div>
@@ -197,7 +199,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/category" class="category">Lihat Semua Kategori</a></p>
+                    <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category">Lihat Semua Kategori</a></p>
                     </div>
                 </div>
                 

@@ -14,6 +14,8 @@
                         </div>
                         <div class="py-3">
                             <small><a href="/">Home</a> / <a href="/page/<?=$post['permalink'];?>"><?=$post['title'];?></a> </small>
+                    <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->
+
                         </div>
                         <?=$post['content'];?>
                     </div>
@@ -30,16 +32,18 @@
                     </div>
 
                     <div class="nonloop-block-16 owl-carousel">
-                    <?php foreach($sejenis as $terkait):?>
+                    <?php foreach($sejenis as $new):?>
                         <div class="border rounded p-4 bg-white">
-                            <h2 class="h5"><a href="<?=base_url()?>lowongan/<?=str_replace(' ', '-',strtolower($terkait['perusahaan_name']))?>/<?=$terkait['permalink'];?>"><?=$terkait['title'];?></a></h2>
-                            <p><span class="border border-warning rounded p-1 px-2 text-warning"><?=$terkait['category_name'];?></span></p>
-                            <p>
-                            <span class="d-block"><span class="icon-building"></span> <?=$terkait['perusahaan_name'];?></span>
-                            <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($terkait['nama_kabupaten'])).', '.ucwords($terkait['nama_provinsi']);?></span>
+                            <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>">Lowongan <?=$new['title'];?></a></h3>
+                            <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($new['category_name']));?>" class="text-secondary"><?=$new['category_name'];?></a></span>
+                            <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($new['perusahaan_name']));?>" class="text-secondary"><?=$new['perusahaan_name'];?></a></span>
+                            <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($new['nama_kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($new['nama_kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($new['nama_provinsi']));?>" class="text-secondary"><?=ucwords($new['nama_provinsi']);?></a></span>
                             <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
                             </p>
-                            <p class="mb-0"><?=substr($terkait['loker_description'], 0, 250);?></p>
+                            <p class="mb-0"><?=substr($new['loker_description'], 0, 80);?>...</p>
+                            <p>
+                                <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>">Baca Selengkapnya</a>
+                            </p>
                         </div>
                     <?php endforeach;?>
                         <div class="border rounded p-4 bg-white">
@@ -56,7 +60,7 @@
         <div class="container">
             <div class="row align-items-center">
             <div class="col-12">
-                <h1 class="h4">Cari Lowongan Kerja</h1>
+                <h3 class="h4">Cari Lowongan Kerja</h3>
                 <form action="<?=base_url();?>job" method="post">
                 <div class="row mb-3">
                     <div class="col-md-9">
@@ -67,7 +71,7 @@
                         <div class="col-md-6 mb-3 mb-md-0">
                         <div class="input-wrap">
                             <span class="icon icon-room"></span>
-                        <input type="text" name="kota" class="form-control shadow form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="kabupaten atau kota" onFocus="geolocate()">
+                        <input type="text" name="kota" class="form-control shadow form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="kabupaten atau kota">
                         </div>
                         </div>
                     </div>
@@ -78,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/category" class="category">Lihat Semua Kategori</a></p>
+                    <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category">Lihat Semua Kategori</a></p>
                     </div>
                 </div>
                 
@@ -87,4 +91,4 @@
             </div>
         </div>
     </div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e9443acf4621e00127d1905&product=inline-share-buttons&cms=website' async='async'></script>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f3940ba404dcb001210cdc6&product=sop' async='async'></script>

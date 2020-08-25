@@ -28,7 +28,7 @@ class Home extends CI_Controller {
 			$data['sejenis'] = $this->mloker->get_by_category($data['post']['category_name']);
 			$data['description'] = 'Lowongan Kerja '.$data['post']['title'].' '.$data['post']['perusahaan_name'].' '.substr(strip_tags($data['post']['loker_description']), 0, 120);
 			$data['keyword'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'];
-			$this->theme->display_user('user/single', $data['post']['title'].' '.$data['post']['perusahaan_name'], $data);
+			$this->theme->display_user('user/single', 'Lowongan '.$data['post']['title'].' di '.$data['post']['perusahaan_name'], $data);
 		} 
 		// echo $permalink;
 	}

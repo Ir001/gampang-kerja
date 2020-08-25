@@ -15,7 +15,7 @@
                           </div>
                           <div class="h-100">
                               <div class="p-3 align-self-center">
-                                  <h3><?=$job['title'];?> - <?=$job['perusahaan_name'];?></h3>
+                                  <h3>Lowongan <?=$job['title'];?> di <?=$job['perusahaan_name'];?></h3>
                                   <div class="d-block d-lg-flex">
                                   <div class="mr-3"><span class="icon-suitcase mr-1"></span> <?=$job['category_name'];?></div>
                                   <div class="mr-3"><span class="icon-room mr-1"></span> <?=ucwords(strtolower($job['nama_kabupaten'])).', '.ucwords($job['nama_provinsi']);?></div>
@@ -37,21 +37,16 @@
 
                   <div class="nonloop-block-16 owl-carousel">
                       <?php foreach($terbaru as $new):?>
-                      <div class="border rounded p-4 bg-white">
-                          <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>"><?=$new['title'];?></a></h3>
-                          <span class="d-block"><span class="icon-suitcase"></span> <?=$new['category_name'];?></span>
-                          <span class="d-block"><span class="icon-building"></span> <?=$new['perusahaan_name'];?></span>
-                          <span class="d-block"><span class="icon-room"></span> <?=ucwords(strtolower($new['nama_kabupaten'])).', '.ucwords($new['nama_provinsi']);?></span>
+                        <div class="border rounded p-4 bg-white">
+                          <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>">Lowongan <?=$new['title'];?></a></h3>
+                          <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($new['category_name']));?>" class="text-secondary"><?=$new['category_name'];?></a></span>
+                          <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($new['perusahaan_name']));?>" class="text-secondary"><?=$new['perusahaan_name'];?></a></span>
+                          <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($new['nama_kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($new['nama_kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($new['nama_provinsi']));?>" class="text-secondary"><?=ucwords($new['nama_provinsi']);?></a></span>
                           <!-- <span class="d-block"><span class="icon-money mr-1"></span> <a href="/login" class="sm">Login untuk melihat gaji</a></span> -->
                           </p>
-                          <p class="mb-0">
-                              <?php 
-                                  $desciption=$new['loker_description'];
-                                  if(preg_match('/^.{1,90}\b/s', $new['loker_description'], $match)){
-                                      $desciption=$match[0];
-                                  }
-                                  echo $desciption.'...';
-                              ?>
+                          <p class="mb-0"><?=substr($new['loker_description'], 0, 80);?>...</p>
+                          <p>
+                              <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>">Baca Selengkapnya</a>
                           </p>
                       </div>
                       <?php endforeach;?>
@@ -77,7 +72,7 @@
                 <span class="d-block mb-3 text-primary">
                     <i class="icon <?=$cat['icon'];?>"></i>
                 </span>
-                <h2><?=$cat['category_name'];?></h2>
+                <h2>Lowongan <?=$cat['category_name'];?></h2>
                 <span class="counting"><?=$cat['total'];?></span>
                </a>
             </div>
