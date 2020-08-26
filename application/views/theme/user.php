@@ -33,6 +33,12 @@
         <meta content='<?=$this->config->item('yandex');?>' name='yandex-verification'/>
         <?php if($this->uri->segment(1) == 'lowongan'):?>
         <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+        <?php elseif($this->uri->segment(1) == 'perusahaan'):?>
+        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+        <?php elseif($this->uri->segment(1) == 'lokasi'):?>
+        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+        <?php elseif($this->uri->segment(1) == 'kategori'):?>
+        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
         <?php else:?>
         <title><?=$site_name;?> &mdash; <?=$tagline;?></title>
         <?php endif;?>

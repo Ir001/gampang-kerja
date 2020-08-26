@@ -11,9 +11,7 @@
                                 <h1 class="mr-3 text-black h4">Lowongan <?=$post['title']?> di <?=$post['perusahaan_name']?></h1>
                             </div>
                             <div class="job-post-item-body d-block d-md-flex"></div>
-                            <div class="py-3">
-                                <small><a href="<?=base_url()?>">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>"><?=$post['category_name'];?></a> / Lowongan <?=$post['title']?> di <?=$post['perusahaan_name'];?></small>
-                            </div>
+                            
                         </div>
                         <div class="col-md-4 text-sm-center">
                             <!-- GTranslate: https://gtranslate.io/ -->
@@ -25,8 +23,14 @@
                     </div>
                         
                     </div>
+                    <div class="pt-3">
+                        <span vocab="https://schema.org/" class="small"><a href="<?=base_url()?>" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>" ><?=$post['category_name'];?></a> / <?=$post['title']?></span>
+                    </div>
                     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->
-                    <h2 class="h5" id="deskripsi_pekerjaan">Deskripsi Pekerjaan</h2>
+                    <p>
+                        <a href="<?=base_url('perusahaan/').str_replace(' ','-', str_replace('.','', strtolower($post['perusahaan_name'])))?>"><?=$post['perusahaan_name'];?></a> membuka lowongan kerja <?=ucwords($post['title'])?> untuk ditempatkan di <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($post['kabupaten'])))?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, <?=ucwords($post['provinsi'])?>. Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
+                    </p>
+                    <h2 class="h5" id="deskripsi">Deskripsi</h2>
                     <?=$post['loker_description'];?>
                     <?php if($post['perusahaan_description'] != null):?>
                     <h2 class="h5" id="profile_perusahaan">Profile Perusahaan</h2>
@@ -82,7 +86,7 @@
                     <?=$post['alamat'];?>
                     <?php endif;?>
                     <p class="mt-2">
-                        Lowongan Kerja ini ditutup pada <b> <?=@$post['deadline_text'];?></b>
+                        Lowongan Kerja ini ditutup pada <b class="text-danger"><?=@$post['deadline_text'];?></b>
                     </p>
                     <p class="my-3">
                         <?php if(@$post['expired']):?>
@@ -91,7 +95,7 @@
                         <button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button>
                         <?php endif;?>
                     </p>
-                    <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b><?=$this->config->item('site_name');?></b> tidak dipungut biaya</p>
+                    <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b><?=$this->config->item('site_name');?></b> tidak dipungut biaya.</p>
                     </div>
             </div>
             <div class="col-lg-4">
