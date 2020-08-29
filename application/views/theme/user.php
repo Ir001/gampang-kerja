@@ -45,15 +45,27 @@
         <meta content='index, follow' name='robots'/>
         <meta name="keywords" content="<?=@$keyword ? $keyword : $this->config->item('keyword');?>">
         <meta name="description" content="<?=@$description ? $description : $this->config->item('description');?>">
-        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="id_ID" />
+        <?php if($this->uri->segment(1) == ''):?>
+            <meta property="og:type" content="website" />
+        <?php else:?>
+                <meta property="og:type" content="object" />
+        <?php endif;?>
+        <meta property="og:site_name" content="<?=$this->config->item('site_name');?>" />
         <meta property="og:url" content="<?=current_url()?>" />
         <meta property="og:title" content="<?=$site_name;?> &mdash; <?=$tagline;?>" />
         <meta property="og:description" content="<?=@$description ? $description : $this->config->item('description');?>">
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:description" content="<?=@$description ? $description : $this->config->item('description');?>" />
+        <meta name="twitter:title" content="<?=$site_name;?> &mdash; <?=$tagline;?>" />
+        <meta name="twitter:site" content="@lokerhubdotcom" />
         <?php if($this->uri->segment(1) == 'lowongan'):?>
-        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
-        <meta property="og:image" content="<?=$post['logo'];?> />
+            <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+            <meta property="og:image" content="<?=$post['logo'];?>"/>
+            <meta name="twitter:image" content="<?=$post['logo'];?>"/>
         <?php else:?>
-        <meta property="og:image" content="<?=base_url('assets/images/')?>hero_1.jpg" />
+                <meta property="og:image" content="<?=base_url('assets/images/')?>hero_1.jpg" />
+                <meta name="twitter:image" content="<?=base_url('assets/images/')?>hero_1.jpg"/>
         <?php endif;?>
         
         <!-- [ END Meta Tag SEO Valid HTML5] --> 
@@ -80,25 +92,49 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js" integrity="sha512-PNXCBnFH9wShbV+mYnrfo0Gf3iSREgBWmYAoMIfc+Z83vVq3Nu4yxBk6j+BZ40ZIhtW3WlTQdBvW3AYLAnlgpA==" crossorigin="anonymous"></script>
     <?php if($this->uri->segment(1) == 'lowongan'):?>
         <style type="text/css">
-            a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
-            a.gflag img {border:0;}
-            a.gflag:hover {background-image:url(//gtranslate.net/flags/16a.png);}
-            #goog-gt-tt {display:none !important;}
-            .goog-te-banner-frame {display:none !important;}
-            .goog-te-menu-value:hover {text-decoration:none !important;}
-            body {top:0 !important;}
-            #google_translate_element2 {display:none!important;}
+            a.gflag{vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png)}a.gflag img{border:0}a.gflag:hover{background-image:url(//gtranslate.net/flags/16a.png)}#goog-gt-tt{display:none!important}.goog-te-banner-frame{display:none!important}.goog-te-menu-value:hover{text-decoration:none!important}body{top:0!important}#google_translate_element2{display:none!important}
         </style>
-
-        
         <script type="text/javascript">
-        function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en',autoDisplay: false}, 'google_translate_element2');}
+        function googleTranslateElementInit2(){new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:!1},'google_translate_element2')}
         </script>
         <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
         <script type="text/javascript">
         /* <![CDATA[ */
         eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))
         /* ]]> */
+        </script>
+        <script type="application/ld+json">
+            {  
+                "@context": "http://schema.org",
+                "@type": "JobPosting", 
+                "datePosted": "<?=$post['posted_at']?>",
+                "description": "<p><?=$description;?></p>",
+                "jobBenefits": "<?=$post['tunjangan']?>",
+                "hiringOrganization": {
+                    "@type": "Organization",
+                    "name": "<?=$post['perusahaan_name']?>",
+                    "logo": "<?=$post['logo']?>"
+                },
+                "industry": "<?=$post['industri_name'];?>",
+                "jobLocation": {
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "<?=$post['alamat'];?>",
+                        "addressLocality": "<?=ucwords(strtolower($post['kabupaten']))?>",
+                        "addressRegion": "<?=ucwords($post['provinsi'])?>",
+                        "addressCountry": "ID"      
+                    }
+                }, 
+                "occupationalCategory": "<?=$post['category_name'];?>",
+                "responsibilities": "<?=strip_tags($post['loker_description']);?>",
+                "skills": "<?=strip_tags($post['loker_description']);?>",
+                "identifier": {
+                    "@type": "PropertyValue"
+                    "name": "<?=$post['perusahaan_name']?>",
+                },
+                "title": "<?=$tagline;?>"
+            }
         </script>
         <?php endif; ?>
         <?=$this->config->item('adsense');?>

@@ -89,7 +89,7 @@
             return $result[0]['allcount'];
         }
         public function get_by_perusahaan($rowno, $rowperpage, $perusahaan){
-            $this->db->select('loker.id, loker.permalink, loker.title, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri_name, perusahaan_name, perusahaan.logo');
+            $this->db->select('loker.id, loker.permalink, loker.title, category_name, kabupaten.nama as nama_kabupaten, provinsi.nama as nama_provinsi, industri.industri_name, perusahaan_name, perusahaan.logo');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');

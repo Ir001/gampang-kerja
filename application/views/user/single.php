@@ -24,11 +24,51 @@
                         
                     </div>
                     <div class="pt-3">
-                        <span vocab="https://schema.org/" class="small"><a href="<?=base_url()?>" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>" ><?=$post['category_name'];?></a> / <?=$post['title']?></span>
+                        <span class="small"><a href="<?=base_url()?>" id="breadcrumbs">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>" ><?=$post['category_name'];?></a> / <?=$post['title']?></span>
+                        <script type="application/ld+json">
+                            {
+                                "@context": "http://schema.org",
+                                "@type": "BreadcrumbList",
+                                "itemListElement":[
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 1,
+                                        "item":
+                                            {
+                                                "@id": "<?=base_url();?>",
+                                                "url": "<?=base_url();?>",
+                                                "name": "www.lokerhub.com"
+                                            }
+                                    },{
+                                        "@type": "ListItem",
+                                        "position": 2,
+                                        "item":
+                                        {
+                                            "@id": "<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>",
+                                            "url": "<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>",
+                                            "name": "<?=$post['perusahaan_name'];?>"
+                                        }
+                                    },{
+                                        "@type": "ListItem",
+                                        "position": 3,
+                                        "item":
+                                        {
+                                            "@id": "<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>",
+                                            "url": "<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>",
+                                            "name": "<?=$post['category_name'];?>"
+                                        }
+                                    },{
+                                        "@type": "ListItem",
+                                        "position": 4,
+                                        "name": "<?=$post['title']?>"
+                                        }			
+                                ]
+                            }
+                        </script>
                     </div>
                     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->
                     <p>
-                        <a href="<?=base_url('perusahaan/').str_replace(' ','-', str_replace('.','', strtolower($post['perusahaan_name'])))?>"><?=$post['perusahaan_name'];?></a> membuka lowongan kerja <?=ucwords($post['title'])?> untuk ditempatkan di <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($post['kabupaten'])))?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, <?=ucwords($post['provinsi'])?>. Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
+                        Telah dibuka lowongan kerja <?=$post['title']?> di <a href="<?=base_url('perusahaan/').str_replace(' ','-', str_replace('.','', strtolower($post['perusahaan_name'])))?>"><?=$post['perusahaan_name'];?></a> untuk ditempatkan di <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($post['kabupaten'])))?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, <?=ucwords($post['provinsi'])?>. Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
                     </p>
                     <h2 class="h5" id="deskripsi">Deskripsi</h2>
                     <?=$post['loker_description'];?>
@@ -40,6 +80,12 @@
                     <h2 class="h5" id="gambaran_perusahaan">Gambaran Perusahaan</h2>
                     <table class="table table-bordered">
                         <tbody>
+                            <?php if($post['industri_name'] != null):?>
+                            <tr>
+                                <td>Industri</td>
+                                <td><?=$post['industri_name'];?></td>
+                            </tr>
+                            <?php endif;?>
                             <?php if($post['website'] != null):?>
                             <tr>
                                 <td>Situs <?=$post['perusahaan_name'];?></td>
@@ -50,6 +96,12 @@
                             <tr>
                                 <td>Ukuran Perusahaan</td>
                                 <td><?=$post['ukuran_perusahaan'];?></td>
+                            </tr>
+                            <?php endif;?>
+                            <?php if($post['tunjangan'] != null):?>
+                            <tr>
+                                <td>Tunjangan</td>
+                                <td><?=$post['tunjangan'];?></td>
                             </tr>
                             <?php endif;?>
                             <?php if($post['bahasa'] != null):?>
@@ -96,7 +148,10 @@
                         <?php endif;?>
                     </p>
                     <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b><?=$this->config->item('site_name');?></b> tidak dipungut biaya.</p>
-                    </div>
+                    <p class="mt-2">
+                        Tags: Info loker <?=strtolower($post['kabupaten']);?>, lowongan <?=strtolower($post['title']);?>, info loker <?=strtolower($post['perusahaan_name']);?>
+                    </p>
+                </div>
             </div>
             <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">

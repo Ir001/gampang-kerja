@@ -80,7 +80,8 @@ class Home extends CI_Controller {
 		$data['category_name'] = $category;
 		$data['terbaru'] = $this->mpencarian->get();
         $data['category'] = $this->mloker->popular_category();
-        $data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Daftar Lowongan Kerja Disektor '.ucwords($category);
+        // $data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Daftar Lowongan Kerja Disektor '.ucwords($category);
+        $data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Berikut adalah daftar lowongan kerja sektor '.ucwords($category).' yang ada di Indonesia. Cari impian kerja Anda disini.';
 		$data['keyword'] = $data['description'].$this->config->item('keyword');
 		$data['title'] = $category == null ? 'Info Loker Diberbagai Sektor Industri' : 'Lowongan '.ucwords($category);
 		$this->theme->display_user('user/category', $data['title'], $data);
@@ -99,6 +100,7 @@ class Home extends CI_Controller {
 
 		// Get records
 		$users_record = $this->mpencarian->get_by_perusahaan($rowno,$rowperpage,$perusahaan);
+		$industri = $users_record[0]['industri_name'];
 		
 		// Pagination Configuration
 		$config['base_url'] = base_url('perusahaan/'.$permalink);
@@ -132,7 +134,8 @@ class Home extends CI_Controller {
 		$data['perusahaan_name'] = $perusahaan;
 		$data['terbaru'] = $this->mpencarian->get();
 		$data['category'] = $this->mloker->popular_category();
-		$data['description'] = 'Info Lowongan Kerja '.strtoupper($perusahaan).' terbaru.';
+		// $data['description'] = 'Info Lowongan Kerja '.strtoupper($perusahaan).' terbaru.';
+		$data['description'] = 'Berikut kami sajikan info lowongan kerja di '.strtoupper($perusahaan).' pada industri '.$industri.'. Temukan impian karir Anda disini.';
 		$data['keyword'] = 'Lowongan Kerja '.$perusahaan.', '.$this->config->item('site_name');
 		$this->theme->display_user('user/perusahaan', 'Lowongan Kerja di '.strtoupper($perusahaan), $data);
 	}
