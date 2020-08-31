@@ -20,7 +20,6 @@
         <link rel="icon" type="image/png" sizes="96x96" href="<?=base_url('assets/')?>favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url('assets/')?>favicon-16x16.png">
         <link rel="manifest" href="<?=base_url('assets/')?>manifest.json">
-        <link href='//www.sharethis.com' rel='dns-prefetch'/>
         <meta name="msapplication-TileColor" content="#28a745">
         <meta name="msapplication-TileImage" content="<?=base_url('assets/')?>ms-icon-144x144.png">
         <meta name="theme-color" content="#28a745">
@@ -32,6 +31,7 @@
         <meta content='<?=$this->config->item('dmca');?>' name='dmca-site-verification'/>
         <meta content='<?=$this->config->item('yandex');?>' name='yandex-verification'/>
         <?php if($this->uri->segment(1) == 'lowongan'):?>
+        <link href='//www.sharethis.com' rel='dns-prefetch'/>
         <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
         <?php elseif($this->uri->segment(1) == 'perusahaan'):?>
         <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
@@ -47,12 +47,14 @@
         <meta name="description" content="<?=@$description ? $description : $this->config->item('description');?>">
         <meta property="og:locale" content="id_ID" />
         <?php if($this->uri->segment(1) == ''):?>
-            <meta property="og:type" content="website" />
+        <meta property="og:type" content="website" />
+        <?php elseif(($this->uri->segment(1) == 'lowongan')):?>
+        <meta property="og:type" content="article" />
         <?php else:?>
-                <meta property="og:type" content="object" />
+        <meta property="og:type" content="object" />
         <?php endif;?>
         <meta property="og:site_name" content="<?=$this->config->item('site_name');?>" />
-        <meta property="og:url" content="<?=current_url()?>" />
+        <meta property="og:url" content="<?=base_url(uri_string())?>" />
         <meta property="og:title" content="<?=$site_name;?> &mdash; <?=$tagline;?>" />
         <meta property="og:description" content="<?=@$description ? $description : $this->config->item('description');?>">
         <meta name="twitter:card" content="summary" />
@@ -60,20 +62,20 @@
         <meta name="twitter:title" content="<?=$site_name;?> &mdash; <?=$tagline;?>" />
         <meta name="twitter:site" content="@lokerhubdotcom" />
         <?php if($this->uri->segment(1) == 'lowongan'):?>
-            <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
-            <meta property="og:image" content="<?=$post['logo'];?>"/>
-            <meta name="twitter:image" content="<?=$post['logo'];?>"/>
+        <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
+        <meta property="og:image" content="<?=$post['logo'];?>"/>
+        <meta name="twitter:image" content="<?=$post['logo'];?>"/>
         <?php else:?>
-                <meta property="og:image" content="<?=base_url('assets/images/')?>hero_1.jpg" />
-                <meta name="twitter:image" content="<?=base_url('assets/images/')?>hero_1.jpg"/>
+        <meta property="og:image" content="<?=base_url('assets/images/')?>hero_1.jpg" />
+        <meta name="twitter:image" content="<?=base_url('assets/images/')?>hero_1.jpg"/>
         <?php endif;?>
-        
+        <meta property="og:image:width" content="600">
+        <meta property="og:image:height" content="600">
+        <meta property="og:image:type" content="image/jpg" />        
         <!-- [ END Meta Tag SEO Valid HTML5] --> 
-
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="<?=base_url('assets/')?>fonts/icomoon/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-        <!-- <link rel="stylesheet" href="<?=base_url('assets/')?>css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha512-iQQV+nXtBlmS3XiDrtmL+9/Z+ibux+YuowJjI4rcpO7NYgTzfTOiFNm09kWtfZzEB9fQ6TwOVc8lFVWooFuD/w==" crossorigin="anonymous" />
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" integrity="sha512-GqP/pjlymwlPb6Vd7KmT5YbapvowpteRq9ffvufiXYZp0YpMTtR9tI6/v3U3hFi1N9MQmXum/yBfELxoY+S1Mw==" crossorigin="anonymous" />
@@ -91,7 +93,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js" integrity="sha512-PNXCBnFH9wShbV+mYnrfo0Gf3iSREgBWmYAoMIfc+Z83vVq3Nu4yxBk6j+BZ40ZIhtW3WlTQdBvW3AYLAnlgpA==" crossorigin="anonymous"></script>
-    <?php if($this->uri->segment(1) == 'lowongan'):?>
+        <?php if($this->uri->segment(1) == 'lowongan'):?>
         <style type="text/css">
             a.gflag{vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png)}a.gflag img{border:0}a.gflag:hover{background-image:url(//gtranslate.net/flags/16a.png)}#goog-gt-tt{display:none!important}.goog-te-banner-frame{display:none!important}.goog-te-menu-value:hover{text-decoration:none!important}body{top:0!important}#google_translate_element2{display:none!important}
         </style>
