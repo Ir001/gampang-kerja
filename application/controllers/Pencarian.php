@@ -50,7 +50,8 @@ class Pencarian extends CI_Controller {
                 $config['last_tagl_close']  = '</span></li>';
                 // Initialize
                 $this->pagination->initialize($config);
-                // Data                
+                // Data
+                $data['canonical'] = base_url('job');                
                 $data['pagination'] = $this->pagination->create_links();
                 $data['result'] = $users_record;
                 $data['row'] = $rowno;

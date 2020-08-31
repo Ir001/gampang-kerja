@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-        <link href='<?=base_url(uri_string())?>' rel='canonical'/>
+        <link href='<?=@$canonical ? $canonical : base_url(uri_string());?>' rel='canonical'/>
         <link href='<?=base_url('assets/')?>favicon.ico' rel='image_src'/>
         <link rel="apple-touch-icon" sizes="57x57" href="<?=base_url('assets/')?>apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?=base_url('assets/')?>apple-icon-60x60.png">
@@ -63,8 +63,8 @@
         <meta name="twitter:site" content="@lokerhubdotcom" />
         <?php if($this->uri->segment(1) == 'lowongan'):?>
         <title><?=$tagline;?> &mdash; <?=$site_name;?></title>
-        <meta property="og:image" content="<?=$post['logo'];?>"/>
-        <meta name="twitter:image" content="<?=$post['logo'];?>"/>
+        <meta property="og:image" content="<?=@$post['logo'];?>"/>
+        <meta name="twitter:image" content="<?=@$post['logo'];?>"/>
         <?php else:?>
         <meta property="og:image" content="<?=base_url('assets/images/')?>hero_1.jpg" />
         <meta name="twitter:image" content="<?=base_url('assets/images/')?>hero_1.jpg"/>

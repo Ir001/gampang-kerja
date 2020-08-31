@@ -30,7 +30,7 @@
                                             "url": "<?=base_url('lokasi');?>",
                                             "name": "Lokasi"
                                         }
-                                    }{
+                                    },{
                                         "@type": "ListItem",
                                         "position": 3,
                                         "name": "<?=ucwords($lokasi);?>"

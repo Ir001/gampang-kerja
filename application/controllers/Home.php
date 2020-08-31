@@ -11,6 +11,7 @@ class Home extends CI_Controller {
 
 	}
 	public function index(){
+		$data['canonical'] = base_url();
         $data['result'] = $this->mpencarian->get();
         $data['terbaru'] = $this->mpencarian->get(8,4);
         $data['category'] = $this->mloker->popular_category();
@@ -19,19 +20,20 @@ class Home extends CI_Controller {
 	public function post($perusahaan=null, $permalink=null){
 		$this->load->library('Tanggal');
 		$check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();
-		if ($check >= 1) {
-			// $data['post'] = $this->crud->detail('loker', ['permalink'=> $permalink])->row_array();
-			
+		if ($check >= 1) {			
 			$data['post'] = $this->mloker->get($permalink);
 			$data['post']['posted_text'] = $this->tanggal->to_indonesia($data['post']['posted_at']);
 			$data['post']['deadline_text'] = $this->tanggal->to_indonesia($data['post']['deadline']);
 			$data['post']['expired'] = new DateTime() > new DateTime($data['post']['deadline']) ? true:false;
 			$data['sejenis'] = $this->mloker->get_by_category($data['post']['category_name']);
-			$data['description'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'].' ('.$data['post']['kabupaten'].') '.substr(strip_tags($data['post']['loker_description']), 0, 120);
+			$data['description'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'].' ('.$data['post']['kabupaten'].') '.substr(strip_tags($data['post']['loker_description']), 0, 85);
 			$data['keyword'] = 'Lowongan Kerja '.$data['post']['title'].' di '.$data['post']['perusahaan_name'].', Lowongan '.$data['post']['category_name'].', Lowongan kerja '.$data['post']['kabupaten'].', '.$this->config->item('keyword');
 			$this->theme->display_user('user/single', 'Lowongan '.$data['post']['title'].' di '.$data['post']['perusahaan_name'], $data);
-		} 
-		// echo $permalink;
+		}else{
+			$data = array();
+			$this->output->set_status_header('404');
+			$this->theme->display_user('user/404', 'Halaman tidak ditemukan', $data);
+		}
 	}
 	public function category($category=null, $rowno=0){
 		$permalink = $category;
@@ -73,7 +75,8 @@ class Home extends CI_Controller {
 		$config['last_tagl_close']  = '</span></li>';
 		// Initialize
 		$this->pagination->initialize($config);
-		// Data                
+		// Data
+		$data['canonical'] = base_url($permalink);                
 		$data['pagination'] = $this->pagination->create_links();
 		$data['result'] = $users_record;
 		$data['row'] = $rowno;
@@ -100,7 +103,7 @@ class Home extends CI_Controller {
 
 		// Get records
 		$users_record = $this->mpencarian->get_by_perusahaan($rowno,$rowperpage,$perusahaan);
-		$industri = $users_record[0]['industri_name'];
+		$industri = @$users_record[0]['industri_name'];
 		
 		// Pagination Configuration
 		$config['base_url'] = base_url('perusahaan/'.$permalink);
@@ -127,7 +130,8 @@ class Home extends CI_Controller {
 		$config['last_tagl_close']  = '</span></li>';
 		// Initialize
 		$this->pagination->initialize($config);
-		// Data                
+		// Data
+		$data['canonical'] = base_url($permalink);                    
 		$data['pagination'] = $this->pagination->create_links();
 		$data['result'] = $users_record;
 		$data['row'] = $rowno;
@@ -179,7 +183,8 @@ class Home extends CI_Controller {
 		$config['last_tagl_close']  = '</span></li>';
 		// Initialize
 		$this->pagination->initialize($config);
-		// Data                
+		// Data
+		$data['canonical'] = base_url($permalink);                    
 		$data['pagination'] = $this->pagination->create_links();
 		$data['result'] = $users_record;
 		$data['row'] = $rowno;
@@ -194,6 +199,7 @@ class Home extends CI_Controller {
 		$permalink = htmlspecialchars($permalink);
 		$check = $this->mloker->get_page_num($permalink);
 		if($check > 0){
+			$data['canonical'] = base_url($permalink);    
 			$data['post'] = $this->mloker->get_page($permalink);
 			$data['sejenis'] = $this->mpencarian->get();
 			$data['description'] = substr(strip_tags($data['post']['content']),0,120);

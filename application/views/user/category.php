@@ -30,7 +30,7 @@
                                             "url": "<?=base_url('kategori');?>",
                                             "name": "Kategori"
                                         }
-                                    }{
+                                    },{
                                         "@type": "ListItem",
                                         "position": 3,
                                         "name": "<?=strtoupper($category_name);?>"

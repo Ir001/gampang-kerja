@@ -3,12 +3,14 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <h1 class="h1">
-                Error 404
+                404
             </h1>
-            <p>
+            <p class="text-secondary">
                 Halaman tidak ditemukan
+                
             </p>
-            <a href="<?=base_url()?>" class="mx-auto btn btn-primary btn-sm">Go to Home</a>
+            <p class="small">Sepertinya halaman yang Anda cari telah dihapus atau tidak ditemukan.</p>
+            <a href="<?=base_url()?>" class="mx-auto btn btn-success btn-sm">Go to Home</a>
         </div>
     </div>
 </div>
@@ -33,15 +35,9 @@
                 </div>
                 </div>
                 <div class="col-md-3">
-                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
+                    <input type="submit" class="btn btn-search btn-success btn-block" value="Cari">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                <p class="small">atau cari berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak');?>" class="category">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/manufaktur');?>" class="category">Manufaktur</a>, <a href="<?=base_url('kategori');?>" class="category">Lihat Semua Kategori</a></p>
-                </div>
-            </div>
-            
+            </div>            
             </form>
         </div>
         </div>
