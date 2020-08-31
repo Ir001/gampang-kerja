@@ -5,8 +5,40 @@
         <div class="container">
             <div class="row">
               <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                  <h2 class="h3" id="#lowongan">Loker <?=ucwords($lokasi);?></h2>
-                  <p><small>Info Lowongan kerja di <?=strtoupper($lokasi);?></small></p>
+                  <h1 class="h3" id="#lowongan">Info Loker <?=ucwords($lokasi);?></h1>
+                  <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('lokasi')?>" class="text-secondary">Lokasi</a> / <?=strtoupper($lokasi);?></span>
+                        <script type="application/ld+json">
+                            {
+                                "@context": "http://schema.org",
+                                "@type": "BreadcrumbList",
+                                "itemListElement":[
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 1,
+                                        "item":
+                                            {
+                                                "@id": "<?=base_url();?>",
+                                                "url": "<?=base_url();?>",
+                                                "name": "www.lokerhub.com"
+                                            }
+                                    },{
+                                        "@type": "ListItem",
+                                        "position": 2,
+                                        "item":
+                                        {
+                                            "@id": "<?=base_url('lokasi');?>",
+                                            "url": "<?=base_url('lokasi');?>",
+                                            "name": "Lokasi"
+                                        }
+                                    }{
+                                        "@type": "ListItem",
+                                        "position": 3,
+                                        "name": "<?=ucwords($lokasi);?>"
+                                    }			
+                                ]
+                            }
+                        </script>
+                  <p><small>Berikut adalah daftar lowongan kerja di <?=strtoupper($lokasi);?></small></p>
                   <div class="rounded border jobs-wrap">
                       <?php $i=0; foreach($result as $job):?> 
                         <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
@@ -26,8 +58,10 @@
                       <?php $i++; endforeach;?>
                   </div>
                     <?php if($i == 0):?>
-                        <h2 class="h6 mt-2">Mohon Maaf Lowongan Kerja di <?=ucwords($lokasi);?> belum tersedia untuk sementara waktu. Harap periksa kembali secara berkala.</h2>
-                        <a href="<?=base_url('job');?>" class="btn btn-success btn-sm"><i class="fa fa-xs fa-arrow-left"></i> Cari Lowongan Kerja</a>
+                        <div class="text-center">
+                            <h2 class="h6 mt-2">Mohon Maaf Lowongan Kerja di <?=ucwords($lokasi);?> belum tersedia untuk sementara waktu. Harap periksa kembali secara berkala.</h2>
+                            <a href="<?=base_url('job');?>" class="btn btn-success btn-sm"><i class="fa fa-xs fa-arrow-left"></i> Cari Lowongan Kerja</a>
+                        </div>
                     <?php endif;?>
                   <div class="col-md-12 text-center mt-5">
                   <?=$pagination;?>
@@ -36,13 +70,13 @@
               <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
                   <div class="d-flex mb-0">
                   <h2 class="mb-5 h3 mb-0">Lowongan Terbaru</h2>
-                  <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next">Next</a></div>
+                  <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-success">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-success">Next</a></div>
                   </div>
 
                   <div class="nonloop-block-16 owl-carousel">
                       <?php foreach($terbaru as $new):?>
                         <div class="border rounded px-4 pt-3 bg-white">
-                            <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>">Lowongan <?=$new['title'];?></a></h3>
+                            <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>" class="text-success">Lowongan <?=$new['title'];?></a></h3>
                             <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($new['category_name']));?>" class="text-secondary"><?=$new['category_name'];?></a></span>
                             <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($new['perusahaan_name']));?>" class="text-secondary"><?=$new['perusahaan_name'];?></a></span>
                             <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($new['nama_kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($new['nama_kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($new['nama_provinsi']));?>" class="text-secondary"><?=ucwords($new['nama_provinsi']);?></a></span>
@@ -50,7 +84,7 @@
                             </p>
                             <p class="mb-0"><?=substr(strip_tags($new['loker_description']), 0, 80);?>...</p>
                             <p>
-                                <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>">Baca Selengkapnya</a>
+                                <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $new['perusahaan_name'])).'/'.$new['permalink'];?>" class="text-success">Baca Selengkapnya</a>
                             </p>
                         </div>
                       <?php endforeach;?>
@@ -83,12 +117,7 @@
                     </div>
                     </div>
                     <div class="col-md-3">
-                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                    <p class="small">atau cari berdasarkan kategori: <a href="#" class="category">Teknik Informasi</a>, <a href="#" class="category">Sales Marketing</a>, <a href="/kategori" class="category">Lihat Semua Kategori</a></p>
+                    <input type="submit" class="btn btn-search btn-success btn-block" value="Cari">
                     </div>
                 </div>
                 

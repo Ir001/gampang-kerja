@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-        <link href='<?=current_url()?>' rel='canonical'/>
+        <link href='<?=base_url(uri_string())?>' rel='canonical'/>
         <link href='<?=base_url('assets/')?>favicon.ico' rel='image_src'/>
         <link rel="apple-touch-icon" sizes="57x57" href="<?=base_url('assets/')?>apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?=base_url('assets/')?>apple-icon-60x60.png">
@@ -73,7 +73,8 @@
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="<?=base_url('assets/')?>fonts/icomoon/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-        <link rel="stylesheet" href="<?=base_url('assets/')?>css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="<?=base_url('assets/')?>css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha512-iQQV+nXtBlmS3XiDrtmL+9/Z+ibux+YuowJjI4rcpO7NYgTzfTOiFNm09kWtfZzEB9fQ6TwOVc8lFVWooFuD/w==" crossorigin="anonymous" />
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" integrity="sha512-GqP/pjlymwlPb6Vd7KmT5YbapvowpteRq9ffvufiXYZp0YpMTtR9tI6/v3U3hFi1N9MQmXum/yBfELxoY+S1Mw==" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" integrity="sha512-GQz6nApkdT7cWN1Cnj/DOAkyfzNOoq+txIhSEK1G4HTCbSHVGpsrvirptbAP60Nu7qbw0+XlAAPGUmLU2L5l4g==" crossorigin="anonymous" />
@@ -130,8 +131,8 @@
                 "responsibilities": "<?=strip_tags($post['loker_description']);?>",
                 "skills": "<?=strip_tags($post['loker_description']);?>",
                 "identifier": {
-                    "@type": "PropertyValue"
-                    "name": "<?=$post['perusahaan_name']?>",
+                    "@type": "PropertyValue",
+                    "name": "<?=$post['perusahaan_name']?>"
                 },
                 "title": "<?=$tagline;?>"
             }
@@ -149,8 +150,6 @@
         </div>
         <div class="site-mobile-menu-body"></div>
         </div> <!-- .site-mobile-menu -->
-        
-        
         <div class="site-navbar-wrap js-site-navbar bg-white">        
             <div class="container">
                 <div class="site-navbar bg-light">
@@ -230,7 +229,7 @@
 
                                 </ul>
                             </li>
-                            <li><a href="<?=base_url('job');?>"><span class="bg-primary text-white py-3 px-4 rounded">Cari</a></li>
+                            <li><a href="<?=base_url('job');?>"><span class="bg-success text-white py-3 px-4 rounded">Cari</a></li>
                             </ul>
                         </div>
                         </nav>
@@ -288,8 +287,8 @@
                         <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
                         <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a>
                         <a href="https://www.instagram.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-instagram"></span></a>
-
-                        </p>
+                        <a href="//www.dmca.com/Protection/Status.aspx?ID=4b8fd623-5e74-4ed9-8e57-e32d078b307f" rel="nofollow" target="_blank" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-08.png?ID=4b8fd623-5e74-4ed9-8e57-e32d078b307f"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>    
+                    </p>
                     </div>
                 </div>
                 </div>

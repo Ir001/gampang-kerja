@@ -24,7 +24,7 @@
                         
                     </div>
                     <div class="pt-3">
-                        <span class="small"><a href="<?=base_url()?>" id="breadcrumbs">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>" ><?=$post['category_name'];?></a> / <?=$post['title']?></span>
+                        <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>" class="text-secondary"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>" class="text-secondary"><?=$post['category_name'];?></a> / <?=$post['title']?></span>
                         <script type="application/ld+json">
                             {
                                 "@context": "http://schema.org",
@@ -144,7 +144,7 @@
                         <?php if(@$post['expired']):?>
                         <button id="btn-lamar" class="btn btn-danger py-2 px-4 disabled">Lamaran ditutup</button>
                         <?php else:?>
-                        <button id="btn-lamar" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button>
+                        <button id="btn-lamar" class="btn btn-success py-2 px-4">Lamar Kerjaan</button>
                         <?php endif;?>
                     </p>
                     <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b><?=$this->config->item('site_name');?></b> tidak dipungut biaya.</p>
@@ -160,13 +160,13 @@
                 <div class="col-md-12 block-16" data-aos="fade-up" data-aos-delay="200">
                     <div class="d-flex mb-0">
                     <h2 class="mb-5 h3 mb-0">Lowongan Kerja Sejenis</h2>
-                    <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next">Next</a></div>
+                    <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-success">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-success">Next</a></div>
                     </div>
 
                     <div class="nonloop-block-16 owl-carousel">
                     <?php foreach($sejenis as $terkait):?>
                         <div class="border rounded px-4 pt-3 bg-white">
-                            <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Lowongan <?=$terkait['title'];?></a></h3>
+                            <h3 class="h5"><a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>" class="text-success">Lowongan <?=$terkait['title'];?></a></h3>
                             <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($terkait['category_name']));?>" class="text-secondary"><?=$terkait['category_name'];?></a></span>
                             <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($terkait['perusahaan_name']));?>" class="text-secondary"><?=$terkait['perusahaan_name'];?></a></span>
                             <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($terkait['kabupaten'])));?>" class="text-secondary"><?=ucwords(strtolower($terkait['kabupaten']));?></a>, <a href="<?=base_url('lokasi/').str_replace(' ','-', strtolower($terkait['provinsi']));?>" class="text-secondary"><?=ucwords($terkait['provinsi']);?></a></span>
@@ -174,7 +174,7 @@
                             </p>
                             <p class="mb-0"><?=substr(strip_tags($terkait['loker_description']), 0, 80);?>...</p>
                             <p>
-                                <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>">Baca Selengkapnya</a>
+                                <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $terkait['perusahaan_name'])).'/'.$terkait['permalink'];?>" class="text-success">Baca Selengkapnya</a>
                             </p>
                         </div>
                     <?php endforeach;?>
@@ -259,12 +259,12 @@
                     </div>
                     </div>
                     <div class="col-md-3">
-                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
+                    <input type="submit" class="btn btn-search btn-success btn-block" value="Cari">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category">Lihat Semua Kategori</a></p>
+                    <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category text-success">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category text-success">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category text-success">Lihat Semua Kategori</a></p>
                     </div>
                 </div>
                 

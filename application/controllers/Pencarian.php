@@ -54,11 +54,12 @@ class Pencarian extends CI_Controller {
                 $data['pagination'] = $this->pagination->create_links();
                 $data['result'] = $users_record;
                 $data['row'] = $rowno;
-                $data['search'] = $q;
-                $data['kota'] = $kota;
+                $data['search'] = strtolower($q);
+                $data['kota'] = strtolower($kota);
                 $data['terbaru'] = $this->mpencarian->get();
                 // Load view
-                $this->theme->display_user('user/list', 'Hasil Pencarian '.$q. 'di Kota '.$kota, $data);
+                $tagline = $q != '' ? 'Hasil Pencarian '.strtolower($q) : 'Cari Lowongan Kerja Impian Anda';
+                $this->theme->display_user('user/list', $tagline, $data);
 	}
 	public function post($perusahaan=null, $permalink=null){
 	        $check = $this->crud->detail('loker', ['permalink'=> $permalink])->num_rows();
