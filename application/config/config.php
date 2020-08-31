@@ -32,7 +32,7 @@ $config['keyword'] = 'lokerhub.com, lokerhub, lokerhub, loker, info loker, lowon
 $config['description'] = 'LokerHub adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di Indonesia';
 $config['google_search_console'] = 'HL5etQK7pdkHsLPcNROk-rlZ5NdHacBg0S7Mz45aHKA';
 $config['dmca'] = '';
-$config['yandex'] = '';
+$config['yandex'] = '6cc227ffddc6886d';
 
 /*
 |--------------------------------------------------------------------------
