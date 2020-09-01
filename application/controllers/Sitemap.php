@@ -7,7 +7,12 @@ class Sitemap extends CI_Controller {
 		$this->load->model('msitemap');
     }
     public function index(){
-        redirect(base_url('page/sitemap'));
+        header('Content-type:application/xml');
+        $this->load->view('sitemap/sitemap');
+    }
+    public function page(){
+        header('Content-type:application/xml');
+        $this->load->view('sitemap/page');
     }
 	public function post($page=1){
         $limit = 49000; 
