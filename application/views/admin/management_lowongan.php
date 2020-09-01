@@ -82,7 +82,7 @@
                 return html;
             }}
         ],
-        order: [[0, 'asc']],
+        order: [[6, 'desc']],
         "fnDrawCallback": function( oSettings ) {
             $('.btn-edit').click(function(){
                 var id = $(this).attr('data-id');
@@ -114,6 +114,8 @@
         'columnDefs': [ {
             'targets': [1,2,3,4], /* column index */
             'orderable': false, /* true or false */
+            "width": "18%",
+            "targets": 6 
         }],
     });
     $('#filter_kategori').change(function(){

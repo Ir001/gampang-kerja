@@ -52,6 +52,7 @@ class Pencarian extends CI_Controller {
                 $this->pagination->initialize($config);
                 // Data
                 $data['canonical'] = base_url('job');                
+                $data['description'] = 'Portal informasi lowongan kerja industri di Indonesia. Anda dapat menemukan banyak info loker yang tersedia dari berbagai perusahaan (startup, manufaktur, dan lainnya).';                
                 $data['pagination'] = $this->pagination->create_links();
                 $data['result'] = $users_record;
                 $data['row'] = $rowno;

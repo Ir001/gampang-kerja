@@ -7,7 +7,7 @@ class Manager extends CI_Controller {
         parent::__construct();
         $this->load->model('mlogin');
         $this->load->model('crud');
-        $this->info_user();
+        $this->info_user(); 
 	}
 	public function index(){
 		$this->theme->display_admin('admin/dashboard', 'Dashboard');
@@ -73,7 +73,6 @@ class Manager extends CI_Controller {
             $this->user = $data;
         endif;
     }
-    // pub
     public function logout(){
         unset($_SESSION['admin']);
         redirect('/admin/login');

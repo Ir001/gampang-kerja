@@ -25,7 +25,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for=""><a href="<?=base_url('manager/perusahaan');?>" target="_blank">Perusahaan</a></label>
-                                    <select name="perusahaan_id" class="form-control" required>
+                                    <select name="perusahaan_id" class="form-control" id="perusahaan_id" required>
                                         <option value="1" selected hidden>Pilih Perusahaan</option>
                                         <?php foreach($perusahaan as $company): ;?>
                                             <option value="<?=$company['id'];?>" <?=$postingan['perusahaan_id'] == $company['id'] ? 'selected':'';?>><?=$company['perusahaan_name'];?></option>
@@ -88,6 +88,9 @@
     </div>
 </div>
 <script>
+    $('#perusahaan_id').select2({
+        theme : 'bootstrap',
+    });
     $('#select_prov').select2({
         theme : 'bootstrap',
     });

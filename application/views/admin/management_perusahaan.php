@@ -6,6 +6,9 @@
                     <button class="btn btn-sm btn-primary"  data-toggle="modal" data-target="#modal_tambah_baru">
                         Tambah Perusahaan
                     </button>
+                    <a href="<?=base_url('manager/loker/new')?>" target="_blank" class="btn btn-sm btn-info"  data-toggle="modal" data-target="#modal_tambah_baru">
+                        Buat Lowongan Baru
+                    </a>
                 </div>
                 <div class="table-responsive">
                     <table id="tbl_perusahaan" class="table table-bordered table-hover">
@@ -203,7 +206,7 @@
                 return html;
             }}
         ],
-        order: [[0, 'asc']],
+        order: [[3, 'desc']],
         "fnDrawCallback": function( oSettings ) {
             $('.btn-edit').click(function(){
                 var id = $(this).attr('data-id');

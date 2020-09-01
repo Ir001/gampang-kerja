@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/manager/pekerja" class="nav-link <?=strtolower($menu['text']) == 'pencari kerja' ? 'active' : '' ;?>">
+                            <a href="#" class="nav-link <?=strtolower($menu['text']) == 'pencari kerja' ? 'active' : '' ;?>">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Pencari Kerja</p>
                             </a>
