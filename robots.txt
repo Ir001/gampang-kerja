@@ -1,6 +1,4 @@
-Sitemap: https://www.lokerhub.com/sitemap/1/post.xml
-Sitemap: https://www.lokerhub.com/sitemap/1/company.xml
-Sitemap: https://www.lokerhub.com/sitemap/category.xml
+Sitemap: https://www.lokerhub.com/sitemap.xml
 
 User-agent: Googlebot
 Disallow: /assets
