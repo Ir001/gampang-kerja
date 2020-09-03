@@ -7,26 +7,20 @@
               <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
                   <h2 class="h3" id="#lowongan">Lowongan <?=ucwords($perusahaan_name);?></h2>
                   <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <?=strtoupper($perusahaan_name);?></span>
-                        <script type="application/ld+json">
+                    <script type="application/ld+json">
                             {
-                                "@context": "http://schema.org",
+                                "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
-                                "itemListElement":[
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 1,
-                                        "item":
-                                            {
-                                                "@id": "<?=base_url();?>",
-                                                "url": "<?=base_url();?>",
-                                                "name": "www.lokerhub.com"
-                                            }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 2,
-                                        "name": "<?=strtoupper($perusahaan_name);?>"
-                                    }			
-                                ]
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "www.lokerhub.com",
+                                    "item": "<?=base_url();?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "<?=strtoupper($perusahaan_name);?>"
+                                }]
                             }
                         </script>
                   <p><small>Berikut adalah informasi lowongan kerja di <b><?=strtoupper($perusahaan_name);?></b></small></p>
@@ -34,7 +28,7 @@
                       <?php foreach($result as $job):?>
                         <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                           <div class="company-logo blank-logo text-center text-md-left pl-3">
-                              <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
+                              <img data-src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="lazy img-fluid mx-auto">
                           </div>
                           <div class="h-100">
                               <div class="p-3 align-self-center">

@@ -29,8 +29,7 @@
                     <div class="col-md-12">
                     <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category text-success">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category text-success">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category text-success">Lihat Semua Kategori</a></p>
                     </div>
-                </div>
-                
+                </div>                
                 </form>
             </div>
             </div>
@@ -42,11 +41,27 @@
             <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="h3" id="#lowongan"><?=$_SESSION['q'] == null && $_SESSION['kota'] == null ? 'Info Lowongan Kerja' : 'Hasil Pencarian'; ?></h2>
                 <p><small>Berikut adalah <?=$_SESSION['q'] == null && $_SESSION['kota'] == null ? 'informasi' : 'hasil pencarian'; ?> lowongan kerja <?=@$search != null ? ucwords(htmlspecialchars($search)) : '';?> di <?=@$kota != null ? ucwords(htmlspecialchars($kota)) : 'Indonesia';?></small></p>
+                        <script type="application/ld+json">
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "www.lokerhub.com",
+                                    "item": "<?=base_url();?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Cari Lowongan Kerja"
+                                }]
+                            }
+                        </script>
                 <div class="rounded border jobs-wrap">
                     <?php $i=0; foreach($result as $job):?>
                     <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                         <div class="company-logo blank-logo text-center text-md-left pl-3">
-                            <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
+                            <img data-src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="lazy img-fluid mx-auto">
                         </div>
                         <div class="h-100">
                             <div class="p-3 align-self-center">

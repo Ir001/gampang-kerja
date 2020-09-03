@@ -1,6 +1,6 @@
 
         <div style="height: 120px;"></div>
-        <div class="site-blocks-cover overlay" style="background: url('<?=base_url('assets/');?>images/hero_1.jpg') center center fixed;" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="site-blocks-cover overlay" style="background: url('<?=base_url('assets/');?>images/hero_1.jpg') center center fixed;">
         <div class="container">
             <div class="row align-items-center">
             <div class="col-md-12 py-3">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                 <?php foreach($category as $cat):?>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                         <a href="<?=base_url('kategori/');?><?=str_replace(' ', '-', strtolower($cat['category_name']));?>" class="h-100 feature-item">
                         <span class="d-block mb-3 text-success">
                             <i class="icon <?=$cat['icon'];?>"></i>
@@ -58,13 +58,13 @@
         <div class="py-5 bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-md-8">
                         <h2 class="mb-5 h3">Lowongan Kerja Terbaru <?=date('Y');?></h2>
                         <div class="rounded border jobs-wrap">
                             <?php foreach($result as $job):?>
                             <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                                 <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                    <img src="<?=$job['logo'];?>" alt="Logo <?=$job['perusahaan_name'];?>" title="Logo <?=$job['perusahaan_name'];?>" class="img-fluid mx-auto">
+                                    <img data-src="<?=$job['logo'];?>" alt="Logo <?=$job['perusahaan_name'];?>" title="Logo <?=$job['perusahaan_name'];?>" class="lazy img-fluid mx-auto">
                                 </div>
                                 <div class="h-100">
                                     <div class="p-3 align-self-center">
@@ -82,7 +82,7 @@
                             <a href="<?=base_url('job');?>" class="btn btn-success rounded py-3 px-5"><span class="icon-plus-circle"></span> Lihat Lebih Banyak</a>
                         </div>
                     </div>
-                    <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-md-4 block-16">
                         <div class="d-flex mb-0">
                             <h2 class="mb-5 h3 mb-0">Lowongan Terpilih</h2>
                             <div class="ml-auto mt-1">

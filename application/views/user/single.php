@@ -18,7 +18,7 @@
                             <a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a>
 
                             <select onchange="doGTranslate(this);"><option value="id|en">Pilih Bahasa</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
-                            <img src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" title="Logo <?=$post['perusahaan_name']?>" class="img img-fluid col-md-8">
+                            <img data-src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" title="Logo <?=$post['perusahaan_name']?>" class="lazy img img-fluid col-md-8">
                         </div>
                     </div>
                         
@@ -27,42 +27,23 @@
                         <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>" class="text-secondary"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>" class="text-secondary"><?=$post['category_name'];?></a> / <?=$post['title']?></span>
                         <script type="application/ld+json">
                             {
-                                "@context": "http://schema.org",
+                                "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
-                                "itemListElement":[
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 1,
-                                        "item":
-                                            {
-                                                "@id": "<?=base_url();?>",
-                                                "url": "<?=base_url();?>",
-                                                "name": "www.lokerhub.com"
-                                            }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 2,
-                                        "item":
-                                        {
-                                            "@id": "<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>",
-                                            "url": "<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>",
-                                            "name": "<?=$post['perusahaan_name'];?>"
-                                        }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 3,
-                                        "item":
-                                        {
-                                            "@id": "<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>",
-                                            "url": "<?=base_url('kategori/').str_replace(' ','-', strtolower($post['category_name']));?>",
-                                            "name": "<?=$post['category_name'];?>"
-                                        }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 4,
-                                        "name": "<?=$post['title']?>"
-                                        }			
-                                ]
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "www.lokerhub.com",
+                                    "item": "<?=base_url();?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "<?=$post['perusahaan_name'];?>",
+                                    "item": "<?=base_url('perusahaan/').str_replace(' ','-', strtolower($post['perusahaan_name']));?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "<?=$post['title']?>"
+                                }]
                             }
                         </script>
                     </div>
@@ -70,14 +51,14 @@
                     <p>
                         Telah dibuka lowongan kerja <?=$post['title']?> di <a href="<?=base_url('perusahaan/').str_replace(' ','-', str_replace('.','', strtolower($post['perusahaan_name'])))?>"><?=$post['perusahaan_name'];?></a> untuk ditempatkan di <a href="<?=base_url('lokasi/').str_replace(' ','-', str_replace('.','', strtolower($post['kabupaten'])))?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, <?=ucwords($post['provinsi'])?>. Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
                     </p>
-                    <h2 class="h5" id="deskripsi">Deskripsi</h2>
+                    <h2 class="h5" id="deskripsi">Deskripsi Lowongan <?=$post['title']?></h2>
                     <?=$post['loker_description'];?>
                     <?php if($post['perusahaan_description'] != null):?>
-                    <h2 class="h5" id="profile_perusahaan">Profile Perusahaan</h2>
+                    <h2 class="h5" id="profile_perusahaan">Profile <?=$post['perusahaan_name'];?></h2>
                     <?=$post['perusahaan_description'];?>
                     <?php endif;?>
 
-                    <h2 class="h5" id="gambaran_perusahaan">Gambaran Perusahaan</h2>
+                    <h2 class="h5" id="gambaran_perusahaan">Gambaran <?=$post['perusahaan_name'];?></h2>
                     <table class="table table-bordered">
                         <tbody>
                             <?php if($post['industri_name'] != null):?>
@@ -130,7 +111,7 @@
                         </tbody>
                     </table>
                     <?php if($post['why_join_us'] != null):?>
-                    <h2 class="h5" id="why_join_us">Mengapa Bergabung dengan Kami</h2>
+                    <h2 class="h5" id="why_join_us">Mengapa Bergabung dengan <?=$post['perusahaan_name'];?></h2>
                     <?=$post['why_join_us'];?>
                     <?php endif;?>
                     <?php if($post['alamat'] != null):?>
@@ -157,7 +138,7 @@
                 <div class="p-4 mb-3 bg-white">
                     <!-- <h3 class="h5 text-black mb-3">Sponsor</h3> -->
                 </div>
-                <div class="col-md-12 block-16" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-12 block-16">
                     <div class="d-flex mb-0">
                     <h2 class="mb-5 h3 mb-0">Lowongan Kerja Sejenis</h2>
                     <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-success">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-success">Next</a></div>
@@ -191,11 +172,11 @@
     <div class="pb-5 mt-n5">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-6" data-aos="fade" >
+                <div class="col-md-6">
                     <h2>Pertanyaan yang Sering Diajukan</h2>
                 </div>
             </div>
-            <div class="row justify-content-center" data-aos="fade" data-aos-delay="100">
+            <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="accordion unit-8" id="accordion">
                         <div class="accordion-item">

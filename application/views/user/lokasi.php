@@ -7,35 +7,20 @@
               <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
                   <h1 class="h3" id="#lowongan">Info Loker <?=ucwords($lokasi);?></h1>
                   <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('lokasi')?>" class="text-secondary">Lokasi</a> / <?=strtoupper($lokasi);?></span>
-                        <script type="application/ld+json">
+                  <script type="application/ld+json">
                             {
-                                "@context": "http://schema.org",
+                                "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
-                                "itemListElement":[
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 1,
-                                        "item":
-                                            {
-                                                "@id": "<?=base_url();?>",
-                                                "url": "<?=base_url();?>",
-                                                "name": "www.lokerhub.com"
-                                            }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 2,
-                                        "item":
-                                        {
-                                            "@id": "<?=base_url('lokasi');?>",
-                                            "url": "<?=base_url('lokasi');?>",
-                                            "name": "Lokasi"
-                                        }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 3,
-                                        "name": "<?=ucwords($lokasi);?>"
-                                    }			
-                                ]
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "www.lokerhub.com",
+                                    "item": "<?=base_url();?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "<?=ucwords($lokasi);?>"
+                                }]
                             }
                         </script>
                   <p><small>Berikut adalah daftar lowongan kerja di <?=strtoupper($lokasi);?></small></p>
@@ -43,7 +28,7 @@
                       <?php $i=0; foreach($result as $job):?> 
                         <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                             <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
+                                <img data-src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="lazy img-fluid mx-auto">
                             </div>
                             <div class="h-100">
                                 <div class="p-3 align-self-center">

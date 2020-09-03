@@ -16,24 +16,18 @@
                             <small><a href="/" id="breadcrumbs" class="text-secondary">Home</a> / <span><?=$post['title'];?></span> </small>
                             <script type="application/ld+json">
                             {
-                                "@context": "http://schema.org",
+                                "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
-                                "itemListElement":[
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 1,
-                                        "item":
-                                            {
-                                                "@id": "<?=base_url();?>",
-                                                "url": "<?=base_url();?>",
-                                                "name": "www.lokerhub.com"
-                                            }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 2,
-                                        "name": "<?=$post['title']?>"
-                                    }			
-                                ]
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "www.lokerhub.com",
+                                    "item": "<?=base_url();?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "<?=$post['title'];?>"
+                                }]
                             }
                         </script>
                     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->

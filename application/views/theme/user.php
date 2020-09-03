@@ -93,6 +93,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js" integrity="sha512-PNXCBnFH9wShbV+mYnrfo0Gf3iSREgBWmYAoMIfc+Z83vVq3Nu4yxBk6j+BZ40ZIhtW3WlTQdBvW3AYLAnlgpA==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.2/dist/lazyload.min.js"></script>
         <?php if($this->uri->segment(1) == 'lowongan'):?>
         <style type="text/css">
             a.gflag{vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png)}a.gflag img{border:0}a.gflag:hover{background-image:url(//gtranslate.net/flags/16a.png)}#goog-gt-tt{display:none!important}.goog-te-banner-frame{display:none!important}.goog-te-menu-value:hover{text-decoration:none!important}body{top:0!important}#google_translate_element2{display:none!important}
@@ -107,36 +108,43 @@
         /* ]]> */
         </script>
         <script type="application/ld+json">
-            {  
-                "@context": "http://schema.org",
-                "@type": "JobPosting", 
-                "datePosted": "<?=$post['posted_at']?>",
-                "description": "<p><?=$description;?></p>",
-                "jobBenefits": "<?=$post['tunjangan']?>",
-                "hiringOrganization": {
-                    "@type": "Organization",
-                    "name": "<?=$post['perusahaan_name']?>",
-                    "logo": "<?=$post['logo']?>"
-                },
-                "industry": "<?=$post['industri_name'];?>",
-                "jobLocation": {
-                    "@type": "Place",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "<?=$post['alamat'];?>",
-                        "addressLocality": "<?=ucwords(strtolower($post['kabupaten']))?>",
-                        "addressRegion": "<?=ucwords($post['provinsi'])?>",
-                        "addressCountry": "ID"      
-                    }
-                }, 
-                "occupationalCategory": "<?=$post['category_name'];?>",
-                "responsibilities": "<?=strip_tags($post['loker_description']);?>",
-                "skills": "<?=strip_tags($post['loker_description']);?>",
+            {
+                "@context" : "https://schema.org/",
+                "@type" : "JobPosting",
+                "title" : "<?=$tagline;?>",
+                "description" : "<p><?=$description;?></p>",
                 "identifier": {
                     "@type": "PropertyValue",
-                    "name": "<?=$post['perusahaan_name']?>"
+                    "name": "<?=$post['perusahaan_name']?>",
+                    "value": "<?=$post['perusahaan_name']?>"
                 },
-                "title": "<?=$tagline;?>"
+                "datePosted" : "<?=$post['posted_at']?>",
+                "validThrough" : "2017-03-18T00:00",
+                "employmentType" : "CONTRACTOR",
+                "hiringOrganization" : {
+                    "@type" : "Organization",
+                    "name" : "<?=$post['perusahaan_name']?>",
+                    "sameAs" : "<?=$post['website']?>",
+                    "logo" : "<?=$post['logo']?>"
+                },
+                "jobLocation": {
+                "@type": "Place",
+                    "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "<?=$post['alamat'];?>",
+                    "addressLocality": ", <?=ucwords(strtolower($post['kabupaten']))?>",
+                    "addressRegion": "<?=ucwords($post['provinsi'])?>",
+                    "postalCode": "",
+                    "addressCountry": "ID"
+                    }
+                },
+                "occupationalCategory": "<?=$post['category_name'];?>",
+                "industry": "<?=$post['industri_name'];?>",
+                "jobBenefits": "<?=$post['tunjangan']?>",
+                "baseSalary": {
+                    "@type": "MonetaryAmount",
+                    "currency": "IDR"
+                }
             }
         </script>
         <?php endif; ?>
@@ -307,6 +315,12 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous"></script>
     <script src="<?=base_url('assets/');?>js/main.js"></script>
+    <script>
+        var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+        });
+        lazyLoadInstance.update();
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164241627-2"></script>
     <script>

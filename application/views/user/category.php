@@ -9,33 +9,18 @@
                   <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('kategori')?>" class="text-secondary">Kategori</a> / <?=strtoupper($category_name);?></span>
                         <script type="application/ld+json">
                             {
-                                "@context": "http://schema.org",
+                                "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
-                                "itemListElement":[
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 1,
-                                        "item":
-                                            {
-                                                "@id": "<?=base_url();?>",
-                                                "url": "<?=base_url();?>",
-                                                "name": "www.lokerhub.com"
-                                            }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 2,
-                                        "item":
-                                        {
-                                            "@id": "<?=base_url('kategori');?>",
-                                            "url": "<?=base_url('kategori');?>",
-                                            "name": "Kategori"
-                                        }
-                                    },{
-                                        "@type": "ListItem",
-                                        "position": 3,
-                                        "name": "<?=strtoupper($category_name);?>"
-                                    }			
-                                ]
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "www.lokerhub.com",
+                                    "item": "<?=base_url();?>"
+                                },{
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "<?=strtoupper($category_name);?>"
+                                }]
                             }
                         </script>
                   <p><small>Berikut adalah daftar info lowongan kerja <?=strtoupper($category_name);?></small></p>
@@ -43,7 +28,7 @@
                       <?php $i=0; foreach($result as $job):?>
                       <a href="<?=base_url('lowongan/').strtolower(str_replace(' ', '-', $job['perusahaan_name'])).'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                           <div class="company-logo blank-logo text-center text-md-left pl-3">
-                              <img src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="img-fluid mx-auto">
+                              <img data-src="<?=$job['logo'];?>" alt="<?=$job['title'];?>" class="lazy img-fluid mx-auto">
                           </div>
                           <div class="h-100">
                               <div class="p-3 align-self-center">
