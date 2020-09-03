@@ -10,7 +10,7 @@ class Perusahaan extends CI_Controller {
         $this->load->model('datatables_perusahaan', 'dp');
         $this->info_user();
 	}
-    public function info_user(){
+    public function info_user(){ 
         $data = $this->mlogin->detail($_SESSION['admin']);
         $this->user = $data;
     }
@@ -18,6 +18,7 @@ class Perusahaan extends CI_Controller {
         $data['perusahaan_name'] = trim($this->input->post('perusahaan_name', true));
         $data['logo'] = $this->input->post('logo', true);
         $data['industri_id'] = $this->input->post('industri_id', true);
+        $data['alamat_perusahaan'] = $this->input->post('alamat', true);
         $data['website'] = $this->input->post('situs', true);
         $data['fashion'] = $this->input->post('fashion', true);
         $data['bahasa'] = $this->input->post('bahasa', true);
@@ -26,14 +27,20 @@ class Perusahaan extends CI_Controller {
         $data['ukuran_perusahaan'] = $this->input->post('ukuran', true);
         $data['description'] = $this->input->post('description');
         $data['why_join_us'] = $this->input->post('why_join_us');
-        $response = $this->crud->insert('perusahaan', $data);
-        if ($response > 0) {
-            $msg['status'] = true;
-            $msg['message'] = 'Berhasil menambahkan perusahaan';
-        }else{
+        $check = $this->crud->detail('perusahaan', ['perusahaan_name' => $data['perusahaan_name']])->num_rows();
+        if($check >= 1){
             $msg['status'] = false;
-            $msg['message'] = 'Gagal menambahkan perusahaan';
-        }
+            $msg['message'] = 'Perusahaan telah terdaftar';
+        }else{
+            $response = $this->crud->insert('perusahaan', $data);
+            if ($response > 0) {
+                $msg['status'] = true;
+                $msg['message'] = 'Berhasil menambahkan perusahaan';
+            }else{
+                $msg['status'] = false;
+                $msg['message'] = 'Gagal menambahkan perusahaan';
+            }
+        }        
         header('Content-type:application/json');
         echo json_encode($msg, JSON_PRETTY_PRINT);
     }
@@ -43,6 +50,7 @@ class Perusahaan extends CI_Controller {
         $data['logo'] = $this->input->post('logo', true);
         $data['industri_id'] = $this->input->post('industri_id', true);
         $data['website'] = $this->input->post('situs', true);
+        $data['alamat_perusahaan'] = $this->input->post('alamat', true);
         $data['fashion'] = $this->input->post('fashion', true);
         $data['bahasa'] = $this->input->post('bahasa', true);
         $data['tunjangan'] = $this->input->post('tunjangan', true);
@@ -64,6 +72,7 @@ class Perusahaan extends CI_Controller {
     public function get(){
         $where['id'] = $this->input->post('perusahaan_id', true);
         $response = $this->crud->detail('perusahaan', $where)->row_array();
+        $response = array_merge($response, $this->crud->detail('industri', ['id' => $response['industri_id']], 'industri_name')->row_array());
         header('Content-type:application/json');
         echo json_encode($response, JSON_PRETTY_PRINT);
     }

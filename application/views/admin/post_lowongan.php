@@ -90,6 +90,30 @@
     
     $('#perusahaan_id').select2({
         theme : 'bootstrap',
+        minimumInputLength: 2,
+        tags: [],
+        ajax: {
+            url: '<?=base_url('function_admin/ajax/perusahaan')?>',
+            dataType: 'json',
+            type: "GET",
+            quietMillis: 50,
+            data: function (term) {
+                return {
+                    q: term.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.perusahaan_name,
+                            slug: item.slug,
+                            id: item.id
+                        }
+                    })
+                };
+            }
+        }
     });
     $('#select_prov').select2({
         theme : 'bootstrap',
@@ -99,6 +123,30 @@
     });
     $('#category_id').select2({
         theme : 'bootstrap',
+        minimumInputLength: 2,
+        tags: [],
+        ajax: {
+            url: '<?=base_url('function_admin/ajax/kategori')?>',
+            dataType: 'json',
+            type: "GET",
+            quietMillis: 50,
+            data: function (term) {
+                return {
+                    q: term.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.category_name,
+                            slug: item.slug,
+                            id: item.id
+                        }
+                    })
+                };
+            }
+        }
     });
     $('.textarea').summernote({
         height : 550,

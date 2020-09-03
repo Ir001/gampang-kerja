@@ -6,7 +6,7 @@
                     <button class="btn btn-sm btn-primary"  data-toggle="modal" data-target="#modal_tambah_baru">
                         Tambah Perusahaan
                     </button>
-                    <a href="<?=base_url('manager/loker/new')?>" target="_blank" class="btn btn-sm btn-info"  data-toggle="modal" data-target="#modal_tambah_baru">
+                    <a href="<?=base_url('manager/loker/new')?>" target="_blank" class="btn btn-sm btn-info">
                         Buat Lowongan Baru
                     </a>
                 </div>
@@ -51,9 +51,6 @@
                         <label for=""><a href="/manager/industri" target="_blank">Industri</a></label>
                         <select name="industri_id" id="select_industri" class="form-control" required>
                             <option value="1" selected hidden>Pilih Industri</option>
-                            <?php foreach($industri as $ind): ;?>
-                                <option value="<?=$ind['id'];?>"><?=$ind['industri_name'];?></option>
-                            <?php endforeach ;?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -67,6 +64,10 @@
                     <div class="form-group">
                         <label>Ukuran Perusahaan</label>
                         <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Perusahaan">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Perusahaan</label>
+                        <input type="text" name="alamat" class="form-control" placeholder="Alamat Perusahaan">
                     </div>
                     <div class="form-group">
                         <label>Gaya berpakaian</label>
@@ -130,10 +131,6 @@
                     <div class="form-group">
                         <label for=""><a href="/manager/industri" target="_blank">Industri</a></label>
                         <select name="industri_id" id="select_industri_edit" class="form-control" required>
-                            <option value="1" selected hidden>Pilih Industri</option>
-                            <?php foreach($industri as $ind): ;?>
-                                <option value="<?=$ind['id'];?>"><?=$ind['industri_name'];?></option>
-                            <?php endforeach ;?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -147,6 +144,10 @@
                     <div class="form-group">
                         <label>Ukuran Perusahaan</label>
                         <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Perusahaan" id="ukuran_edit">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Perusahaan</label>
+                        <input type="text" name="alamat" class="form-control" placeholder="Alamat Perusahaan" id="alamat_edit">
                     </div>
                     <div class="form-group">
                         <label>Gaya berpakaian</label>
@@ -220,6 +221,17 @@
                         $('#perusahaan_edit').val(data.perusahaan_name);
                         $('#situs_edit').val(data.website);
                         $('#logo_edit').val(data.logo);
+                        $('#alamat_edit').val(data.alamat_perusahaan);
+                        $('#select_industri_edit').val(data.industri_id);
+                        if ($('#select_industri_edit').find("option[value='" + data.id + "']").length) {
+                            $('#select_industri_edit').val(data.id).trigger('change');
+                        } else { 
+                            // Create a DOM Option and pre-select by default
+                            var newOption = new Option(data.industri_name, data.industri_id, true, true);
+                            // Append it to the select
+                            $('#select_industri_edit').append(newOption).trigger('change');
+                        } 
+                        $('#select_industri_edit').trigger('change');;
                         $('#fashion_edit').val(data.fashion);
                         $('#bahasa_edit').val(data.bahasa);
                         $('#waktu_edit').val(data.waktu_kerja);
@@ -257,9 +269,57 @@
     });
     $('#select_industri').select2({
         theme : 'bootstrap',
+        minimumInputLength: 2,
+        tags: [],
+        ajax: {
+            url: '<?=base_url('function_admin/ajax/industri')?>',
+            dataType: 'json',
+            type: "GET",
+            quietMillis: 50,
+            data: function (term) {
+                return {
+                    q: term.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.industri_name,
+                            slug: item.slug,
+                            id: item.id
+                        }
+                    })
+                };
+            }
+        }
     });
     $('#select_industri_edit').select2({
         theme : 'bootstrap',
+        minimumInputLength: 2,
+        tags: [],
+        ajax: {
+            url: '<?=base_url('function_admin/ajax/industri')?>',
+            dataType: 'json',
+            type: "GET",
+            quietMillis: 50,
+            data: function (term) {
+                return {
+                    q: term.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.industri_name,
+                            slug: item.slug,
+                            id: item.id
+                        }
+                    })
+                };
+            }
+        }
     });
     $('.textarea').summernote({
         height : 160,

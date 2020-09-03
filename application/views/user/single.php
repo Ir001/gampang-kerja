@@ -59,57 +59,65 @@
                     <?php endif;?>
 
                     <h2 class="h5" id="gambaran_perusahaan">Gambaran <?=$post['perusahaan_name'];?></h2>
-                    <table class="table table-bordered">
-                        <tbody>
-                            <?php if($post['industri_name'] != null):?>
-                            <tr>
-                                <td>Industri</td>
-                                <td><?=$post['industri_name'];?></td>
-                            </tr>
-                            <?php endif;?>
-                            <?php if($post['website'] != null):?>
-                            <tr>
-                                <td>Situs <?=$post['perusahaan_name'];?></td>
-                                <td><a href="<?=$post['website'] != null ? $post['website'] : 'https://www.google.com/search?q='.$post['perusahaan_name'];?>" target="_blank" rel="noopener noreferrer nofollow"><?=$post['website'];?></a></td>
-                            </tr>
-                            <?php endif;?>
-                            <?php if($post['ukuran_perusahaan'] != null):?>
-                            <tr>
-                                <td>Ukuran Perusahaan</td>
-                                <td><?=$post['ukuran_perusahaan'];?></td>
-                            </tr>
-                            <?php endif;?>
-                            <?php if($post['tunjangan'] != null):?>
-                            <tr>
-                                <td>Tunjangan</td>
-                                <td><?=$post['tunjangan'];?></td>
-                            </tr>
-                            <?php endif;?>
-                            <?php if($post['bahasa'] != null):?>
-                            <tr>
-                                <td>Bahasa</td>
-                                <td><?=$post['bahasa'];?></td>
-                            </tr>
-                            <?php endif;?>
-                            <?php if($post['bahasa'] != null):?>
-                            <tr>
-                                <td>Gaya Pakaian</td>
-                                <td><?=$post['fashion'];?></td>
-                            </tr>
-                            <?php endif;?>
-                            <?php if($post['waktu_kerja'] != null):?>
-                            <tr>
-                                <td>Waktu Kerja</td>
-                                <td><?=$post['waktu_kerja'];?></td>
-                            </tr>
-                            <?php endif;?>
-                            <tr>
-                                <td>Alamat Perusahaan <?=$post['perusahaan_name'];?></td>
-                                <td>Lihat di <a href="https://www.google.com/maps/search/<?=$post['perusahaan_name'];?>" rel="nofollow" target="_blank">Google Maps</a></td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <?php if($post['industri_name'] != null):?>
+                                <tr>
+                                    <td>Industri</td>
+                                    <td><?=$post['industri_name'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['website'] != null):?>
+                                <tr>
+                                    <td>Situs <?=$post['perusahaan_name'];?></td>
+                                    <td><a href="<?=$post['website'] != null ? $post['website'] : 'https://www.google.com/search?q='.$post['perusahaan_name'];?>" target="_blank" rel="noopener noreferrer nofollow"><?=$post['website'];?></a></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['alamat_perusahaan'] != null):?>
+                                <tr>
+                                    <td>Alamat Perusahaan</td>
+                                    <td><?=$post['alamat_perusahaan'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['ukuran_perusahaan'] != null):?>
+                                <tr>
+                                    <td>Ukuran Perusahaan</td>
+                                    <td><?=$post['ukuran_perusahaan'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['tunjangan'] != null):?>
+                                <tr>
+                                    <td>Tunjangan</td>
+                                    <td><?=$post['tunjangan'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['bahasa'] != null):?>
+                                <tr>
+                                    <td>Bahasa</td>
+                                    <td><?=$post['bahasa'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['bahasa'] != null):?>
+                                <tr>
+                                    <td>Gaya Pakaian</td>
+                                    <td><?=$post['fashion'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <?php if($post['waktu_kerja'] != null):?>
+                                <tr>
+                                    <td>Waktu Kerja</td>
+                                    <td><?=$post['waktu_kerja'];?></td>
+                                </tr>
+                                <?php endif;?>
+                                <tr>
+                                    <td>Alamat Perusahaan <?=$post['perusahaan_name'];?></td>
+                                    <td>Lihat di <a href="https://www.google.com/maps/search/<?=$post['perusahaan_name'];?>" rel="nofollow" target="_blank">Google Maps</a></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
                     <?php if($post['why_join_us'] != null):?>
                     <h2 class="h5" id="why_join_us">Mengapa Bergabung dengan <?=$post['perusahaan_name'];?></h2>
                     <?=$post['why_join_us'];?>
