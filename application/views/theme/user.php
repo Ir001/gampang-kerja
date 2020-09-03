@@ -119,7 +119,7 @@
                     "value": "<?=$post['perusahaan_name']?>"
                 },
                 "datePosted" : "<?=$post['posted_at']?>",
-                "validThrough" : "2017-03-18T00:00",
+                "validThrough" : "<?=$post['deadline']?>",
                 "employmentType" : "CONTRACTOR",
                 "hiringOrganization" : {
                     "@type" : "Organization",

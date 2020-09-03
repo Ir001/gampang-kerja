@@ -30,13 +30,13 @@
             $this->db->order_by('loker.posted_at', 'ASC');
             return $this->db->get()->result_array();
         }
-        public function popular_category($jumlah=7){
+        public function popular_category($jumlah=8){
             $this->db->select('category_name, icon, count(loker.category_id) as total');
             $this->db->from('loker');
             $this->db->join('category', 'category.id = loker.category_id');
             $this->db->limit($jumlah, 0);
             $this->db->group_by('category_id');
-            $this->db->order_by('total');
+            $this->db->order_by('total','DESC');
             return $this->db->get()->result_array();
         }
     }

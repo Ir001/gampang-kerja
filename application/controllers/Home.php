@@ -76,7 +76,7 @@ class Home extends CI_Controller {
 		// Initialize
 		$this->pagination->initialize($config);
 		// Data
-		$data['canonical'] = base_url($permalink);                
+		$data['canonical'] = base_url('kategori/'.$permalink);                
 		$data['pagination'] = $this->pagination->create_links();
 		$data['result'] = $users_record;
 		$data['row'] = $rowno;
@@ -131,7 +131,7 @@ class Home extends CI_Controller {
 		// Initialize
 		$this->pagination->initialize($config);
 		// Data
-		$data['canonical'] = base_url($permalink);                    
+		$data['canonical'] = base_url('perusahaan/'.$permalink);                    
 		$data['pagination'] = $this->pagination->create_links();
 		$data['result'] = $users_record;
 		$data['row'] = $rowno;
@@ -184,7 +184,7 @@ class Home extends CI_Controller {
 		// Initialize
 		$this->pagination->initialize($config);
 		// Data
-		$data['canonical'] = base_url($permalink);                    
+		$data['canonical'] = base_url('lokasi/'.$permalink);                    
 		$data['pagination'] = $this->pagination->create_links();
 		$data['result'] = $users_record;
 		$data['row'] = $rowno;
@@ -199,7 +199,7 @@ class Home extends CI_Controller {
 		$permalink = htmlspecialchars($permalink);
 		$check = $this->mloker->get_page_num($permalink);
 		if($check > 0){
-			$data['canonical'] = base_url($permalink);    
+			$data['canonical'] = base_url('page/'.$permalink);    
 			$data['post'] = $this->mloker->get_page($permalink);
 			$data['sejenis'] = $this->mpencarian->get();
 			$data['description'] = substr(strip_tags($data['post']['content']),0,90);
@@ -217,11 +217,5 @@ class Home extends CI_Controller {
 		}
 		header('Content-type:application/json');
 		echo json_encode(['status' => true, 'message' => 'Riwayat berhasil dihapus!'], JSON_PRETTY_PRINT);
-	}
-	public function job(){
-		$this->theme->display_user('user/list', 'Loker');
-	}
-	public function admin(){
-		$this->theme->display_admin(NULL, 'Dashboard');
 	}
 }
