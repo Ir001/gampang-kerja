@@ -4,7 +4,7 @@
       <div class="my-5 bg-white">
         <div class="container">
             <div class="row">
-              <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-md-8 mb-5 mb-md-0">
                   <h1 class="h3" id="#lowongan">Lowongan <?=ucwords($category_name);?></h1>
                   <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('kategori')?>" class="text-secondary">Kategori</a> / <?=strtoupper($category_name);?></span>
                         <script type="application/ld+json">
@@ -52,7 +52,7 @@
                   <?=$pagination;?>
                   </div>
               </div>
-              <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-md-4 block-16">
                   <div class="d-flex mb-0">
                   <h2 class="mb-5 h3 mb-0">Loker Terbaru</h2>
                   <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-success">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-success">Next</a></div>
@@ -90,7 +90,7 @@
         </div>
         <div class="row">
         <?php foreach($category as $cat):?>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
               <a href="<?=base_url('kategori/');?><?=str_replace(' ', '-', strtolower($cat['category_name']));?>" class="h-100 feature-item text-success">
                 <span class="d-block mb-3 text-success">
                     <i class="icon <?=$cat['icon'];?>"></i>

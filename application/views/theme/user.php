@@ -80,13 +80,13 @@
         <link rel="stylesheet" href="<?=base_url('assets/')?>css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" integrity="sha512-GqP/pjlymwlPb6Vd7KmT5YbapvowpteRq9ffvufiXYZp0YpMTtR9tI6/v3U3hFi1N9MQmXum/yBfELxoY+S1Mw==" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" integrity="sha512-GQz6nApkdT7cWN1Cnj/DOAkyfzNOoq+txIhSEK1G4HTCbSHVGpsrvirptbAP60Nu7qbw0+XlAAPGUmLU2L5l4g==" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha512-YTL2qFiv2wZNnC764l1DD5zN6lYxDzJ89Ss6zj6YoYIzr6+zwjdVKM1sUR+971X3h7qWCa9cPUBXyYqhOqWWLQ==" crossorigin="anonymous" />
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" /> -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha512-YTL2qFiv2wZNnC764l1DD5zN6lYxDzJ89Ss6zj6YoYIzr6+zwjdVKM1sUR+971X3h7qWCa9cPUBXyYqhOqWWLQ==" crossorigin="anonymous" /> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js" integrity="sha512-VqTaIU3VlSHylzoMs3hWCBTMZ9l5fvYayp4yzRb5qV9Ne4Z+n21uFoG672gWMcJiedQYZV2KmXF3VkTTsRGRbg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha512-n6dYFOG599s4/mGlA6E+YLgtg9uPTOMDUb0IprSMDYVLr0ctiRryPEQ8gpM4DCMlx7M2G3CK+ZcaoOoJolzdCg==" crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js" integrity="sha512-lo4YgiwkxsVIJ5mex2b+VHUKlInSK2pFtkGFRzHsAL64/ZO5vaiCPmdGP3qZq1h9MzZzghrpDP336ScWugUMTg==" crossorigin="anonymous"></script>
@@ -112,7 +112,7 @@
                 "@context" : "https://schema.org/",
                 "@type" : "JobPosting",
                 "title" : "<?=$tagline;?>",
-                "description" : "<p><?=$description;?></p>",
+                "description" : "<p><?=$post['loker_description'];?></p>",
                 "identifier": {
                     "@type": "PropertyValue",
                     "name": "<?=$post['perusahaan_name']?>",
@@ -166,7 +166,7 @@
                 <div class="py-1">
                     <div class="row align-items-center">
                     <div class="col-2">
-                        <span class="mb-0 site-logo"><a href="<?=base_url();?>">Loker<strong class="font-weight-bold">Hub</strong> </a></span>
+                        <span class="mb-0 site-logo"><a href="<?=base_url();?>" rel="home">Loker<strong class="font-weight-bold">Hub</strong> </a></span>
                         <!--<img src="<?=base_url('assets/images/')?>logo.png" class="img img-fluid"> -->
                     </div>
                     <div class="col-10">
@@ -174,7 +174,7 @@
                         <div class="container">
                             <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
                             <ul class="site-menu js-clone-nav d-none d-lg-block">
-                            <li><a href="<?=base_url();?>">Home</a></li>
+                            <li><a href="<?=base_url();?>" rel="home">Home</a></li>
                             <li class="has-children">
                                 <a href="<?=base_url('job');?>">Lowongan Kerja</a>
                                 <ul class="dropdown arrow-top">
@@ -294,8 +294,8 @@
                     <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
                     <div class="col-md-12">
                         <p>
-                        <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                        <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a>
+                        <!-- <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a> -->
+                        <!-- <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a> -->
                         <a href="https://www.instagram.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-instagram"></span></a>
                         <a href="//www.dmca.com/Protection/Status.aspx?ID=4b8fd623-5e74-4ed9-8e57-e32d078b307f" rel="nofollow" target="_blank" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-08.png?ID=4b8fd623-5e74-4ed9-8e57-e32d078b307f"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>    
                     </p>

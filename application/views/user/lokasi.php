@@ -4,7 +4,7 @@
       <div class="my-5 bg-white">
         <div class="container">
             <div class="row">
-              <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-md-8 mb-5 mb-md-0">
                   <h1 class="h3" id="#lowongan">Info Loker <?=ucwords($lokasi);?></h1>
                   <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('lokasi')?>" class="text-secondary">Lokasi</a> / <?=strtoupper($lokasi);?></span>
                   <script type="application/ld+json">
@@ -52,7 +52,7 @@
                   <?=$pagination;?>
                   </div>
               </div>
-              <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-md-4 block-16">
                   <div class="d-flex mb-0">
                   <h2 class="mb-5 h3 mb-0">Lowongan Terbaru</h2>
                   <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-success">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-success">Next</a></div>
@@ -84,7 +84,7 @@
     <div class="bg-light py-5">
         <div class="container">
             <div class="row align-items-center">
-            <div class="col-12" data-aos="fade">
+            <div class="col-12">
                 <h1 class="h4">Cari Lowongan Kerja</h1>
                 <form action="<?=base_url('job');?>" method="post">
                 <div class="row mb-3">

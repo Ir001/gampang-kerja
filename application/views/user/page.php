@@ -41,7 +41,7 @@
                 <div class="p-4 mb-3 bg-white">
                 <!-- <h3 class="h5 text-black mb-3">Sponsor</h3> -->
                 </div>
-                <div class="col-md-12 block-16" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-12 block-16">
                     <div class="d-flex mb-0">
                     <h2 class="mb-5 h3 mb-0">Loker Terbaru</h2>
                     <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev text-success" rel="nofollow">Prev</a> / <a href="#" class="owl-custom-next text-success">Next</a></div>

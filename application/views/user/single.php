@@ -76,7 +76,7 @@
                                 <?php endif;?>
                                 <?php if($post['alamat_perusahaan'] != null):?>
                                 <tr>
-                                    <td>Alamat Perusahaan</td>
+                                    <td>Alamat <?=$post['perusahaan_name'];?></td>
                                     <td><?=$post['alamat_perusahaan'];?></td>
                                 </tr>
                                 <?php endif;?>
