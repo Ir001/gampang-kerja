@@ -181,12 +181,12 @@
                                 <li class="has-children">
                                     <a href="#" rel="nofollow">Top Kategori</a>
                                     <ul class="dropdown">
-                                    <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                                    <li><a href="<?=base_url('kategori/staff-administrasi-umum');?>">Staff / Admin / Umum</a></li>
+                                    <li><a href="<?=base_url('kategori/tele-sales-telemarketing');?>">Tele / Sales / Marketing</a></li>
                                     <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
+                                    <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                                    <li><a href="<?=base_url('kategori/perbankan-keuangan');?>">Perbankan / Keuangan</a></li>
                                     <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
-                                    <li><a href="<?=base_url('kategori/audit-pajak');?>">Audit Pajak</a></li>
-                                    <li><a href="<?=base_url('kategori/penerbangan');?>">Penerbangan</a></li>
-                                    <li><a href="<?=base_url('kategori/mekanik-otomotif');?>">Mekanik Otomotif</a></li>
                                     </ul>
                                 </li>
                                 <!-- <li class="has-children">
@@ -199,24 +199,15 @@
                                 <li class="has-children">
                                     <a href="#" rel="nofollow">Lokasi Terpopuler</a>
                                     <ul class="dropdown">
-                                    <li><a href="<?=base_url('lokasi/bandung');?>">Bandung</a></li>
                                     <li><a href="<?=base_url('lokasi/karawang');?>">Karawang</a></li>
-                                    <li><a href="<?=base_url('lokasi/palembang');?>">Palembang</a></li>
-                                    <li><a href="<?=base_url('lokasi/medan');?>">Medan</a></li>
-                                    <li><a href="<?=base_url('lokasi/batam');?>">Batam</a></li>
-                                    <li><a href="<?=base_url('lokasi/yogyakarta');?>">Yogya</a></li>
-                                    <li><a href="<?=base_url('lokasi/malang');?>">Malang</a></li>
+                                    <li><a href="<?=base_url('lokasi/kota-medan');?>">Kota Medan</a></li>
+                                    <li><a href="<?=base_url('lokasi/kota-yogyakarta');?>">Kota Yogyakarta</a></li>
                                     <li><a href="<?=base_url('lokasi/semarang');?>">Semarang</a></li>
-                                    <li><a href="<?=base_url('lokasi/pekanbaru');?>">Pekanbaru</a></li>
-                                    <li><a href="<?=base_url('lokasi/makassar');?>">Makassar</a></li>
                                     <li><a href="<?=base_url('lokasi/lampung');?>">Lampung</a></li>
                                     <li><a href="<?=base_url('lokasi/sidoarjo');?>">Sidoarjo</a></li>
                                     <li><a href="<?=base_url('lokasi/solo');?>">Solo</a></li>
                                     <li><a href="<?=base_url('lokasi/bali');?>">Bali</a></li>
-                                    <li><a href="<?=base_url('lokasi/padang');?>">Padang</a></li>
-                                    <li><a href="<?=base_url('lokasi/jambi');?>">Jambi</a></li>
-                                    <li><a href="<?=base_url('lokasi/samarinda');?>">Samarinda</a></li>
-                                    <li><a href="<?=base_url('lokasi/surabaya');?>">Surabaya</a></li>
+                                    <li><a href="<?=base_url('lokasi/kota-surabaya');?>">Surabaya</a></li>
                                     </ul>
                                 </li>
 
@@ -231,7 +222,7 @@
                                     <li><a href="<?=base_url('lokasi/dki-jakarta');?>">Jakarta</a></li>
                                     <li><a href="<?=base_url('lokasi/bogor');?>">Bogor</a></li>
                                     <li><a href="<?=base_url('lokasi/depok');?>">Depok</a></li>
-                                    <li><a href="<?=base_url('lokasi/tanggerang');?>">Tanggerang</a></li>
+                                    <li><a href="<?=base_url('lokasi/tangerang');?>">Tangerang</a></li>
                                     <li><a href="<?=base_url('lokasi/bekasi');?>">Bekasi</a></li>
                                     </ul>
                                 </li>
@@ -278,12 +269,12 @@
                     <div class="col-md-6">
                         <h3 class="footer-heading mb-4 text-white">Top Kategori</h3>
                         <ul class="list-unstyled">
-                            <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                            <li><a href="<?=base_url('kategori/staff-administrasi-umum');?>">Staff / Admin / Umum</a></li>
+                            <li><a href="<?=base_url('kategori/tele-sales-telemarketing');?>">Tele / Sales / Marketing</a></li>
                             <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
+                            <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
+                            <li><a href="<?=base_url('kategori/perbankan-keuangan');?>">Perbankan / Keuangan</a></li>
                             <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
-                            <li><a href="<?=base_url('kategori/audit-pajak');?>">Audit Pajak</a></li>
-                            <li><a href="<?=base_url('kategori/penerbangan');?>">Penerbangan</a></li>
-                            <li><a href="<?=base_url('kategori/mekanik-otomotif');?>">Mekanik Otomotif</a></li>
                         </ul>
                     </div>
                     </div>

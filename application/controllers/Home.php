@@ -165,7 +165,7 @@ class Home extends CI_Controller {
 		$rowperpage = 5;
 		// Row position
 		if($rowno != 0){
-				$rowno = ($rowno-1) * $rowperpage;
+			$rowno = ($rowno-1) * $rowperpage;
 		}                
 		// All records count
 		$allcount = $this->mpencarian->count_by_lokasi($permalink);
