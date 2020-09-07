@@ -112,7 +112,7 @@
                 "@context" : "https://schema.org/",
                 "@type" : "JobPosting",
                 "title" : "<?=$tagline;?>",
-                "description" : "<p><?=$post['loker_description'];?></p>",
+                "description" : "<p><?=strip_tags($post['loker_description']);?></p>",
                 "identifier": {
                     "@type": "PropertyValue",
                     "name": "<?=$post['perusahaan_name']?>",

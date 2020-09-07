@@ -41,65 +41,90 @@
         </div>
         <form id="form_tambah">
             <div class="modal-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Nama Perusahaan *</label>
-                        <input type="text" name="perusahaan_name" class="form-control" placeholder="Nama Perusahaan" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nama Perusahaan *</label>
+                                    <input type="text" name="perusahaan_name" class="form-control " placeholder="Nama Perusahaan" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>URL *</label>
+                                    <input type="text" name="url" class="form-control" placeholder="URL" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><a href="<?=base_url('manager/industri')?>" target="_blank">Industri</a></label>
+                                    <select name="industri_id" id="select_industri" class="form-control" required>
+                                        <option value="1" selected hidden>Pilih Industri</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <input type="text" name="logo" class="form-control" placeholder="Logo Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Situs</label>
+                                    <input type="text" name="situs" class="form-control" placeholder="Situs Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ukuran Perusahaan</label>
+                                    <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Alamat Perusahaan</label>
+                                    <input type="text" name="alamat" class="form-control" placeholder="Alamat Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Gaya berpakaian</label>
+                                    <input type="text" name="fashion" class="form-control" placeholder="Gaya berpakaian">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Bahasa</label>
+                                    <input type="text" name="bahasa" class="form-control" placeholder="Bahasa yang digunakan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tunjangan</label>
+                                    <input type="text" name="tunjangan" class="form-control" placeholder="Tunjangan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Waktu Kerja</label>
+                                    <input type="text" name="waktu_kerja" class="form-control" placeholder="Waktu kerja">
+                                </div>
+                            </div>
+                        </div>    
                     </div>
-                    <div class="form-group">
-                        <label for=""><a href="/manager/industri" target="_blank">Industri</a></label>
-                        <select name="industri_id" id="select_industri" class="form-control" required>
-                            <option value="1" selected hidden>Pilih Industri</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Situs</label>
-                        <input type="text" name="situs" class="form-control" placeholder="Situs Perusahaan">
-                    </div>
-                    <div class="form-group">
-                        <label>Logo</label>
-                        <input type="text" name="logo" class="form-control" placeholder="Logo Perusahaan">
-                    </div>
-                    <div class="form-group">
-                        <label>Ukuran Perusahaan</label>
-                        <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Perusahaan">
-                    </div>
-                    <div class="form-group">
-                        <label>Alamat Perusahaan</label>
-                        <input type="text" name="alamat" class="form-control" placeholder="Alamat Perusahaan">
-                    </div>
-                    <div class="form-group">
-                        <label>Gaya berpakaian</label>
-                        <input type="text" name="fashion" class="form-control" placeholder="Gaya berpakaian">
-                    </div>
-                    <div class="form-group">
-                        <label>Bahasa</label>
-                        <input type="text" name="bahasa" class="form-control" placeholder="Bahasa yang digunakan">
-                    </div>
-                    <div class="form-group">
-                        <label>Tunjangan</label>
-                        <input type="text" name="tunjangan" class="form-control" placeholder="Tunjangan">
-                    </div>
-                    <div class="form-group">
-                        <label>Waktu Kerja</label>
-                        <input type="text" name="waktu_kerja" class="form-control" placeholder="Waktu kerja">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Informasi Perusahaan *</label>
+                            <textarea name="description" class="textarea form-control" placeholder="Informasi Pekerjaan"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Mengapa Bergabung dengan Perusahaan *</label>
+                            <textarea name="why_join_us" class="textarea form-control" placeholder="Why join us"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    
-                    <div class="form-group">
-                        <label>Informasi Perusahaan *</label>
-                        <textarea name="description" class="textarea form-control" placeholder="Informasi Pekerjaan"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Mengapa Bergabung dengan Perusahaan *</label>
-                        <textarea name="why_join_us" class="textarea form-control" placeholder="Why join us"></textarea>
-                    </div>
-                </div>
-            </div>
-                
-                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
@@ -120,70 +145,96 @@
             </button>
         </div>
         <form id="form_edit">
-            <div class="modal-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Nama Perusahaan *</label>
-                        <input type="hidden" name="id" id="id_edit">
-                        <input type="text" name="perusahaan_name" class="form-control" placeholder="Nama Perusahaan" id="perusahaan_edit" required>
+        <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nama Perusahaan *</label>
+                                    <input type="hidden" name="id" id="id_edit">
+                                    <input type="text" name="perusahaan_name" id="perusahaan_edit" class="form-control " placeholder="Nama Perusahaan" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>URL *</label>
+                                    <input type="text" name="url" class="form-control" id="url_edit" placeholder="URL" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><a href="<?=base_url('manager/industri')?>" target="_blank">Industri</a></label>
+                                    <select name="industri_id" id="select_industri_edit" class="form-control" required>
+                                        <option value="1" selected hidden>Pilih Industri</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <input type="text" name="logo" id="logo_edit" class="form-control" placeholder="Logo Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Situs</label>
+                                    <input type="text" name="situs" id="situs_edit" class="form-control" placeholder="Situs Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ukuran Perusahaan</label>
+                                    <input type="text" name="ukuran" id="ukuran_edit" class="form-control" placeholder="Ukuran Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Alamat Perusahaan</label>
+                                    <input type="text" name="alamat" id="alamat_edit" class="form-control" placeholder="Alamat Perusahaan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Gaya berpakaian</label>
+                                    <input type="text" name="fashion" id="fashion_edit" class="form-control" placeholder="Gaya berpakaian">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Bahasa</label>
+                                    <input type="text" name="bahasa" id="bahasa_edit" class="form-control" placeholder="Bahasa yang digunakan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tunjangan</label>
+                                    <input type="text" name="tunjangan" id="tunjangan_edit" class="form-control" placeholder="Tunjangan">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Waktu Kerja</label>
+                                    <input type="text" name="waktu_kerja" id="waktu_edit" class="form-control" placeholder="Waktu kerja">
+                                </div>
+                            </div>
+                        </div>    
                     </div>
-                    <div class="form-group">
-                        <label for=""><a href="/manager/industri" target="_blank">Industri</a></label>
-                        <select name="industri_id" id="select_industri_edit" class="form-control" required>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Situs</label>
-                        <input type="text" name="situs" class="form-control" placeholder="Situs Perusahaan" id="situs_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Logo</label>
-                        <input type="text" name="logo" class="form-control" placeholder="Logo Perusahaan" id="logo_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Ukuran Perusahaan</label>
-                        <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Perusahaan" id="ukuran_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Alamat Perusahaan</label>
-                        <input type="text" name="alamat" class="form-control" placeholder="Alamat Perusahaan" id="alamat_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Gaya berpakaian</label>
-                        <input type="text" name="fashion" class="form-control" placeholder="Gaya berpakaian" id="fashion_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Bahasa</label>
-                        <input type="text" name="bahasa" class="form-control" placeholder="Bahasa yang digunakan" id="bahasa_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Tunjangan</label>
-                        <input type="text" name="tunjangan" class="form-control" placeholder="Tunjangan" id="tunjangan_edit">
-                    </div>
-                    <div class="form-group">
-                        <label>Waktu Kerja</label>
-                        <input type="text" name="waktu_kerja" class="form-control" placeholder="Waktu kerja" id="waktu_edit">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Informasi Perusahaan *</label>
+                            <textarea name="description" class="textarea form-control" id="description_edit" placeholder="Informasi Pekerjaan"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Mengapa Bergabung dengan Perusahaan *</label>
+                            <textarea name="why_join_us" class="textarea form-control" id="why_edit" placeholder="Why join us"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    
-                    <div class="form-group">
-                        <label>Informasi Perusahaan *</label>
-                        <textarea name="description" class="textarea form-control" placeholder="Informasi Pekerjaan" id="description_edit"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Mengapa Bergabung dengan Perusahaan *</label>
-                        <textarea name="why_join_us" class="textarea form-control" placeholder="Why join us" id="why_edit"></textarea>
-                    </div>
-                </div>
-            </div>
-                
-                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
+                <button type="submit" class="btn btn-primary btn-sm">Ubah</button>
             </div>
         </form>
         </div>
@@ -219,6 +270,7 @@
                     success : function(data){
                         $('#id_edit').val(data.id);
                         $('#perusahaan_edit').val(data.perusahaan_name);
+                        $('#url_edit').val(data.url);
                         $('#situs_edit').val(data.website);
                         $('#logo_edit').val(data.logo);
                         $('#alamat_edit').val(data.alamat_perusahaan);

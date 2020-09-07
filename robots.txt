@@ -116,6 +116,4 @@ Disallow: /system
 Disallow: /application
 
 User-agent: *
-Disallow: /assets
-Disallow: /system
-Disallow: /application
+Disallow: /

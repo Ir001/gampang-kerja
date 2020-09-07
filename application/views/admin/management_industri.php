@@ -36,10 +36,14 @@
         </div>
         <form id="form_tambah">
             <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nama Industri</label>
+                <div class="form-group">
+                    <label>Nama Industri</label>
                         <input type="text" name="industri_name" class="form-control" placeholder="Nama Industri" required>
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" name="url" class="form-control" placeholder="Permalink" required>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
@@ -61,15 +65,19 @@
         </div>
         <form id="form_edit">
             <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nama Industri</label>
-                        <input type="hidden" name="id" id="id_edit">
-                        <input type="text" name="industri_name" id="industri_edit" class="form-control" placeholder="Nama Industri" required>
-                    </div>
+                <div class="form-group">
+                    <label>Nama Industri</label>
+                    <input type="hidden" name="id" id="id_edit">
+                    <input type="text" name="industri_name" id="industri_edit" class="form-control" placeholder="Nama Industri" required>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" name="url" id="url_edit" class="form-control" placeholder="Permalink" required>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
+                <button type="submit" class="btn btn-primary btn-sm">Ubah</button>
             </div>
         </form>
         </div>
@@ -103,6 +111,7 @@
                     success : function(data){
                         $('#id_edit').val(data.id);
                         $('#industri_edit').val(data.industri_name);
+                        $('#url_edit').val(data.url);
                         $('#modal_edit').modal('show');
                     }
                 });

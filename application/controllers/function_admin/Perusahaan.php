@@ -16,6 +16,7 @@ class Perusahaan extends CI_Controller {
     }
     public function tambah(){
         $data['perusahaan_name'] = trim($this->input->post('perusahaan_name', true));
+        $data['url'] = trim($this->input->post('url', true));
         $data['logo'] = $this->input->post('logo', true);
         $data['industri_id'] = $this->input->post('industri_id', true);
         $data['alamat_perusahaan'] = $this->input->post('alamat', true);
@@ -47,6 +48,7 @@ class Perusahaan extends CI_Controller {
     public function ubah(){
         $where['id'] = $this->input->post('id', true);
         $data['perusahaan_name'] = $this->input->post('perusahaan_name', true);
+        $data['url'] = $this->input->post('url', true);
         $data['logo'] = $this->input->post('logo', true);
         $data['industri_id'] = $this->input->post('industri_id', true);
         $data['website'] = $this->input->post('situs', true);

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
               <div class="col-md-8 mb-5 mb-md-0">
-                  <h2 class="h3" id="#lowongan">Lowongan <?=ucwords($perusahaan_name);?></h2>
+                  <h2 class="h3" id="#lowongan">Lowongan <?=$perusahaan['perusahaan_name'];?></h2>
                   <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <?=strtoupper($perusahaan_name);?></span>
                     <script type="application/ld+json">
                             {
@@ -42,9 +42,19 @@
                         </a>
                       <?php endforeach;?>
                   </div>
-                  <div class="col-md-12 text-center mt-5">
+                  <div class="col-md-12 text-center my-5">
+                    <?=$pagination;?>
                   <!-- <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a> -->
-                  <?=$pagination;?>
+                  </div>
+                  <div class="col-md-12">
+                        <?php if($perusahaan['description'] != null):?>
+                        <h2>Informasi Perusahaan</h2>
+                        <p><?=$perusahaan['description'];?></p>
+                        <?php endif; ?>
+                        <?php if($perusahaan['why_join_us'] != null):?>
+                        <h2>Mengapa Bergabung Dengan Kami</h2>
+                        <p><?=$perusahaan['why_join_us'];?></p>
+                        <?php endif; ?>
                   </div>
               </div>
               <div class="col-md-4 block-16">

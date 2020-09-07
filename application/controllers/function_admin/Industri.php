@@ -17,6 +17,7 @@ class Industri extends CI_Controller {
     }
     public function tambah(){
         $data['industri_name'] = $this->input->post('industri_name', true);
+        $data['url'] = $this->input->post('url', true);
         $response = $this->crud->insert('industri', $data);
         if ($response > 0) {
             $msg['status'] = true;
@@ -31,6 +32,7 @@ class Industri extends CI_Controller {
     public function ubah(){
         $where['id'] = $this->input->post('id', true);
         $data['industri_name'] = $this->input->post('industri_name', true);
+        $data['url'] = $this->input->post('url', true);
         $response = $this->crud->update('industri', $data, $where);
         if ($response > 0) {
             $msg['status'] = true;

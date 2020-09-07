@@ -133,7 +133,19 @@
                         <?php if(@$post['expired']):?>
                         <button id="btn-lamar" class="btn btn-danger py-2 px-4 disabled">Lamaran ditutup</button>
                         <?php else:?>
-                        <button id="btn-lamar" class="btn btn-success py-2 px-4">Lamar Kerjaan</button>
+                        <form rel="nofollow" id="apply-form" target="_blank">
+                            <?php
+                                $url = explode('?fr', $post['apply_job']);
+                                $uri = explode('-', $url[0]);
+                                $jumlah = count($uri);
+                                $id = $uri[$jumlah-1];
+                            ?>
+                            <input type="hidden" name="job_id" value="<?=$id;?>">
+                            <input type="hidden" name="s" value="40">
+                            <input type="hidden" name="AdvertisementSource" value="1">
+                            <input type="hidden" name="fr">
+                            <button id="btn-lamar" type="submit" class="btn btn-success py-2 px-4">Lamar Kerjaan</button>
+                        </form>
                         <?php endif;?>
                     </p>
                     <p class="alert alert-sm alert-danger">Disclaimer: Melamar Kerja di <b><?=$this->config->item('site_name');?></b> tidak dipungut biaya.</p>
@@ -263,8 +275,11 @@
         </div>
     </div>
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f3940ba404dcb001210cdc6&product=sop' async='async'></script>
-    <script>
-    $('#btn-lamar').click(function(){
-        window.open('<?=$post['apply_job']?>', '_blank')
+<script>
+    $('#apply-form').submit(function(e){
+        e.preventDefault();
+        var uri = $(this).serialize();
+        var url = "https://myjobstreet-id.jobstreet.co.id/application/online-apply.php?";
+        window.open(url+uri);
     });
 </script>

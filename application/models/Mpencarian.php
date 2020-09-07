@@ -64,10 +64,7 @@
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
-            if ($category != '') {
-                $this->db->like('category_name', $category);
-            }
-            $this->db->where('isPublished', 1);
+            $this->db->where(['category.url' => $category, 'isPublished' => 1]);
             $this->db->limit($rowperpage, $rowno); 
             $this->db->order_by('posted_at DESC');
             return $this->db->get()->result_array();
@@ -80,10 +77,7 @@
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
-            if ($category != '') {
-                $this->db->like('category_name', $category);
-            }
-            $this->db->where('isPublished', 1);
+            $this->db->where(['category.url' => $category, 'isPublished' => 1]);
             $query = $this->db->get();
             $result = $query->result_array();        
             return $result[0]['allcount'];
@@ -96,10 +90,7 @@
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
-            if ($perusahaan != '') {
-                $this->db->like('perusahaan_name', $perusahaan);
-            }
-            $this->db->where('isPublished', 1);
+            $this->db->where(['perusahaan.url' => $perusahaan, 'isPublished' => 1]);
             $this->db->limit($rowperpage, $rowno); 
             $this->db->order_by('posted_at DESC');
             return $this->db->get()->result_array();
@@ -112,10 +103,7 @@
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
-            if ($perusahaan != '') {
-                $this->db->like('perusahaan_name', $perusahaan);
-            }
-            $this->db->where('isPublished', 1);
+            $this->db->where(['perusahaan.url' => $perusahaan, 'isPublished' => 1]);
             $query = $this->db->get();
             $result = $query->result_array();        
             return $result[0]['allcount'];
@@ -128,11 +116,8 @@
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
-            if ($lokasi != '') {
-                $this->db->like('kabupaten.nama', $lokasi);
-                $this->db->or_like('provinsi.nama', $lokasi);
-            }
-            $this->db->where('isPublished', 1);
+            $this->db->where(['kabupaten.url' => $lokasi, 'isPublished' => 1]);
+            $this->db->or_where(['provinsi.url' => $lokasi, 'isPublished' => 1]);
             $this->db->limit($rowperpage, $rowno); 
             $this->db->order_by('posted_at DESC');
             return $this->db->get()->result_array();
@@ -145,11 +130,8 @@
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
             $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
             $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
-            if ($lokasi != '') {
-                $this->db->like('kabupaten.nama', $lokasi);
-                $this->db->or_like('provinsi.nama', $lokasi);
-            }
-            $this->db->where('isPublished', 1);
+            $this->db->where(['kabupaten.url' => $lokasi, 'isPublished' => 1]);
+            $this->db->or_where(['provinsi.url' => $lokasi, 'isPublished' => 1]);
             $query = $this->db->get();
             $result = $query->result_array();        
             return $result[0]['allcount'];

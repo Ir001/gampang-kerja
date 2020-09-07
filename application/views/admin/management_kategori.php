@@ -36,10 +36,14 @@
         </div>
         <form id="form_tambah">
             <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nama Kategori</label>
-                        <input type="text" name="kategori" class="form-control" placeholder="Kategori" required>
-                    </div>
+                <div class="form-group">
+                    <label>Nama Kategori</label>
+                    <input type="text" name="kategori" class="form-control" placeholder="Kategori" required>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" name="url" class="form-control" placeholder="Permalink" required>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
@@ -61,15 +65,19 @@
         </div>
         <form id="form_edit">
             <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nama Kategori</label>
-                        <input type="hidden" name="id" id="id_edit">
-                        <input type="text" name="kategori" id="kategori_edit" class="form-control" placeholder="Kategori" required>
-                    </div>
+                <div class="form-group">
+                    <label>Nama Kategori</label>
+                    <input type="hidden" name="id" id="id_edit">
+                    <input type="text" name="kategori" id="kategori_edit" class="form-control" placeholder="Kategori" required>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" name="url" id="url_edit" class="form-control" placeholder="Permalink" required>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
+                <button type="submit" class="btn btn-primary btn-sm">Ubah</button>
             </div>
         </form>
         </div>
@@ -103,6 +111,7 @@
                     success : function(data){
                         $('#id_edit').val(data.id);
                         $('#kategori_edit').val(data.category_name);
+                        $('#url_edit').val(data.url);
                         $('#modal_edit').modal('show');
                     }
                 });

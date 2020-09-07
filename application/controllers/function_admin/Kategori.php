@@ -16,6 +16,7 @@ class Kategori extends CI_Controller {
     }
     public function tambah(){
         $data['category_name'] = $this->input->post('kategori', true);
+        $data['url'] = $this->input->post('url', true);
         $response = $this->crud->insert('category', $data);
         if ($response > 0) {
             $msg['status'] = true;
@@ -30,6 +31,7 @@ class Kategori extends CI_Controller {
     public function ubah(){
         $where['id'] = $this->input->post('id', true);
         $data['category_name'] = $this->input->post('kategori', true);
+        $data['url'] = $this->input->post('url', true);
         $response = $this->crud->update('category', $data, $where);
         if ($response > 0) {
             $msg['status'] = true;
