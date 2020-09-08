@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
     class Mloker extends CI_Model{
         public function get($perusahaan, $permalink){
-            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description');
+            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
@@ -25,7 +25,7 @@
             return $this->db->get_where('page', ['permalink' => $permalink, 'status' => 1])->num_rows();
         }
         public function get_by_category($category){
-            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description');
+            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
@@ -38,7 +38,7 @@
             return $this->db->get()->result_array();
         }
         public function popular_category($jumlah=8){
-            $this->db->select('category_name, icon, count(loker.category_id) as total');
+            $this->db->select('category_name, category.url as category_url, icon, count(loker.category_id) as total');
             $this->db->from('loker');
             $this->db->join('category', 'category.id = loker.category_id');
             $this->db->limit($jumlah, 0);

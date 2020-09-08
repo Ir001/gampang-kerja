@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 	}
 	public function index(){
 		$data['canonical'] = base_url();
-        $data['result'] = $this->mpencarian->get();
+        $data['result'] = $this->mpencarian->get(); 
         $data['terbaru'] = $this->mpencarian->get(8,4);
         $data['category'] = $this->mloker->popular_category();
 		$this->theme->display_user('user/landing', 'Info Lowongan Kerja di Indonesia', $data);
@@ -40,61 +40,71 @@ class Home extends CI_Controller {
 		}
 	}
 	public function category($category=null, $rowno=0){
-		$permalink = strtolower(strip_tags($category));
-		$category = str_replace('-', ' ', $category);
-		// Row per page
-		$rowperpage = 5;
-		// Row position
-		if($rowno != 0){
-			$rowno = ($rowno-1) * $rowperpage;
-		}                
-		// All records count
-		$allcount = $this->mpencarian->count_by_category($permalink);
-		if($allcount == 0):
-			$data = array();
-			$this->output->set_status_header('404');
-			$this->theme->display_user('user/404', 'Halaman tidak ditemukan', $data);
-		else:
-			// Get records
-			$users_record = $this->mpencarian->get_by_category($rowno,$rowperpage,$permalink);
-			// Pagination Configuration
-			$config['base_url'] = base_url('kategori/'.$permalink);
-			$config['use_page_numbers'] = TRUE;
-			$config['total_rows'] = $allcount;
-			$config['per_page'] = $rowperpage;
-			$config['first_link']       = 'First';
-			$config['last_link']        = 'Last';
-			$config['next_link']        = 'Next';
-			$config['prev_link']        = 'Prev';
-			$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination pagination-sm justify-content-center">';
-			$config['full_tag_close']   = '</ul></nav></div>';
-			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
-			$config['num_tag_close']    = '</span></li>';
-			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
-			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
-			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
-			$config['prev_tagl_close']  = '</span>Next</li>';
-			$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
-			$config['first_tagl_close'] = '</span></li>';
-			$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
-			$config['last_tagl_close']  = '</span></li>';
-			// Initialize
-			$this->pagination->initialize($config);
-			// Data
-			$data['canonical'] = base_url('kategori/'.$permalink);                
-			$data['pagination'] = $this->pagination->create_links();
-			$data['result'] = $users_record;
-			$data['row'] = $rowno;
-			$data['category_name'] = $category;
+		if($category == null):
+			$data['canonical'] = base_url('kategori');
 			$data['terbaru'] = $this->mpencarian->get();
 			$data['category'] = $this->mloker->popular_category();
-			// $data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Daftar Lowongan Kerja Disektor '.ucwords($category);
-			$data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Berikut adalah daftar lowongan kerja '.ucwords($category).' yang ada di Indonesia. Info loker ini kami sajikan dari sumber yang terpercaya dan terbaru. Cari impian kerja Anda disini.';
+			$data['description'] = 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia. Info loker ini kami sajikan dari sumber yang terpercaya dan terbaru. Cari impian kerja Anda disini.';
 			$data['keyword'] = $data['description'].$this->config->item('keyword');
-			$data['title'] = $category == null ? 'Info Loker Diberbagai Sektor Industri' : 'Lowongan '.ucwords($category);
+			$data['title'] = 'Info Loker Diberbagai Sektor Industri';
 			$this->theme->display_user('user/category', $data['title'], $data);
+		else:
+			$permalink = strtolower(strip_tags($category));
+			$category = str_replace('-', ' ', $category);
+			// Row per page
+			$rowperpage = 5;
+			// Row position
+			if($rowno != 0){
+				$rowno = ($rowno-1) * $rowperpage;
+			}                
+			// All records count
+			$allcount = $this->mpencarian->count_by_category($permalink);
+			if($allcount == 0):
+				$data = array();
+				$this->output->set_status_header('404');
+				$this->theme->display_user('user/404', 'Halaman tidak ditemukan', $data);
+			else:
+				// Get records
+				$users_record = $this->mpencarian->get_by_category($rowno,$rowperpage,$permalink);
+				// Pagination Configuration
+				$config['base_url'] = base_url('kategori/'.$permalink);
+				$config['use_page_numbers'] = TRUE;
+				$config['total_rows'] = $allcount;
+				$config['per_page'] = $rowperpage;
+				$config['first_link']       = 'First';
+				$config['last_link']        = 'Last';
+				$config['next_link']        = 'Next';
+				$config['prev_link']        = 'Prev';
+				$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination pagination-sm justify-content-center">';
+				$config['full_tag_close']   = '</ul></nav></div>';
+				$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+				$config['num_tag_close']    = '</span></li>';
+				$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+				$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+				$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+				$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+				$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+				$config['prev_tagl_close']  = '</span>Next</li>';
+				$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+				$config['first_tagl_close'] = '</span></li>';
+				$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+				$config['last_tagl_close']  = '</span></li>';
+				// Initialize
+				$this->pagination->initialize($config);
+				// Data
+				$data['canonical'] = base_url('kategori/'.$permalink);                
+				$data['pagination'] = $this->pagination->create_links();
+				$data['result'] = $users_record;
+				$data['row'] = $rowno;
+				$data['category_name'] = $category;
+				$data['terbaru'] = $this->mpencarian->get();
+				$data['category'] = $this->mloker->popular_category();
+				// $data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Daftar Lowongan Kerja Disektor '.ucwords($category);
+				$data['description'] = $category == null ? 'Informasi Lowongan Kerja diberbagai sektor industri di Indonesia' : 'Berikut adalah daftar lowongan kerja '.ucwords($category).' yang ada di Indonesia. Info loker ini kami sajikan dari sumber yang terpercaya dan terbaru. Cari impian kerja Anda disini.';
+				$data['keyword'] = $data['description'].$this->config->item('keyword');
+				$data['title'] = $category == null ? 'Info Loker Diberbagai Sektor Industri' : 'Lowongan '.ucwords($category);
+				$this->theme->display_user('user/category', $data['title'], $data);
+			endif;
 		endif;
 		
 	}

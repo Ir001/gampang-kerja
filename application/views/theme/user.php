@@ -139,7 +139,7 @@
                 },
                 "occupationalCategory": "TELECOMMUTE",
                 "industry": "<?=$post['industri_name'];?>",
-                "jobBenefits": "<?=$post['tunjangan']?>",
+                "jobBenefits": "<?=$post['tunjangan']?>"
             }
         </script>
         <?php endif; ?>
