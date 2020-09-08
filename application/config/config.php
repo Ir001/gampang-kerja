@@ -26,7 +26,7 @@ $config['site_name'] = 'LokerHub';
 */
 $mt = 0; /* 1 = true 0 = false */
 $config['base_url'] = $mt == 1 ? 'http://gampang-kerja.ant:8080/' : 'https://www.lokerhub.com/'; /* Production */
-$config['adsense'] = '';
+$config['adsense'] = '<script data-ad-client="ca-pub-1016503767419159" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
 $config['tag_manager'] = '';
 $config['keyword'] = 'lokerhub, loker hub, lokerhub.com, info loker terbaru, lowongan kerja indonesia, ,loker jakarta, lowongan kerja surabaya, lowongan kerja bandung, loker bekasi, loker smk, lowongan kerja sma, loker s1, loker d3, lowongan manufaktur, lowongan staff admin, lowongan kerja indonesia, lamar kerja, info lowongan kerja, info loker bandung, info loker cikarang, info loker karawang, info loker pendidikan sma, karirhub, kemenaker';
 $config['description'] = 'LokerHub adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di Indonesia.';
