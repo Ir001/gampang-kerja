@@ -116,11 +116,11 @@
                 "identifier": {
                     "@type": "PropertyValue",
                     "name": "<?=$post['perusahaan_name']?>",
-                    "value": "<?=$post['perusahaan_name']?>"
+                    "value": "<?=$post['perusahaan_id']?>"
                 },
-                "datePosted" : "<?=$post['posted_at']?>",
+                "datePosted" : "<?=date_format(date_create($post['posted_at']), 'Y-m-d');?>",
                 "validThrough" : "<?=$post['deadline']?>",
-                "employmentType" : "CONTRACTOR",
+                "employmentType" : "FULL_TIME",
                 "hiringOrganization" : {
                     "@type" : "Organization",
                     "name" : "<?=$post['perusahaan_name']?>",
@@ -134,17 +134,12 @@
                     "streetAddress": "<?=$post['alamat'];?>",
                     "addressLocality": ", <?=ucwords(strtolower($post['kabupaten']))?>",
                     "addressRegion": "<?=ucwords($post['provinsi'])?>",
-                    "postalCode": "",
                     "addressCountry": "ID"
                     }
                 },
-                "occupationalCategory": "<?=$post['category_name'];?>",
+                "occupationalCategory": "TELECOMMUTE",
                 "industry": "<?=$post['industri_name'];?>",
                 "jobBenefits": "<?=$post['tunjangan']?>",
-                "baseSalary": {
-                    "@type": "MonetaryAmount",
-                    "currency": "IDR"
-                }
             }
         </script>
         <?php endif; ?>
@@ -167,7 +162,6 @@
                     <div class="row align-items-center">
                     <div class="col-2">
                         <span class="mb-0 site-logo"><a href="<?=base_url();?>" rel="home">Loker<strong class="font-weight-bold">Hub</strong> </a></span>
-                        <!--<img src="<?=base_url('assets/images/')?>logo.png" class="img img-fluid"> -->
                     </div>
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
@@ -240,18 +234,15 @@
                 </div>
             </div>
         </div>
+        <!--  -->
         <?=@$content;?>
-        
-
-
-        
+        <!--  -->
         <footer class="site-footer">
             <div class="container">        
                 <div class="row">
                 <div class="col-md-4">
                     <h3 class="footer-heading mb-4 text-white">Tentang Kami</h3>
-                    <p>LokerHub adalah <?=$this->config->item('description');?></p>
-                    
+                    <p><?=$this->config->item('description');?></p>
                 </div>
                 <div class="col-md-6">
                     <div class="row">
@@ -279,8 +270,6 @@
                     </div>
                     </div>
                 </div>
-
-                
                 <div class="col-md-2">
                     <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
                     <div class="col-md-12">
@@ -293,13 +282,12 @@
                     </div>
                 </div>
                 </div>
-                <div class="row pt-5 mt-5 text-center">
+                <div class="row text-center">
                     <div class="col-md-12">
                         <p>
                             Copyright &copy; <?=date('Y');?> <a href="<?=base_url()?>">LokerHub</a>  All Right Reserved 
                         </p>
-                    </div>
-                
+                    </div>                
                 </div>
             </div>
         </footer>
