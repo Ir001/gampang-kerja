@@ -25,6 +25,16 @@
                         </script>
                   <p><small>Berikut adalah daftar info lowongan kerja <?=strtoupper($category_name);?></small></p>
                   <div class="rounded border jobs-wrap">
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="fluid"
+                             data-ad-layout-key="-fr-w-z-4m+m4"
+                             data-ad-client="ca-pub-1016503767419159"
+                             data-ad-slot="8388947753"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                       <?php $i=0; foreach($result as $job):?>
                       <a href="<?=base_url('lowongan/').$job['url'].'/'.$job['permalink'];?>" class="job-item d-block d-md-flex align-items-center freelance">
                           <div class="company-logo blank-logo text-center text-md-left pl-3">

@@ -74,7 +74,16 @@
                         </div>
                     </a>
                     <?php $i++; endforeach;?>
-                    
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-format="fluid"
+                         data-ad-layout-key="-fr-w-z-4m+m4"
+                         data-ad-client="ca-pub-1016503767419159"
+                         data-ad-slot="8388947753"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
                 <?php if($i == 0):?>
                     <h2 class="h6 mt-2">Maaf Lowongan Kerja yang Anda cari tidak tersedia. Harap cari dengan kata kunci yang berbeda.</h2>

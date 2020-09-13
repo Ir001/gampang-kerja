@@ -51,6 +51,16 @@
                     <p>
                         Telah dibuka lowongan kerja <?=$post['title']?> di <a href="<?=base_url('perusahaan/').$post['url']?>"><?=$post['perusahaan_name'];?></a> untuk ditempatkan di <a href="<?=base_url('lokasi/').$post['kabupaten_url'];?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, <?=ucwords($post['provinsi'])?>. Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
                     </p>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-1016503767419159"
+                         data-ad-slot="8603751936"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                     <h2 class="h5" id="deskripsi">Deskripsi Lowongan <?=$post['title']?></h2>
                     <?=$post['loker_description'];?>
                     <?php if($post['perusahaan_description'] != null):?>
@@ -129,6 +139,17 @@
                     <p class="mt-2">
                         Lowongan Kerja ini ditutup pada <b class="text-danger"><?=@$post['deadline_text'];?></b>
                     </p>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Iklan Bottom in Single Page -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1016503767419159"
+                         data-ad-slot="8293578982"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                     <p class="my-3">
                         <?php if(@$post['expired']):?>
                         <button id="btn-lamar" class="btn btn-danger py-2 px-4 disabled">Lamaran ditutup</button>

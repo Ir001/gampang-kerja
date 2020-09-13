@@ -77,6 +77,16 @@
                             </div>
                         </a>
                       <?php endforeach;?>
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="fluid"
+                             data-ad-layout-key="-fr-w-z-4m+m4"
+                             data-ad-client="ca-pub-1016503767419159"
+                             data-ad-slot="8388947753"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                         </div>
                         <div class="col-md-12 text-center mt-5">
                             <a href="<?=base_url('job');?>" class="btn btn-success rounded py-3 px-5"><span class="icon-plus-circle"></span> Lihat Lebih Banyak</a>
