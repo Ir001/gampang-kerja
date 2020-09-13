@@ -157,6 +157,17 @@
             <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">
                     <!-- <h3 class="h5 text-black mb-3">Sponsor</h3> -->
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Iklan Sidebar -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1016503767419159"
+                         data-ad-slot="3606420594"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
                 <div class="col-md-12 block-16">
                     <div class="d-flex mb-0">
