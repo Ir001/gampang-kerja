@@ -1,7 +1,7 @@
 {
-    "name": "LokerHub",
-    "short_name": "LH",
-    "description": "Informasi Lowongan Kerja Terbaru",
+    "name": "LokerHub - Informasi Lowongan Kerja Terbaru",
+    "short_name": "LokerHub",
+    "description": "Informasi Lowongan Kerja Terbaru di Indonesia",
     "lang": "id-ID",
     "dir": "ltr",
     "theme_color": "#28a745",
