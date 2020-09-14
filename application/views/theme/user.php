@@ -19,7 +19,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="<?=base_url('assets/')?>favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="<?=base_url('assets/')?>favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url('assets/')?>favicon-16x16.png">
-        <link rel="manifest" href="<?=base_url('assets/')?>manifest.json">
+        <link rel="manifest" href="<?=base_url()?>manifest.json">
         <meta name="msapplication-TileColor" content="#28a745">
         <meta name="msapplication-TileImage" content="<?=base_url('assets/')?>ms-icon-144x144.png">
         <meta name="theme-color" content="#28a745">
@@ -312,7 +312,7 @@
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js');
+        navigator.serviceWorker.register('/sw.js');
         });
     }
     </script>
