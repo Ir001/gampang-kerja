@@ -24,7 +24,7 @@ $config['site_name'] = 'LokerHub';
 | a PHP script and you can easily do that on your own.
 |
 */
-$mt = 0; /* 1 = true 0 = false */
+$mt = 1 ; /* 1 = true 0 = false */
 $config['base_url'] = $mt == 1 ? 'http://gampang-kerja.ant:8080/' : 'https://www.lokerhub.com/'; /* Production */
 $config['adsense'] = '<script data-ad-client="ca-pub-1016503767419159" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
 $config['tag_manager'] = '';
@@ -145,7 +145,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = 'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
