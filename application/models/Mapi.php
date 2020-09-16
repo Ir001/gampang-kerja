@@ -4,7 +4,7 @@
             return $this->db->get_where('perusahaan', ['perusahaan_name' => $perusahaan, 'url' => $url]);
         }
         public function cek_industri($industri, $url){
-            return $this->db->get_where('industri ', ['industri_name' => $industri   , 'url' => $url]);
+            return $this->db->get_where('industri ', ['industri_name' => $industri  , 'url' => $url]);
         }
         public function cek_kategori($category, $url){
             return $this->db->get_where('category ', ['url' => $url]);

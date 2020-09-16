@@ -22,17 +22,17 @@ class Api extends RestController {
         $perusahaan['industri'] = $this->post('industri');
         $perusahaan['logo'] = $this->post('logo');
         $perusahaan['alamat_perusahaan'] = $this->post('alamat_perusahaan');
-        $perusahaan['description'] = $this->post('detail_perusahaan');
-        $perusahaan['why_join_us'] = $this->post('why_join_us');
+        $perusahaan['description'] = html_entity_decode($this->post('detail_perusahaan'));
+        $perusahaan['why_join_us'] = html_entity_decode($this->post('why_join_us'));
         $data['perusahaan_id'] = $this->check_perusahaan($perusahaan);
         $data['category_id'] = $this->check_category($kategori);
         $data['apply_job'] = $this->post('apply_job');
         $data['title'] = $this->post('judul');
         $data['permalink'] = $this->pretty_url($data['title']);
-        $data['description'] = $this->post('deskripsi_pekerjaan');
+        $data['description'] = html_entity_decode($this->post('deskripsi_pekerjaan'));
         $data['alamat'] = $this->post('alamat_kerja');
-        $data['deadline'] = $this->post('deadline');
-        $data['posted_at'] = date('Y-m-d H:i:s');
+        $data['deadline'] = $this->post('deadline');    
+        $data['posted_at'] = $this->post('posted_at');
         $data['isPublished'] = 1;
         $cek = $this->check_postingan($data['perusahaan_id'], $data['permalink']);
         if($cek){
@@ -46,7 +46,7 @@ class Api extends RestController {
             $response['status'] = false;
             $response['message'] = 'Lowongan sudah pernah diposting!';
         }
-        $this->response( $response, 200 );        
+        $this->response($response, 200);        
     }
     public function check_postingan($perusahaan_id, $permalink){
         $cek = $this->crud->detail('loker', ['perusahaan_id' => $perusahaan_id, 'permalink' => $permalink])->num_rows();
@@ -76,6 +76,7 @@ class Api extends RestController {
                 $industri_id = $this->mapi->create_industri($data_industri);
             }
             unset($perusahaan['industri']);
+            $perusahaan['industri_id'] = $industri_id;
             $id = $this->mapi->create_perusahaan($perusahaan);
         }
         return $id;
@@ -99,9 +100,7 @@ class Api extends RestController {
         $str = str_replace(' ','-', $str);
         $str = str_replace('/','', $str);
         $str = str_replace('(','', $str);
-        $str = str_replace(')','', $str);
-        $str = str_replace('--','-', $str);
-        $str = str_replace('---','-', $str);
+        $str = str_replace(')','', $str);        
         $str = str_replace('.','', $str);
         $str = str_replace(',','', $str);
         $str = str_replace('_','', $str);
@@ -114,25 +113,28 @@ class Api extends RestController {
         $str = str_replace('#','', $str);
         $str = str_replace('@','', $str);
         $str = str_replace('!','', $str);
+        $str = str_replace('---','-', $str);
+        $str = str_replace('--','-', $str);
         return $str;
     }
     public function filter_kota($lokasi){
         $kota = $this->crud->get('kabupaten_new')->result_array(); /* Importan to Change */
         foreach ($kota as $data) {
-            if(preg_match_all("/{$data['kabupaten_name']}/i", $lokasi,$out)){
+            $re = "/{$data['kabupaten_name']}/mi";
+            $str = $lokasi;
+            if(preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0)){
                 $response['kab_id'] = $data['id'];
                 $response['prov_id'] = $data['provinsi_id'];
             }
-            if(preg_match_all("/{$data['kabupaten_name']}/i", "kota ".$lokasi,$out)){
+            if(preg_match_all($re, "kota ".$str, $matches, PREG_SET_ORDER, 0)){
                 $response['kab_id'] = $data['id'];
                 $response['prov_id'] = $data['provinsi_id'];
             }
-
         }
-        // if(empty($response)){
-        //     $response['kab_id'] = 3173;
-        //     $response['prov_id'] = 31;
-        // }
+        if(empty($response)){
+            $response['kab_id'] = 3173;
+            $response['prov_id'] = 31;
+        }
         return $response;
     }
 }
