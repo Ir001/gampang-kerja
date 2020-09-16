@@ -4,14 +4,16 @@
         <div class="row">
             <div class="col-md-8 col-lg-8">
                 <div class="p-md-5 p-3 bg-white">
-                    <div class="mt-sm-5 mt-md-0 mb-md-1 mr-5">
+                    <div class="mt-sm-5 mt-md-0 mb-md-1 mr-0 mr-md-5">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="job-post-item-header d-flex align-items-center">
+                        <div class="col-md-8 col-sm-12">
+                            <div class="job-post-item-header d-block d-md-flex align-items-center w-100">
                                 <h1 class="mr-3 text-black h4">Lowongan <?=$post['title']?> di <?=$post['perusahaan_name']?></h1>
                             </div>
-                            <div class="job-post-item-body d-block d-md-flex"></div>
-                            
+                            <div class="job-post-item-body d-block d-md-flex w-100">
+                                <span class="small" title="Telah dilihat oleh <?=number_format($post['viewed'], 0, ',', '.')?> Orang"><i class="fa fa-eye"></i> <?=number_format($post['viewed'], 0, ',', '.')?> Orang</span>
+                                <span class="small pl-2" title="Dipublikasikan pada tanggal <?=$post['posted_text']?>"><i class="fa fa-calendar"></i> <?=$post['posted_text']?></span>
+                            </div>                            
                         </div>
                         <div class="col-md-4 text-sm-center">
                             <!-- GTranslate: https://gtranslate.io/ -->

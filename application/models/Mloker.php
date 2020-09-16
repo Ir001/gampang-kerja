@@ -1,7 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
     class Mloker extends CI_Model{
+        public function viewed($id){
+            $this->db->set('viewed', 'viewed+1', FALSE);
+            $this->db->where(['id' => $id]);
+            $this->db->update('loker');
+            return $this->db->affected_rows();
+        }
         public function get($perusahaan, $permalink){
-            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
+            $this->db->select('loker.*, loker.viewed, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
@@ -11,12 +17,12 @@
             $this->db->where(['loker.permalink' => $permalink, 'perusahaan.url' => $perusahaan]);
             return $this->db->get()->row_array();
         }
-        public function check_post($perusahaan, $permalink){
-            $this->db->select('perusahaan.url, loker.permalink');
+        public function check_post($perusahaan, $permalink){ 
+            $this->db->select('perusahaan.url, loker.id as loker_id, loker.permalink');
             $this->db->from('loker');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
             $this->db->where(['permalink' => $permalink, 'url' => $perusahaan]);
-            return $this->db->get()->num_rows();
+            return $this->db->get();
         }
         public function get_page($permalink){
             return $this->db->get_where('page', ['permalink' => $permalink, 'status' => 1])->row_array();

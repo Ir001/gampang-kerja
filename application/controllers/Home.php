@@ -22,7 +22,13 @@ class Home extends CI_Controller {
 		$perusahaan = trim(strip_tags($perusahaan));
 		$permalink = trim(strip_tags($permalink));
 		$check = $this->mloker->check_post($perusahaan, $permalink);
-		if ($check >= 1) {			
+		if ($check->num_rows() >= 1) {
+			$data_post = $check->row_array();
+			$path = base_url(uri_string());
+			if(!isset($_SESSION['viewed'][$path])){
+				$_SESSION['viewed'][$path] = 1;
+				$this->mloker->viewed($data_post['loker_id']);			
+			}
 			$data['post'] = $this->mloker->get($perusahaan, $permalink);
 			$data['post']['posted_text'] = $this->tanggal->to_indonesia($data['post']['posted_at']);
 			$data['post']['deadline_text'] = $this->tanggal->to_indonesia($data['post']['deadline']);
