@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 	}
 	public function index(){
 		$data['canonical'] = base_url();
-        $data['result'] = $this->mpencarian->get(); 
+        $data['result'] = $this->mpencarian->get(5,4); 
         $data['terbaru'] = $this->mpencarian->get(8,4);
         $data['category'] = $this->mloker->popular_category();
 		$this->theme->display_user('user/landing', 'Info Lowongan Kerja Terbaru di Indonesia', $data);

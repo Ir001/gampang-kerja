@@ -50,8 +50,16 @@
                         </script>
                     </div>
                     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons my-3"></div><!-- ShareThis END -->
-                    <p>
-                        Telah dibuka lowongan kerja <?=$post['title']?> di <a href="<?=base_url('perusahaan/').$post['url']?>"><?=$post['perusahaan_name'];?></a> untuk ditempatkan di <a href="<?=base_url('lokasi/').$post['kabupaten_url'];?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, <?=ucwords($post['provinsi'])?>. Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
+                    <!-- <p>
+                        Telah dibuka lowongan kerja <?=$post['title']?> di <a href="<?=base_url('perusahaan/').$post['url']?>"><?=$post['perusahaan_name'];?></a>
+                         untuk ditempatkan di <a href="<?=base_url('lokasi/').$post['kabupaten_url'];?>"><?=ucwords(strtolower($post['kabupaten']))?></a>, 
+                         <?=ucwords($post['provinsi'])?>.
+                         Info loker ini telah dipublikasikan via <?=$this->config->item('site_name');?> pada <?=$post['posted_text']?>, 
+                         sehingga Anda tidak perlu khawatir dengan ketersediaan lowongan kerja <?=$post['perusahaan_name'];?> ini.
+                    </p> -->
+                    <p><b>Lowongan Kerja <?=$post['title'];?></b> - <a href="<?=base_url('perusahaan/').$post['url']?>"><?=$post['perusahaan_name'];?></a> membuka lowongan kerja <?=$post['title']?>.
+                    Info lowongan kerja ini kami sajikan dengan data yang kredibel dan terbaru untuk Anda yang sedang mencari kerja. </p>
+                    <p>Info loker ini dipublikasikan pada <?=$post['posted_text']?> sehingga Anda tidak perlu khawatir perihal ketersediaan lowongan kerja tersebut.  .Simak lebih lanjut tentang lowongan <?=strtolower($post['title'])?>.
                     </p>
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <ins class="adsbygoogle"
@@ -88,7 +96,7 @@
                                 <?php endif;?>
                                 <?php if($post['alamat_perusahaan'] != null):?>
                                 <tr>
-                                    <td>Alamat <?=$post['perusahaan_name'];?></td>
+                                    <td>Lokasi <?=$post['perusahaan_name'];?></td>
                                     <td><?=$post['alamat_perusahaan'];?></td>
                                 </tr>
                                 <?php endif;?>
