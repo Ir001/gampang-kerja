@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table id="tbl_loker" class="table table-bordered">
+                        <table id="tbl_loker" class="table table-bordered table-sm">
                             <thead>
                                 <tr>
                                     <th>Judul</th>
@@ -36,6 +36,7 @@
                                     <th>Industri</th>
                                     <th>Provinsi</th>
                                     <th>Deadline</th>
+                                    <th>Dilihat</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -47,6 +48,7 @@
                                     <td>Industri</td>
                                     <td>Provinsi</td>
                                     <td>Deadline</td>
+                                    <td>Dilihat</td>
                                     <td>
                                         <button class="btn btn-xs btn-info"><i class="fa fa-pen"></i></button>
                                         <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
@@ -74,15 +76,16 @@
             {"data": "perusahaan_name"},
             {"data": "category_name"},
             {"data": "industri_name"},
-            {"data": "nama"},
+            {"data": "provinsi_name"},
             {"data": "deadline"},
+            {"data": "viewed"},
             {"data": "id", render: function(data, type, row) {
                 var html = '<button class="btn btn-info btn-xs btn-edit" data-id="'+row.id+'"><i class="fa fa-pen"></i> Ubah</button> ';
                 html+='<button class="btn btn-danger btn-xs  btn-delete" data-id="'+row.id+'"><i class="fa fa-trash"></i> Hapus</button>';
                 return html;
             }}
         ],
-        order: [[6, 'desc']],
+        order: [[7, 'desc']],
         "fnDrawCallback": function( oSettings ) {
             $('.btn-edit').click(function(){
                 var id = $(this).attr('data-id');
@@ -115,7 +118,7 @@
             'targets': [1,2,3,4], /* column index */
             'orderable': false, /* true or false */
             "width": "18%",
-            "targets": 6 
+            "targets": 7 
         }],
     });
     $('#filter_kategori').change(function(){

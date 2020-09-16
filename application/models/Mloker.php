@@ -1,13 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
     class Mloker extends CI_Model{
         public function get($perusahaan, $permalink){
-            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
+            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.kabupaten_name as kabupaten, provinsi.provinsi_name as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
-            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
-            $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
+            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id');
+            $this->db->join('provinsi', 'loker.prov_id = provinsi.id');
             $this->db->where(['loker.permalink' => $permalink, 'perusahaan.url' => $perusahaan]);
             return $this->db->get()->row_array();
         }
@@ -25,13 +25,13 @@
             return $this->db->get_where('page', ['permalink' => $permalink, 'status' => 1])->num_rows();
         }
         public function get_by_category($category){
-            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.nama as kabupaten, provinsi.nama as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
+            $this->db->select('loker.*, loker.description as loker_description,category_name, industri_name,perusahaan.*,kabupaten.kabupaten_name as kabupaten, provinsi.provinsi_name as provinsi, perusahaan.description as perusahaan_description, perusahaan.url, category.url as category_url, kabupaten.url as kabupaten_url, provinsi.url as provinsi_url');
             $this->db->from('loker');
             $this->db->join('category', 'loker.category_id = category.id');
             $this->db->join('perusahaan', 'loker.perusahaan_id = perusahaan.id');
             $this->db->join('industri', 'perusahaan.industri_id = industri.id');
-            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id_kab');
-            $this->db->join('provinsi', 'loker.prov_id = provinsi.id_prov');
+            $this->db->join('kabupaten', 'loker.kab_id = kabupaten.id');
+            $this->db->join('provinsi', 'loker.prov_id = provinsi.id');
             $this->db->where(['category_name' => $category]);
             $this->db->limit(5,0);
             $this->db->order_by('loker.posted_at', 'ASC');
