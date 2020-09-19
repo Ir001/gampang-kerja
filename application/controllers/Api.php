@@ -98,7 +98,7 @@ class Api extends RestController {
         $str = strtolower($str);
         $str = trim($str);
         $str = str_replace(' ','-', $str);
-        $str = str_replace('/','', $str);
+        $str = str_replace('/','-', $str);
         $str = str_replace('(','', $str);
         $str = str_replace(')','', $str);        
         $str = str_replace('.','', $str);
@@ -113,6 +113,7 @@ class Api extends RestController {
         $str = str_replace('#','', $str);
         $str = str_replace('@','', $str);
         $str = str_replace('!','', $str);
+        $str = str_replace('----','-', $str);
         $str = str_replace('---','-', $str);
         $str = str_replace('--','-', $str);
         return $str;
