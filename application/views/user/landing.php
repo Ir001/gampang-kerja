@@ -44,7 +44,7 @@
                 <div class="row">
                 <?php foreach($category as $cat):?>
                     <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <a href="<?=base_url('kategori/');?><?=str_replace(' ', '-', strtolower($cat['category_name']));?>" class="h-100 feature-item">
+                        <a href="<?=base_url('kategori/').$cat['category_url'];?>" class="h-100 feature-item">
                         <span class="d-block mb-3 text-success">
                             <i class="icon <?=$cat['icon'];?>"></i>
                         </span>

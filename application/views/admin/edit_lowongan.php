@@ -37,7 +37,7 @@
                                     <select name="prov_id" class="form-control select2-blue" id="select_prov" required>
                                         <option value="1" selected hidden>Pilih Provinsi</option>
                                         <?php foreach($provinsi as $prov): ;?>
-                                            <option value="<?=$prov['id_prov'];?>" <?=$postingan['prov_id'] == $prov['id_prov'] ? 'selected':'';?>><?=$prov['nama'];?></option>
+                                            <option value="<?=$prov['id'];?>" <?=$postingan['prov_id'] == $prov['id'] ? 'selected':'';?>><?=$prov['provinsi_name'];?></option>
                                         <?php endforeach ;?>
                                     </select>
                                 </div>
@@ -45,7 +45,7 @@
                                     <label for="">Kabupaten</label>
                                     <select name="kab_id" class="form-control select2-blue" id="select_kab" required>
                                         <?php foreach($kabupaten as $kab): ;?>
-                                            <option value="<?=$kab['id_kab'];?>" <?=$postingan['kab_id'] == $kab['id_kab'] ? 'selected':'';?>><?=$kab['nama'];?></option>
+                                            <option value="<?=$kab['id'];?>" <?=$postingan['kab_id'] == $kab['id'] ? 'selected':'';?>><?=$kab['kabupaten_name'];?></option>
                                         <?php endforeach ;?>
                                     </select>
                                 </div>

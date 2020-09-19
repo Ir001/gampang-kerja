@@ -36,15 +36,16 @@
                                     <select name="prov_id" class="form-control select2-blue" id="select_prov" required>
                                         <option selected hidden>Pilih Provinsi</option>
                                         <?php foreach($provinsi as $prov): ;?>
-                                            <option value="<?=$prov['id_prov'];?>"><?=$prov['nama'];?></option>
+                                            <option value="<?=$prov['id'];?>"><?=$prov['provinsi_name'];?></option>
                                         <?php endforeach ;?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Kabupaten</label>
                                     <select name="kab_id" class="form-control select2-blue" id="select_kab" required>
+                                        <option selected hidden>Pilih Kabupaten</option>
                                         <?php foreach($kabupaten as $kab): ;?>
-                                            <option value="<?=$kab['id_kab'];?>"><?=$kab['nama'];?></option>
+                                            <option value="<?=$kab['id'];?>"><?=$kab['kabupaten_name'];?></option>
                                         <?php endforeach ;?>
                                     </select>
                                 </div>
