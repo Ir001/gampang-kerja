@@ -4,28 +4,27 @@
         <div class="row">
             <div class="col-md-8 col-lg-8">
                 <div class="p-md-5 p-3 bg-white">
-                    <div class="mt-sm-5 mt-md-0 mb-md-1 mr-0 mr-md-5">
+                    <div class="mt-sm-5 mt-md-0 mb-md-0 mr-0 mr-md-5">
                     <div class="row">
                         <div class="col-md-8 col-sm-12">
                             <div class="job-post-item-header d-block d-md-flex align-items-center w-100">
                                 <h1 class="mr-3 text-black h4">Lowongan <?=$post['title']?> di <?=$post['perusahaan_name']?></h1>
                             </div>
                             <div class="job-post-item-body d-block d-md-flex w-100">
-                                <span class="small" title="Telah dilihat oleh <?=number_format($post['viewed'], 0, ',', '.')?> Orang"><i class="fa fa-eye"></i> <?=number_format($post['viewed'], 0, ',', '.')?> Orang</span>
-                                <span class="small pl-2" title="Dipublikasikan pada tanggal <?=$post['posted_text']?>"><i class="fa fa-calendar"></i> <?=$post['posted_text']?></span>
+                                <span class="small" title="Telah dilihat oleh <?=number_format($post['viewed'], 0, ',', '.')?> Orang"><i class="fa fa-eye"></i> <?=number_format($post['viewed'], 0, ',', '.')?></span>
+                                <span class="small pl-2" title="Dipublikasikan pada <?=$post['posted_text']?>"><i class="fa fa-calendar"></i> <?=$post['posted_text']?></span>
+                                <span class="small pl-2" title="Lowongan Kerja <?=ucwords(strtolower($post['kabupaten']))?>"><i class="fas fa-map"></i> <?=ucwords(strtolower($post['kabupaten']))?></span>
                             </div>                            
                         </div>
-                        <div class="col-md-4 text-sm-center">
+                        <div class="col-md-4">
                             <!-- GTranslate: https://gtranslate.io/ -->
-                            <a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a>
+                            <a href="#" onclick="doGTranslate('en|en');return false;" title="Bahasa Inggris" class="gflag nturl " style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a>
 
-                            <select onchange="doGTranslate(this);"><option value="id|en">Pilih Bahasa</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
-                            <img data-src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" title="Logo <?=$post['perusahaan_name']?>" class="lazy img img-fluid col-md-8">
+                            <select onchange="doGTranslate(this);" class="form-control mb-sm-4 mx-sm-auto"><option value="id|en">Terjemahkan</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
                         </div>
+                    </div>                        
                     </div>
-                        
-                    </div>
-                    <div class="pt-3">
+                    <div class="w-100">
                         <span class="small"><a href="<?=base_url()?>" id="breadcrumbs" class="text-secondary">Home</a> / <a href="<?=base_url('perusahaan/').$post['url'];?>" class="text-secondary"><?=$post['perusahaan_name'];?></a> / <a href="<?=base_url('kategori/').$post['category_url'];?>" class="text-secondary"><?=$post['category_name'];?></a> / <?=$post['title']?></span>
                         <script type="application/ld+json">
                             {
@@ -59,6 +58,7 @@
                     </p> -->
                     <p><b>Lowongan Kerja <?=$post['title'];?></b> - <a href="<?=base_url('perusahaan/').$post['url']?>"><?=$post['perusahaan_name'];?></a> membuka lowongan kerja <?=$post['title']?>.
                     Info lowongan kerja ini kami sajikan dengan data yang kredibel dan terbaru untuk Anda yang sedang mencari kerja. </p>
+                    <img data-src="<?=$post['logo'];?>" alt="<?=$post['title'];?>" title="Lowongan <?=$post['perusahaan_name']?>" class="lazy img img-fluid rounded mx-auto my-3 d-block col-md-5">
                     <p>Info loker ini dipublikasikan pada <?=$post['posted_text']?> sehingga Anda tidak perlu khawatir perihal ketersediaan lowongan kerja tersebut.  .Simak lebih lanjut tentang lowongan <?=strtolower($post['title'])?>.
                     </p>
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -73,6 +73,16 @@
                     </script>
                     <h2 class="h5" id="deskripsi">Deskripsi Lowongan <?=$post['title']?></h2>
                     <?=$post['loker_description'];?>
+                    <div class="ml-5  small">
+                        <i>
+                            <b>Lihat Juga:</b>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><a href="<?=base_url('kategori/').$post['category_url'];?>">Lowongan <?=$post['category_name'];?></a></li>
+                                <li class="list-group-item"><a href="<?=base_url('lokasi/').$post['kabupaten_url'];?>">Info Loker <?=ucwords(strtolower($post['kabupaten']))?></a></li>
+                                <li class="list-group-item"><a href="<?=base_url('lokasi/').$post['provinsi_url'];?>">Info Loker <?=ucwords($post['provinsi'])?></a></li>
+                            </ul>
+                        </i>
+                    </div>
                     <?php if($post['perusahaan_description'] != null):?>
                     <h2 class="h5" id="profile_perusahaan">Profile <?=$post['perusahaan_name'];?></h2>
                     <?=$post['perusahaan_description'];?>

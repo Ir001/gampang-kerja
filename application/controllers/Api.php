@@ -35,13 +35,16 @@ class Api extends RestController {
         $data['posted_at'] = $this->post('posted_at');
         $data['isPublished'] = 1;
         $cek = $this->check_postingan($data['perusahaan_id'], $data['permalink']);
-        if($cek){
+        if($cek == true && $data['description'] != null){
             $lokasi = $perusahaan['alamat_perusahaan'] != null ? $this->filter_kota($perusahaan['alamat_perusahaan']) : $data['alamat'];
             $data['kab_id'] = $lokasi['kab_id'];
             $data['prov_id'] = $lokasi['prov_id'];
             $insert = $this->crud->insert('loker', $data);
             $response['status'] = true;
             $response['message'] = 'Lowongan berhasil diposting!';
+        }elseif($data['description'] == null){
+            $response['status'] = false;
+            $response['message'] = 'Lowongan tidak diposting! (Deskripsi kosong)';
         }else{
             $response['status'] = false;
             $response['message'] = 'Lowongan sudah pernah diposting!';
@@ -102,10 +105,12 @@ class Api extends RestController {
         $str = str_replace('(','', $str);
         $str = str_replace(')','', $str);        
         $str = str_replace('.','', $str);
+        $str = str_replace('~','', $str);
         $str = str_replace(',','', $str);
         $str = str_replace('_','', $str);
         $str = str_replace('?','', $str);
         $str = str_replace(';','', $str);
+        $str = str_replace(':','', $str);
         $str = str_replace('`','', $str);
         $str = str_replace('*','', $str);
         $str = str_replace('&','', $str);
@@ -113,6 +118,7 @@ class Api extends RestController {
         $str = str_replace('#','', $str);
         $str = str_replace('@','', $str);
         $str = str_replace('!','', $str);
+        $str = str_replace('-----','-', $str);
         $str = str_replace('----','-', $str);
         $str = str_replace('---','-', $str);
         $str = str_replace('--','-', $str);
