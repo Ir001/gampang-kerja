@@ -10,6 +10,7 @@ class Home extends CI_Controller {
         $this->load->library('pagination');
 
 	}
+	/* Landing Page */
 	public function index(){
 		$data['canonical'] = base_url();
         $data['result'] = $this->mpencarian->get(5,4); 
@@ -17,6 +18,7 @@ class Home extends CI_Controller {
         $data['category'] = $this->mloker->popular_category();
 		$this->theme->display_user('user/landing', 'Info Lowongan Kerja Terbaru di Indonesia', $data);
 	}
+	/* Detail Lowongan */
 	public function post($perusahaan=null, $permalink=null){
 		$this->load->library('Tanggal');
 		$perusahaan = trim(strip_tags($perusahaan));
@@ -45,6 +47,7 @@ class Home extends CI_Controller {
 			$this->theme->display_user('user/404', 'Halaman tidak ditemukan', $data);
 		}
 	}
+	/* Daftar Kategori */
 	public function category($category=null, $rowno=0){
 		if($category == null):
 			$data['canonical'] = base_url('kategori');
@@ -114,6 +117,8 @@ class Home extends CI_Controller {
 		endif;
 		
 	}
+	/* Daftar Perusahaan */
+
 	public function perusahaan($perusahaan=null, $rowno=0){
 		$permalink = strtolower(strip_tags($perusahaan));
 		$perusahaan = str_replace('-', ' ', $perusahaan);
@@ -174,6 +179,7 @@ class Home extends CI_Controller {
 			$this->theme->display_user('user/perusahaan', 'Lowongan Kerja di '.strtoupper($perusahaan), $data);
 		endif;
 	}
+	/* Daftar Lokasi */
 	public function lokasi($lokasi=null, $rowno=0){
 		$permalink = strtolower(strip_tags($lokasi));
 		$lokasi = str_replace('-', ' ', $lokasi);
@@ -231,6 +237,7 @@ class Home extends CI_Controller {
 			$this->theme->display_user('user/lokasi', 'Lowongan Kerja di '.ucwords($lokasi), $data);
 		endif;
 	}
+	/* Detail Page */
 	public function page($permalink){
 		$permalink = htmlspecialchars(strip_tags($permalink));
 		$check = $this->mloker->get_page_num($permalink);
@@ -245,6 +252,7 @@ class Home extends CI_Controller {
 			redirect(base_url());
 		}
 	}
+	/* Clearing Search Query */
 	public function clear(){
 		$confirm = $this->input->post('confirm', true);
 		if($confirm == 1){
@@ -253,5 +261,11 @@ class Home extends CI_Controller {
 		}
 		header('Content-type:application/json');
 		echo json_encode(['status' => true, 'message' => 'Riwayat berhasil dihapus!'], JSON_PRETTY_PRINT);
+	}
+	/* SearchBox Google */
+	public function search(){
+		$q = $this->input->get('q', true);
+		$_SESSION['q'] = $q;
+		redirect(base_url('job'));
 	}
 }

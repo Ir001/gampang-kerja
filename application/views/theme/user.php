@@ -137,9 +137,22 @@
                     "addressCountry": "ID"
                     }
                 },
-                "occupationalCategory": "TELECOMMUTE",
+                "occupationalCategory": "<?=$post['category_name'];?>",
                 "industry": "<?=$post['industri_name'];?>",
                 "jobBenefits": "<?=$post['tunjangan']?>"
+            }
+        </script>
+        <?php elseif($this->uri->segment(1) == null): ?>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "<?=$this->config->item('site_name');?>",
+                "url": "<?=base_url();?>",
+                "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "<?=base_url('search');?>?q={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
             }
         </script>
         <?php endif; ?>
@@ -260,10 +273,10 @@
                     <div class="col-md-6">
                         <h3 class="footer-heading mb-4 text-white">Top Kategori</h3>
                         <ul class="list-unstyled">
+                            <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
                             <li><a href="<?=base_url('kategori/staff-administrasi-umum');?>">Staff / Admin / Umum</a></li>
                             <li><a href="<?=base_url('kategori/tele-sales-telemarketing');?>">Tele / Sales / Marketing</a></li>
                             <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
-                            <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
                             <li><a href="<?=base_url('kategori/perbankan-keuangan');?>">Perbankan / Keuangan</a></li>
                             <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
                         </ul>
@@ -274,7 +287,7 @@
                     <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
                     <div class="col-md-12">
                         <p>
-                        <!-- <a href="https://www.facebook.com/lokerhubcom" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a> -->
+                        <a href="https://www.facebook.com/lokerhub.official" rel="nofollow" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
                         <!-- <a href="https://www.twitter.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-twitter"></span></a> -->
                         <a href="https://www.instagram.com/lokerhubcom" rel="nofollow" class="p-2"><span class="icon-instagram"></span></a>
                         <a href="//www.dmca.com/Protection/Status.aspx?ID=4b8fd623-5e74-4ed9-8e57-e32d078b307f" rel="nofollow" target="_blank" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-08.png?ID=4b8fd623-5e74-4ed9-8e57-e32d078b307f"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>    
@@ -310,11 +323,11 @@
     </script>
     <!-- Progresive Web App -->
     <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-        });
-    }
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+            });
+        }
     </script>
     </body>
 </html> 

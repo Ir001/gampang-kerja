@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
+$route['search'] = 'home/search'; /* SearchBox */
 $route['lowongan/(:any)/(:any)'] = 'home/post/$1/$2';
 $route['page/(:any)'] = 'home/page/$1';
 $route['kategori'] = 'home/category';

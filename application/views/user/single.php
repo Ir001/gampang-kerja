@@ -20,7 +20,7 @@
                             <!-- GTranslate: https://gtranslate.io/ -->
                             <a href="#" onclick="doGTranslate('en|en');return false;" title="Bahasa Inggris" class="gflag nturl " style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a>
 
-                            <select onchange="doGTranslate(this);" class="form-control mb-sm-4 mx-sm-auto"><option value="id|en">Terjemahkan</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
+                            <select onchange="doGTranslate(this);" class="form-control form-control-sm mb-sm-4 mx-sm-auto"><option value="id|en">Terjemahkan</option><option value="en|id">Indonesian</option></select><div id="google_translate_element2"></div>
                         </div>
                     </div>                        
                     </div>
@@ -232,7 +232,17 @@
                         </div>
                       <?php endforeach;?>
                         <div class="border rounded p-4 bg-white">
-                            
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Ads Terkait -->
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-client="ca-pub-1016503767419159"
+                                data-ad-slot="7624500735"
+                                data-ad-format="auto"
+                                data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </div>
 
