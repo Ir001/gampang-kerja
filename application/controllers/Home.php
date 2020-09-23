@@ -16,7 +16,7 @@ class Home extends CI_Controller {
         $data['result'] = $this->mpencarian->get(5,4); 
         $data['terbaru'] = $this->mpencarian->get(8,4);
         $data['category'] = $this->mloker->popular_category();
-		$this->theme->display_user('user/landing', 'Info Lowongan Kerja Terbaru di Indonesia', $data);
+		$this->theme->display_user('user/landing', 'Info Lowongan Kerja Terbaru di Jakarta dan Sekitarnya', $data);
 	}
 	/* Detail Lowongan */
 	public function post($perusahaan=null, $permalink=null){

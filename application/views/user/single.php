@@ -185,7 +185,7 @@
                             <input type="hidden" name="s" value="40">
                             <input type="hidden" name="AdvertisementSource" value="1">
                             <input type="hidden" name="fr">
-                            <button id="btn-lamar" type="submit" class="btn btn-success py-2 px-4">Lamar Kerjaan</button>
+                            <button id="btn-lamar" type="submit" class="btn btn-primary py-2 px-4">Lamar Kerjaan</button>
                         </form>
                         <?php endif;?>
                     </p>
@@ -213,13 +213,13 @@
                 <div class="col-md-12 block-16">
                     <div class="d-flex mb-0">
                     <h2 class="mb-5 h3 mb-0">Lowongan Kerja Sejenis</h2>
-                    <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-success">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-success">Next</a></div>
+                    <div class="ml-auto mt-1"><a href="#" rel="nofollow" class="owl-custom-prev text-primary">Prev</a> / <a href="#" rel="nofollow" class="owl-custom-next text-primary">Next</a></div>
                     </div>
 
                     <div class="nonloop-block-16 owl-carousel">
                     <?php foreach($sejenis as $new):?>
                         <div class="border rounded px-4 pt-3 bg-white">
-                            <h3 class="h5"><a href="<?=base_url('lowongan/').$new['url'].'/'.$new['permalink'];?>" class="text-success">Lowongan <?=$new['title'];?></a></h3>
+                            <h3 class="h5"><a href="<?=base_url('lowongan/').$new['url'].'/'.$new['permalink'];?>" class="text-primary">Lowongan <?=$new['title'];?></a></h3>
                             <span class="d-block"><span class="icon-suitcase mr-1"></span> <a href="<?=base_url('kategori/').$new['category_url'];?>" class="text-secondary"><?=$new['category_name'];?></a></span>
                             <span class="d-block"><span class="icon-building"></span> <a href="<?=base_url('perusahaan/').$new['url']?>" class="text-secondary"><?=$new['perusahaan_name'];?></a></span>
                             <span class="d-block"><span class="icon-room"></span> <a href="<?=base_url('lokasi/').$new['kabupaten_url'];?>" class="text-secondary"><?=ucwords(strtolower($new['kabupaten']));?></a>, <a href="<?=base_url('lokasi/').$new['provinsi_url'];?>" class="text-secondary"><?=ucwords($new['provinsi']);?></a></span>
@@ -227,7 +227,7 @@
                             </p>
                             <p class="mb-0"><?=substr(strip_tags($new['loker_description']), 0, 80);?>...</p>
                             <p>
-                                <a href="<?=base_url('lowongan/').$new['url'].'/'.$new['permalink'];?>" class="text-success">Baca Selengkapnya</a>
+                                <a href="<?=base_url('lowongan/').$new['url'].'/'.$new['permalink'];?>" class="text-primary">Baca Selengkapnya</a>
                             </p>
                         </div>
                       <?php endforeach;?>
@@ -322,12 +322,12 @@
                     </div>
                     </div>
                     <div class="col-md-3">
-                    <input type="submit" class="btn btn-search btn-success btn-block" value="Cari">
+                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                    <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category text-success">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category text-success">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category text-success">Lihat Semua Kategori</a></p>
+                    <p class="small">atau cari loker berdasarkan kategori: <a href="<?=base_url('kategori/it-perangkat-lunak')?>" class="category text-primary">IT Perangkat Lunak</a>, <a href="<?=base_url('kategori/staff-administrasi-umum')?>" class="category text-primary">Staff / Administrasi / Umum</a>, <a href="<?=base_url('kategori')?>" class="category text-primary">Lihat Semua Kategori</a></p>
                     </div>
                 </div>
                 

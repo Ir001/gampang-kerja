@@ -10,7 +10,7 @@
                 
             </p>
             <p class="small">Sepertinya halaman yang Anda cari telah dihapus atau tidak ditemukan.</p>
-            <a href="<?=base_url()?>" class="mx-auto btn btn-success btn-sm">Go to Home</a>
+            <a href="<?=base_url()?>" class="mx-auto btn btn-primary btn-sm">Go to Home</a>
         </div>
     </div>
 </div>
@@ -35,7 +35,7 @@
                 </div>
                 </div>
                 <div class="col-md-3">
-                    <input type="submit" class="btn btn-search btn-success btn-block" value="Cari">
+                    <input type="submit" class="btn btn-search btn-primary btn-block" value="Cari">
                 </div>
             </div>            
             </form>
@@ -50,7 +50,7 @@
             type : 'POST',
             data : {confirm : 1},
             dataType : 'json',
-            success : function(data){
+            primary : function(data){
                 if (data.status) {
                     setTimeout(() => {
                         window.location.replace('<?=base_url('job');?>');

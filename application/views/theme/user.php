@@ -24,7 +24,7 @@
         <meta name="msapplication-TileImage" content="<?=base_url('assets/')?>ms-icon-144x144.png">
         <meta name="theme-color" content="#28a745">
         <meta content='indonesia' name='geo.placename'/>
-        <meta content='LokerHub' name='Author'/>
+        <meta content='<?=$this->config->item('site_name')?>' name='Author'/>
         <meta content='general' name='rating'/>
         <meta content='id' name='geo.country'/>
         <meta content='<?=$this->config->item('google_site_console');?>' name='google-site-verification'/>
@@ -174,7 +174,7 @@
                 <div class="py-1">
                     <div class="row align-items-center">
                     <div class="col-2">
-                        <span class="mb-0 site-logo"><a href="<?=base_url();?>" rel="home">Loker<strong class="font-weight-bold">Hub</strong> </a></span>
+                        <span class="mb-0 site-logo"><a href="<?=base_url();?>" rel="home">Loker<strong class="font-weight-bold">Jakarta</strong> </a></span>
                     </div>
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
@@ -185,59 +185,25 @@
                             <li class="has-children">
                                 <a href="<?=base_url('job');?>">Lowongan Kerja</a>
                                 <ul class="dropdown arrow-top">
-                                <li class="has-children">
-                                    <a href="#" rel="nofollow">Top Kategori</a>
-                                    <ul class="dropdown">
                                     <li><a href="<?=base_url('kategori/staff-administrasi-umum');?>">Staff / Admin / Umum</a></li>
                                     <li><a href="<?=base_url('kategori/tele-sales-telemarketing');?>">Tele / Sales / Marketing</a></li>
                                     <li><a href="<?=base_url('kategori/manufaktur');?>">Manufaktur</a></li>
                                     <li><a href="<?=base_url('kategori/it-perangkat-lunak');?>">IT Perangkat Lunak</a></li>
                                     <li><a href="<?=base_url('kategori/perbankan-keuangan');?>">Perbankan / Keuangan</a></li>
                                     <li><a href="<?=base_url('kategori/seni-desain-kreatif');?>">Seni Desain Kreatif</a></li>
-                                    </ul>
-                                </li>
-                                <!-- <li class="has-children">
-                                    <a href="#">Top Perusahaan</a>
-                                    <ul class="dropdown">
-                                    <li><a href="#">Teknik Informasi</a></li>
-                                    <li><a href="#">Sales Marketing</a></li>
-                                    </ul>
-                                </li> -->
-                                <li class="has-children">
-                                    <a href="#" rel="nofollow">Lokasi Terpopuler</a>
-                                    <ul class="dropdown">
-                                    <li><a href="<?=base_url('lokasi/karawang');?>">Karawang</a></li>
-                                    <li><a href="<?=base_url('lokasi/kota-medan');?>">Kota Medan</a></li>
-                                    <li><a href="<?=base_url('lokasi/kota-yogyakarta');?>">Kota Yogyakarta</a></li>
-                                    <li><a href="<?=base_url('lokasi/semarang');?>">Semarang</a></li>
-                                    <li><a href="<?=base_url('lokasi/lampung');?>">Lampung</a></li>
-                                    <li><a href="<?=base_url('lokasi/sidoarjo');?>">Sidoarjo</a></li>
-                                    <li><a href="<?=base_url('lokasi/solo');?>">Solo</a></li>
-                                    <li><a href="<?=base_url('lokasi/bali');?>">Bali</a></li>
-                                    <li><a href="<?=base_url('lokasi/kota-surabaya');?>">Surabaya</a></li>
-                                    </ul>
-                                </li>
-
                                 </ul>
                             </li>
                             <li class="has-children">
                                 <a href="#" rel="nofollow">Lokasi Kerja</a>
                                 <ul class="dropdown arrow-top">
-                                <li class="has-children">
-                                    <a href="#">Jabodetabek</a>
-                                    <ul class="dropdown">
                                     <li><a href="<?=base_url('lokasi/dki-jakarta');?>">Jakarta</a></li>
                                     <li><a href="<?=base_url('lokasi/bogor');?>">Bogor</a></li>
                                     <li><a href="<?=base_url('lokasi/depok');?>">Depok</a></li>
                                     <li><a href="<?=base_url('lokasi/tangerang');?>">Tangerang</a></li>
                                     <li><a href="<?=base_url('lokasi/bekasi');?>">Bekasi</a></li>
-                                    </ul>
-                                </li>
-                                
-
                                 </ul>
                             </li>
-                            <li><a href="<?=base_url('job');?>"><span class="bg-success text-white py-3 px-4 rounded">Cari</a></li>
+                            <li><a href="<?=base_url('job');?>"><span class="bg-primary text-white py-3 px-4 rounded">Cari</a></li>
                             </ul>
                         </div>
                         </nav>
@@ -298,7 +264,7 @@
                 <div class="row text-center">
                     <div class="col-md-12">
                         <p>
-                            Copyright &copy; <?=date('Y');?> <a href="<?=base_url()?>">LokerHub</a>  All Right Reserved 
+                            Copyright &copy; <?=date('Y');?> <a href="<?=base_url()?>"><?=$this->config->item('site_name')?></a>  All Right Reserved 
                         </p>
                     </div>                
                 </div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
-$config['site_name'] = 'LokerHub';
+$config['site_name'] = 'Loker Jakarta';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -25,14 +25,14 @@ $config['site_name'] = 'LokerHub';
 |
 */
 $mt = 0; /* 1 = true 0 = false */
-$config['base_url'] = $mt == 1 ? 'http://gampang-kerja.ant:8080/' : 'https://www.lokerhub.com/'; /* Production */
-$config['adsense'] = '<script data-ad-client="ca-pub-1016503767419159" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
+$config['base_url'] = $mt == 1 ? 'http://gampang-kerja.ant:8080/' : 'https://www.lokerjakarta.my.id/'; /* Production */
+$config['adsense'] = '';
 $config['tag_manager'] = '';
-$config['keyword'] = 'lokerhub, loker hub, lokerhub.com, info loker terbaru, lowongan kerja indonesia, ,loker jakarta, lowongan kerja surabaya, lowongan kerja bandung, loker bekasi, loker smk, lowongan kerja sma, loker s1, loker d3, lowongan manufaktur, lowongan staff admin, lowongan kerja indonesia, lamar kerja, info lowongan kerja, info loker bandung, info loker cikarang, info loker karawang, info loker pendidikan sma, karirhub, kemenaker';
-$config['description'] = 'LokerHub adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di Indonesia.';
-$config['google_search_console'] = 'HL5etQK7pdkHsLPcNROk-rlZ5NdHacBg0S7Mz45aHKA';
-$config['dmca'] = 'U2JDb2hwUTRWbFdTK3JPajdqdUZjK0pPNC9SQzhCNHZDb1djY3VEaktCWT01';
-$config['yandex'] = '6cc227ffddc6886d';
+$config['keyword'] = 'lowongan kerja jakarta, info loker jakarta, lowongan kerja terbaru, info loker manufaktur, info loker programmer, lowogan kerja';
+$config['description'] = 'Loker Jakarta adalah Portal Informasi Lowongan Kerja dari berbagai sektor industri yang ada di wilayah Jakarta dan sekitarnya.';
+$config['google_search_console'] = 'AX6PF37RVvgABL24drrFKAlwGgLIjlP9LPJzuO81ADY';
+$config['dmca'] = '';
+$config['yandex'] = '';
 
 /*
 |--------------------------------------------------------------------------

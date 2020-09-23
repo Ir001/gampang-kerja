@@ -1,4 +1,4 @@
-Sitemap: https://www.lokerhub.com/sitemap.xml
+Sitemap: https://www.lokerjakarta.my.id/sitemap.xml
 
 User-agent: Googlebot
 Disallow: /assets
